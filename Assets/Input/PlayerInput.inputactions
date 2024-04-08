@@ -1,8 +1,8 @@
 {
-    "name": "PlayerActions",
+    "name": "PlayerInput",
     "maps": [
         {
-            "name": "Movement",
+            "name": "Player",
             "id": "47df927a-5d55-4867-a8ba-d53114fadd14",
             "actions": [
                 {
@@ -52,7 +52,7 @@
                 {
                     "name": "left",
                     "id": "c5c6c457-0e1a-4f7c-b0c0-9db8203353b3",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -63,7 +63,7 @@
                 {
                     "name": "right",
                     "id": "f4761c2d-fd69-4d35-832a-1ec8375bce68",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
