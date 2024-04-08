@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class FirstPersonLook : MonoBehaviour
 {
-    [SerializeField] private float rotationSpeed;
-    private Quaternion rotation;
+    [SerializeField] private float mouseSensitivity;
+
+    private void Start()
+    {
+        SetMouseLockState(true);
+    }
     private void Update()
     {
-        
+
     }
 
     public void RotateTowards(Vector2 dir)
     {
-        transform.Rotate(Vector3.up, dir.x * rotationSpeed * Time.deltaTime);
-        Camera.main.transform.Rotate(Vector3.right, -dir.y * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, dir.x * mouseSensitivity);
+        Camera.main.transform.Rotate(Vector3.right, -dir.y * mouseSensitivity);
+    }
+    public void SetMouseLockState(bool shouldBeLocked)
+    {
+        if (shouldBeLocked)
+            Cursor.lockState = CursorLockMode.Locked;
+        else
+            Cursor.lockState = CursorLockMode.None;
     }
 }
