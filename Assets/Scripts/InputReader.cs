@@ -20,7 +20,7 @@ public class InputReader : MonoBehaviour
 
         input.Player.Movement.performed += OnMovementPerformed;
         input.Player.Movement.canceled += OnMovementCanceled;
-        //input.Player.Look.performed += OnLookPerformed;
+        input.Player.Look.performed += OnLookPerformed;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
