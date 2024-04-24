@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed32acdaa8cb1b44d9fde304bbbf83ad, type: 3}
   m_Name: Glock
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 4335228271852131389, guid: 8179bd4920804094183b70f2fd57f956, type: 3}

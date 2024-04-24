@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 491952385}
   - component: {fileID: 491952384}
   - component: {fileID: 491952383}
+  - component: {fileID: 491952386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -300,6 +301,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 963194228}
+  - {fileID: 1065172342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -39.38, z: 0}
 --- !u!114 &491952383
@@ -340,6 +342,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47599afb6a6bdf248b532d310cf14258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &491952386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491952378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f5abf83bd74a441a502cd14a419c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdingPoint: {fileID: 1065172342}
+  currentWeaponSO: {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
 --- !u!1 &631277039
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +716,38 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: -0, y: 0.805, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 491952382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1065172341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065172342}
+  m_Layer: 0
+  m_Name: WeaponHandlingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1065172342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065172341}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.804, y: 0.235, z: 0.242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

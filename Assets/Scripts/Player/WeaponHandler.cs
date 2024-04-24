@@ -5,10 +5,15 @@ using UnityEngine;
 public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] private Transform holdingPoint;
-    private WeaponSO currentWeaponSO = null;
+    [SerializeField] private WeaponSO currentWeaponSO = null;
     private GameObject currentWeapon = null;
     private bool isInCombatMode = true;
 
+    private void Start()
+    {
+        if (currentWeaponSO != null)
+            currentWeapon = Instantiate(currentWeaponSO.weaponPrefab, holdingPoint);
+    }
     public void OnWeaponGrab(WeaponSO newWeapon)
     {
         if (currentWeapon != null)
