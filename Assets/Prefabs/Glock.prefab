@@ -153,6 +153,7 @@ MonoBehaviour:
   isHitScan: 1
   layer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
+  maxHitDistance: 100
   bulletPrefab: {fileID: 0}
   shootingPoint: {fileID: 0}

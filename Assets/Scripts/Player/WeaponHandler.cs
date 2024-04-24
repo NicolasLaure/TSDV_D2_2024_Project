@@ -26,6 +26,6 @@ public class WeaponHandler : MonoBehaviour
     public void ShootWeapon()
     {
         if (isInCombatMode && currentWeapon != null)
-            currentWeapon.GetComponent<ShootingSystem>();
+            currentWeapon.GetComponent<ShootingSystem>().Shoot();
     }
 }

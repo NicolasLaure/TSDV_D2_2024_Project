@@ -9,6 +9,7 @@ public class ShootingSystem : MonoBehaviour
     [Header("HitScan Attributes")]
     //[SerializeField] private float distance;
     [SerializeField] private LayerMask layer;
+    [SerializeField] private float maxHitDistance;
     private RaycastHit hit;
     private List<Vector3> hitPositions = new List<Vector3>();
 
@@ -34,9 +35,11 @@ public class ShootingSystem : MonoBehaviour
 
     private void HitScanShot()
     {
-        Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, layer);
-
-        hitPositions.Add(hit.point);
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxHitDistance, layer))
+        {
+            Debug.Log($"HITSCAN SHOT Hit pos = {hit.point}");
+            hitPositions.Add(hit.point);
+        }
     }
     private void PhysicalShot()
     {
