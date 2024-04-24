@@ -12,7 +12,7 @@ public class ShootingSystem : MonoBehaviour
     private RaycastHit hit;
     private List<Vector3> hitPositions = new List<Vector3>();
 
-    [Header("Physic Attributes")]
+    [Header("Physical Attributes")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootingPoint;
 
