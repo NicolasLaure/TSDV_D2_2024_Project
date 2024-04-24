@@ -10,11 +10,13 @@ public class InputReader : MonoBehaviour
     private PlayerInput input;
     private CharacterMovement playerMovement;
     private FirstPersonLook playerLook;
+    private WeaponHandler weaponHandler;
 
     void Start()
     {
         playerMovement = GetComponent<CharacterMovement>();
         playerLook = GetComponent<FirstPersonLook>();
+        weaponHandler = GetComponent<WeaponHandler>();
         input = new PlayerInput();
         input.Enable();
 
@@ -38,5 +40,6 @@ public class InputReader : MonoBehaviour
     }
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
+        weaponHandler.ShootWeapon();
     }
 }
