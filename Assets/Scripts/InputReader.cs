@@ -21,6 +21,7 @@ public class InputReader : MonoBehaviour
         input.Player.Movement.performed += OnMovementPerformed;
         input.Player.Movement.canceled += OnMovementCanceled;
         input.Player.Look.performed += OnLookPerformed;
+        input.Player.Shoot.performed += OnShootPerformed;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
@@ -34,5 +35,8 @@ public class InputReader : MonoBehaviour
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
         playerLook.RotateTowards(context.ReadValue<Vector2>());
+    }
+    private void OnShootPerformed(InputAction.CallbackContext context)
+    {
     }
 }
