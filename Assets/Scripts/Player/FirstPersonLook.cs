@@ -10,10 +10,6 @@ public class FirstPersonLook : MonoBehaviour
     {
         SetMouseLockState(true);
     }
-    private void Update()
-    {
-
-    }
 
     public void RotateTowards(Vector2 dir)
     {

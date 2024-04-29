@@ -5,8 +5,13 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Vector3 movementDir;
+    private CharacterController characterController;
+    private Vector3 localMovementDir;
 
+    private void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
     void Update()
     {
         Move();
@@ -14,15 +19,14 @@ public class CharacterMovement : MonoBehaviour
 
     private void Move()
     {
-        if (movementDir == Vector3.zero)
+        if (localMovementDir == Vector3.zero)
             return;
 
-        transform.Translate(movementDir * speed * Time.deltaTime);
+        Vector3 movementDir = transform.right * localMovementDir.x + transform.forward * localMovementDir.z;
+        characterController.Move(movementDir * speed * Time.deltaTime);
     }
     public void SetDir(Vector2 dir)
     {
-        //movementDir = transform.TransformDirection(new Vector3(dir.x, 0, dir.y));
-        movementDir = new Vector3(dir.x, 0, dir.y);
-        movementDir.Scale(transform.forward);
+        localMovementDir = new Vector3(dir.x, 0, dir.y);
     }
 }
