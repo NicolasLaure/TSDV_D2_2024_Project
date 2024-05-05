@@ -20,12 +20,17 @@ public class WeaponHandler : MonoBehaviour
             Destroy(currentWeapon);
 
         currentWeapon = Instantiate(currentWeaponSO.weaponPrefab, holdingPoint);
-
     }
 
     public void ShootWeapon()
     {
         if (isInCombatMode && currentWeapon != null)
-            currentWeapon.GetComponent<ShootingSystem>().Shoot();
+            currentWeapon.GetComponent<Weapon>().Shoot();
+    }
+
+    public void CancelShoot()
+    {
+        if (isInCombatMode && currentWeapon != null)
+            currentWeapon.GetComponent<Weapon>().StopShooting();
     }
 }

@@ -24,6 +24,7 @@ public class InputReader : MonoBehaviour
         input.Player.Movement.canceled += OnMovementCanceled;
         input.Player.Look.performed += OnLookPerformed;
         input.Player.Shoot.performed += OnShootPerformed;
+        input.Player.Shoot.canceled += OnShootCanceled;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
@@ -41,5 +42,9 @@ public class InputReader : MonoBehaviour
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         weaponHandler.ShootWeapon();
+    }
+    private void OnShootCanceled(InputAction.CallbackContext context)
+    {
+        weaponHandler.CancelShoot();
     }
 }

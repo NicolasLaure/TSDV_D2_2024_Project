@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitscanWeapon : Weapon
 {
+    [Header("HitScan Attributes")]
     //[SerializeField] private float distance;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float maxHitDistance;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhysicWeapon : Weapon
 {
+    [Header("Physical Attributes")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootingPoint;
 
