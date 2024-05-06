@@ -85,7 +85,7 @@ public abstract class Weapon : MonoBehaviour
         while (isFiring)
         {
             FireWeapon();
-            yield return null;
+            yield return new WaitForSeconds(timeBetweenRounds);
         }
     }
 
