@@ -12,6 +12,13 @@ public abstract class Weapon : MonoBehaviour
     private bool canShoot = true;
     private int currentMagazine;
 
+    [Header("Burst")]
+    [SerializeField] private int bulletsPerBurst;
+    [SerializeField] private float burstDuration;
+    [SerializeField] private bool isBurstAuto;
+
+    [Header("FullAuto")]
+    [SerializeField] private float timeBetweenRounds;
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
     private void Start()
@@ -30,7 +37,11 @@ public abstract class Weapon : MonoBehaviour
                 StartCoroutine(ShootCoolDown());
                 break;
             case FiringModes.BURST:
-                StartCoroutine(Burst());
+                if (isBurstAuto)
+                    fullAutoCoroutine = StartCoroutine(BurstAuto());
+                else
+                    StartCoroutine(Burst());
+
                 StartCoroutine(ShootCoolDown());
                 break;
             case FiringModes.FULL_AUTO:
@@ -53,11 +64,20 @@ public abstract class Weapon : MonoBehaviour
 
     private IEnumerator Burst()
     {
-        FireWeapon();
-        yield return null;
-        FireWeapon();
-        yield return null;
-        FireWeapon();
+        for (int i = 0; i < bulletsPerBurst; i++)
+        {
+            FireWeapon();
+            yield return new WaitForSeconds(burstDuration / bulletsPerBurst);
+        }
+    }
+    private IEnumerator BurstAuto()
+    {
+        isFiring = true;
+        do
+        {
+            yield return StartCoroutine(Burst());
+            yield return new WaitForSeconds(timeBetweenRounds);
+        } while (isFiring && isBurstAuto);
     }
     private IEnumerator FullAuto()
     {
