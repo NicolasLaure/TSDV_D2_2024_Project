@@ -21,13 +21,13 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private float timeBetweenRounds;
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
-    private void Start()
+    protected void Start()
     {
         currentMagazine = magazineSize;
     }
     public void Shoot()
     {
-        if (!canShoot)
+        if (!canShoot || !HasBullets())
             return;
 
         switch (firingMode)
@@ -60,13 +60,29 @@ public abstract class Weapon : MonoBehaviour
             fullAutoCoroutine = null;
         }
     }
-    protected abstract void FireWeapon();
+    protected virtual void FireWeapon()
+    {
+        currentMagazine--;
+    }
+
+    private bool HasBullets()
+    {
+        return currentMagazine > 0;
+    }
+
+    private IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(1);
+        currentMagazine = magazineSize;
+    }
 
     private IEnumerator Burst()
     {
         for (int i = 0; i < bulletsPerBurst; i++)
         {
             FireWeapon();
+            if (!HasBullets())
+                break;
             yield return new WaitForSeconds(burstDuration / bulletsPerBurst);
         }
     }
@@ -77,12 +93,12 @@ public abstract class Weapon : MonoBehaviour
         {
             yield return StartCoroutine(Burst());
             yield return new WaitForSeconds(timeBetweenRounds);
-        } while (isFiring && isBurstAuto);
+        } while (isFiring && HasBullets());
     }
     private IEnumerator FullAuto()
     {
         isFiring = true;
-        while (isFiring)
+        while (isFiring && HasBullets())
         {
             FireWeapon();
             yield return new WaitForSeconds(timeBetweenRounds);

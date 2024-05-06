@@ -22,6 +22,7 @@ public class HitscanWeapon : Weapon
 
     protected override void FireWeapon()
     {
+        base.FireWeapon();
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxHitDistance, layer))
         {
             Debug.Log($"HITSCAN SHOT Hit pos = {hit.point}");

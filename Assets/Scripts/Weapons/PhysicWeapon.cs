@@ -10,6 +10,7 @@ public class PhysicWeapon : Weapon
 
     protected override void FireWeapon()
     {
+        base.FireWeapon();
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint);
         bullet.transform.parent = null;
     }
