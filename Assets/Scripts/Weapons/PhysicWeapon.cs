@@ -8,7 +8,7 @@ public class PhysicWeapon : Weapon
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform shootingPoint;
 
-    public override void FireWeapon()
+    protected override void FireWeapon()
     {
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint);
         bullet.transform.parent = null;

@@ -40,10 +40,9 @@ public abstract class Weapon : MonoBehaviour
             fullAutoCoroutine = null;
         }
     }
+    protected abstract void FireWeapon();
 
-    public abstract void FireWeapon();
-
-    public IEnumerator Burst()
+    private IEnumerator Burst()
     {
         FireWeapon();
         yield return null;
@@ -51,7 +50,7 @@ public abstract class Weapon : MonoBehaviour
         yield return null;
         FireWeapon();
     }
-    public IEnumerator FullAuto()
+    private IEnumerator FullAuto()
     {
         isFiring = true;
         while (isFiring)
