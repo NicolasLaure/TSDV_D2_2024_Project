@@ -20,7 +20,7 @@ public class HitscanWeapon : Weapon
             Gizmos.DrawCube(position, new Vector3(0.2f, 0.2f, 0.2f));
     }
 
-    protected override void FireWeapon()
+    public override void FireWeapon()
     {
         base.FireWeapon();
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxHitDistance, layer))

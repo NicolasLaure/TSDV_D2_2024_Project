@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected FiringModes firingMode;
+    [SerializeField] protected FireMode fireMode;
+    private Coroutine fireCoroutine;
     [SerializeField] private int magazineSize;
 
     [Tooltip("Time in seconds for the weapon to be fired again")]
@@ -13,14 +13,10 @@ public abstract class Weapon : MonoBehaviour
     private bool isReloading = false;
     private int currentMagazine;
 
-    [Header("Burst")]
-    [SerializeField] private int bulletsPerBurst;
-    [SerializeField] private float burstDuration;
-    [SerializeField] private bool isBurstAuto;
-
-   
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
+
+    public float LastShotTime { get; set; }
     protected void Start()
     {
         currentMagazine = magazineSize;
@@ -30,49 +26,31 @@ public abstract class Weapon : MonoBehaviour
         if (!CanShoot())
             return;
 
-        switch (firingMode)
-        {
-            case FiringModes.SEMI_AUTO:
-                FireWeapon();
-                StartCoroutine(ShootCoolDown());
-                break;
-            case FiringModes.BURST:
-                if (isBurstAuto)
-                    fullAutoCoroutine = StartCoroutine(BurstAuto());
-                else
-                    StartCoroutine(Burst());
-
-                StartCoroutine(ShootCoolDown());
-                break;
-            case FiringModes.FULL_AUTO:
-                fullAutoCoroutine = StartCoroutine(FullAuto());
-                break;
-            default:
-                break;
-        }
+        if (fireCoroutine == null)
+            fireCoroutine = StartCoroutine(fireMode.Fire(this));
     }
     public void StopShooting()
     {
         if (fullAutoCoroutine != null)
         {
             isFiring = false;
-            StopCoroutine(fullAutoCoroutine);
-            fullAutoCoroutine = null;
+            StopCoroutine(fireCoroutine);
         }
     }
     public void Reload()
     {
         StartCoroutine(ReloadCoroutine());
     }
-    protected virtual void FireWeapon()
+    public virtual void FireWeapon()
     {
+        LastShotTime = Time.time;
         currentMagazine--;
     }
-    private bool CanShoot()
+    public bool CanShoot()
     {
-        return HasBullets() && !(isReloading) && !(onCoolDown);
+        return HasBullets() && !(isReloading) && !OnCoolDown();
     }
-    private bool HasBullets()
+    public bool HasBullets()
     {
         return currentMagazine > 0;
     }
@@ -85,36 +63,20 @@ public abstract class Weapon : MonoBehaviour
         currentMagazine = magazineSize;
     }
 
-    private IEnumerator Burst()
+    //private IEnumerator BurstAuto()
+    //{
+    //    isFiring = true;
+    //    do
+    //    {
+    //        yield return StartCoroutine(Burst());
+    //        yield return StartCoroutine(ShootCoolDown());
+    //    } while (isFiring && CanShoot());
+    //}
+    private bool OnCoolDown()
     {
-        for (int i = 0; i < bulletsPerBurst; i++)
-        {
-            FireWeapon();
-            if (!HasBullets())
-                break;
-            yield return new WaitForSeconds(burstDuration / bulletsPerBurst);
-        }
+        return LastShotTime + shootingCoolDown > Time.time;
     }
-    private IEnumerator BurstAuto()
-    {
-        isFiring = true;
-        do
-        {
-            yield return StartCoroutine(Burst());
-            yield return StartCoroutine(ShootCoolDown());
-        } while (isFiring && CanShoot());
-    }
-    private IEnumerator FullAuto()
-    {
-        isFiring = true;
-        while (isFiring && CanShoot())
-        {
-            FireWeapon();
-            yield return StartCoroutine(ShootCoolDown());
-        }
-    }
-
-    private IEnumerator ShootCoolDown()
+    public IEnumerator ShootCoolDown()
     {
         onCoolDown = true;
         yield return new WaitForSeconds(shootingCoolDown);
