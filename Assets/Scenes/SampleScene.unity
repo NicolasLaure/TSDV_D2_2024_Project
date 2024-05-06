@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdingPoint: {fileID: 1065172342}
-  currentWeaponSO: {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
+  currentWeaponSO: {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
 --- !u!143 &491952387
 CharacterController:
   m_ObjectHideFlags: 0

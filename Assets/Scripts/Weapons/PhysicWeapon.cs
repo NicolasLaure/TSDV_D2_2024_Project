@@ -10,6 +10,7 @@ public class PhysicWeapon : Weapon
 
     public override void FireWeapon()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, shootingPoint);
+        bullet.transform.parent = null;
     }
 }

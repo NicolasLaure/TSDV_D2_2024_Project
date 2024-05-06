@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d45e45db734420469332c8125e06c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingMode: 0
+  firingMode: 1
   magazineSize: 5
   bulletPrefab: {fileID: 5278746626831598590, guid: 925d9eae7b7107c4a8d11c11312bb325, type: 3}
   shootingPoint: {fileID: 881857444667273507}

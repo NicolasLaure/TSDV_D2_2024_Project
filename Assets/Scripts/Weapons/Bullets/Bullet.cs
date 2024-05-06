@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletForce;
+    [SerializeField] private float shootingForce;
+    [SerializeField] private float lifeTime;
     private Rigidbody rb;
 
     private void Awake()
     {
-        rb = gameObject.AddComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
     void Start()
     {
-        rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
+        rb.AddForce(transform.forward * shootingForce, ForceMode.Impulse);
+        Destroy(this.gameObject, lifeTime);
     }
 }
