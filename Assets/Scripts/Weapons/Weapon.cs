@@ -9,7 +9,8 @@ public abstract class Weapon : MonoBehaviour
 
     [Tooltip("Time in seconds for the weapon to be fired again")]
     [SerializeField] private float shootingCoolDown;
-    private bool canShoot = true;
+    private bool onCoolDown = false;
+    private bool isReloading = false;
     private int currentMagazine;
 
     [Header("Burst")]
@@ -17,8 +18,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private float burstDuration;
     [SerializeField] private bool isBurstAuto;
 
-    [Header("FullAuto")]
-    [SerializeField] private float timeBetweenRounds;
+   
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
     protected void Start()
@@ -27,7 +27,7 @@ public abstract class Weapon : MonoBehaviour
     }
     public void Shoot()
     {
-        if (!canShoot || !HasBullets())
+        if (!CanShoot())
             return;
 
         switch (firingMode)
@@ -68,7 +68,10 @@ public abstract class Weapon : MonoBehaviour
     {
         currentMagazine--;
     }
-
+    private bool CanShoot()
+    {
+        return HasBullets() && !(isReloading) && !(onCoolDown);
+    }
     private bool HasBullets()
     {
         return currentMagazine > 0;
@@ -76,7 +79,9 @@ public abstract class Weapon : MonoBehaviour
 
     private IEnumerator ReloadCoroutine()
     {
+        isReloading = true;
         yield return new WaitForSeconds(1);
+        isReloading = false;
         currentMagazine = magazineSize;
     }
 
@@ -96,23 +101,23 @@ public abstract class Weapon : MonoBehaviour
         do
         {
             yield return StartCoroutine(Burst());
-            yield return new WaitForSeconds(timeBetweenRounds);
-        } while (isFiring && HasBullets());
+            yield return StartCoroutine(ShootCoolDown());
+        } while (isFiring && CanShoot());
     }
     private IEnumerator FullAuto()
     {
         isFiring = true;
-        while (isFiring && HasBullets())
+        while (isFiring && CanShoot())
         {
             FireWeapon();
-            yield return new WaitForSeconds(timeBetweenRounds);
+            yield return StartCoroutine(ShootCoolDown());
         }
     }
 
     private IEnumerator ShootCoolDown()
     {
-        canShoot = false;
+        onCoolDown = true;
         yield return new WaitForSeconds(shootingCoolDown);
-        canShoot = true;
+        onCoolDown = false;
     }
 }
