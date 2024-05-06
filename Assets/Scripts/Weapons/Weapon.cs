@@ -60,6 +60,10 @@ public abstract class Weapon : MonoBehaviour
             fullAutoCoroutine = null;
         }
     }
+    public void Reload()
+    {
+        StartCoroutine(ReloadCoroutine());
+    }
     protected virtual void FireWeapon()
     {
         currentMagazine--;
@@ -70,7 +74,7 @@ public abstract class Weapon : MonoBehaviour
         return currentMagazine > 0;
     }
 
-    private IEnumerator Reload()
+    private IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(1);
         currentMagazine = magazineSize;

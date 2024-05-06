@@ -25,6 +25,7 @@ public class InputReader : MonoBehaviour
         input.Player.Look.performed += OnLookPerformed;
         input.Player.Shoot.performed += OnShootPerformed;
         input.Player.Shoot.canceled += OnShootCanceled;
+        input.Player.Reload.started += OnReloadStarted;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
@@ -46,5 +47,9 @@ public class InputReader : MonoBehaviour
     private void OnShootCanceled(InputAction.CallbackContext context)
     {
         weaponHandler.CancelShoot();
+    }
+    private void OnReloadStarted(InputAction.CallbackContext context)
+    {
+        weaponHandler.ReloadWeapon();
     }
 }

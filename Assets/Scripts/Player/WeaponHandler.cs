@@ -33,4 +33,10 @@ public class WeaponHandler : MonoBehaviour
         if (isInCombatMode && currentWeapon != null)
             currentWeapon.GetComponent<Weapon>().StopShooting();
     }
+
+    public void ReloadWeapon()
+    {
+        if (isInCombatMode && currentWeapon != null)
+            currentWeapon.GetComponent<Weapon>().Reload();
+    }
 }
