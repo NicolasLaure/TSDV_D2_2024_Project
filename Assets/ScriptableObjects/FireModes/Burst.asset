@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620b41b779748044992bb7eacd4959d8, type: 3}
   m_Name: Burst
   m_EditorClassIdentifier: 
-  coolDown: 0
-  bulletsPerBurst: 0
-  burstDuration: 0
-  isBurstAuto: 0
+  bulletsPerBurst: 3
+  burstDuration: 0.25
+  isBurstAuto: 1
