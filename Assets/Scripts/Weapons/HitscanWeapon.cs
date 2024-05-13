@@ -27,6 +27,11 @@ public class HitscanWeapon : Weapon
         {
             Debug.Log($"HITSCAN SHOT Hit pos = {hit.point}");
             hitPositions.Add(hit.point);
+            Target hittedTarget = null;
+            if (hit.collider.TryGetComponent<Target>(out hittedTarget))
+            {
+                hittedTarget.shotReceived.Invoke();
+            }
         }
     }
 }

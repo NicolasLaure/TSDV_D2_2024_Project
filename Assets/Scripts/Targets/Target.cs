@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Target : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float recoverDuration;
+    private Collider targetCollider;
+    public Action shotReceived;
+    private void Awake()
     {
-        
+        targetCollider = GetComponent<Collider>();
+        shotReceived += OnShotReceived;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        shotReceived.Invoke();
+    }
+    private void OnShotReceived()
+    {
+        StartCoroutine(GotShotCoroutine());
+    }
+    private IEnumerator GotShotCoroutine()
+    {
+        targetCollider.enabled = false;
+        yield return new WaitForSeconds(recoverDuration);
+        targetCollider.enabled = true;
     }
 }
