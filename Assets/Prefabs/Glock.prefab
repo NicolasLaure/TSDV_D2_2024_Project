@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f3e8fcdbc04cd448b41077a878781b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingMode: 2
+  fireMode: {fileID: 11400000, guid: 74fb3c83a2d189f4ab5ecf41999c125b, type: 2}
   magazineSize: 18
+  shootingCoolDown: 0.3
   layer:
     serializedVersion: 2
     m_Bits: 1
