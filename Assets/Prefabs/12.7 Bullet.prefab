@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa681a172ec40df4eab14f8e2a9c9c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingForce: 75
+  shootingForce: 125
   lifeTime: 2
 --- !u!54 &2580873696147595353
 Rigidbody:
@@ -75,7 +75,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &243975235670427587
 BoxCollider:
   m_ObjectHideFlags: 0
