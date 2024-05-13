@@ -6,11 +6,11 @@ using System;
 public class Target : MonoBehaviour
 {
     [SerializeField] float recoverDuration;
-    private Collider targetCollider;
+    private MeshRenderer mesh;
     public Action shotReceived;
     private void Awake()
     {
-        targetCollider = GetComponent<Collider>();
+        mesh = GetComponent<MeshRenderer>();
         shotReceived += OnShotReceived;
     }
     private void OnCollisionEnter(Collision collision)
@@ -23,8 +23,8 @@ public class Target : MonoBehaviour
     }
     private IEnumerator GotShotCoroutine()
     {
-        targetCollider.enabled = false;
+        mesh.enabled = false;
         yield return new WaitForSeconds(recoverDuration);
-        targetCollider.enabled = true;
+        mesh.enabled = true;
     }
 }
