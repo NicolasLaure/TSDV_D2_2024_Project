@@ -14,10 +14,7 @@ public abstract class Target : MonoBehaviour
     {
         shotReceived += OnShotReceived;
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        shotReceived.Invoke();
-    }
+  
     private void OnShotReceived()
     {
         StartCoroutine(GotShotCoroutine());
