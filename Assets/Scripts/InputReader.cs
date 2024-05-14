@@ -11,7 +11,7 @@ public class InputReader : MonoBehaviour
     private CharacterMovement playerMovement;
     private FirstPersonLook playerLook;
     private WeaponHandler weaponHandler;
-
+    
     void Start()
     {
         playerMovement = GetComponent<CharacterMovement>();

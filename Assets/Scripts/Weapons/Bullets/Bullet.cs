@@ -17,4 +17,9 @@ public class Bullet : MonoBehaviour
         rb.AddForce(transform.forward * shootingForce, ForceMode.Impulse);
         Destroy(this.gameObject, lifeTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(this.gameObject);
+    }
 }
