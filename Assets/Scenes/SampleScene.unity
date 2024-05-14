@@ -481,6 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
+  maxVerticalRotation: 50
 --- !u!114 &491952384
 MonoBehaviour:
   m_ObjectHideFlags: 0
