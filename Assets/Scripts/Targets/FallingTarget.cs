@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 public class FallingTarget : Target
 {
+    bool canFall = true;
     private void Fall()
     {
         originalRotation = transform.rotation;
         transform.Rotate(transform.forward, 90);
+        canFall = false;
     }
 
     private void GetUp()
     {
         transform.rotation = originalRotation;
+        canFall = true;
     }
     protected override IEnumerator GotShotCoroutine()
     {
-        Fall();
-        yield return new WaitForSeconds(recoverDuration);
-        GetUp();
+        if (canFall)
+        {
+            Fall();
+            yield return new WaitForSeconds(recoverDuration);
+            GetUp();
+        }
     }
 }
