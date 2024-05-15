@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected FireMode fireMode;
@@ -9,6 +10,7 @@ public abstract class Weapon : MonoBehaviour
 
     [Tooltip("Time in seconds for the weapon to be fired again")]
     [SerializeField] private float shootingCoolDown;
+    [SerializeField] private UnityEvent onShoot;
     private bool onCoolDown = false;
     private bool isReloading = false;
     private int currentMagazine;
@@ -45,6 +47,7 @@ public abstract class Weapon : MonoBehaviour
     {
         LastShotTime = Time.time;
         currentMagazine--;
+        onShoot.Invoke();
     }
     public bool CanShoot()
     {
