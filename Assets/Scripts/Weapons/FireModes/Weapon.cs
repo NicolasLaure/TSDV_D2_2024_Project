@@ -11,7 +11,6 @@ public abstract class Weapon : MonoBehaviour
     [Tooltip("Time in seconds for the weapon to be fired again")]
     [SerializeField] private float shootingCoolDown;
     [SerializeField] private UnityEvent onShoot;
-    private bool onCoolDown = false;
     private bool isReloading = false;
     private int currentMagazine;
 
@@ -81,8 +80,6 @@ public abstract class Weapon : MonoBehaviour
     }
     public IEnumerator ShootCoolDown()
     {
-        onCoolDown = true;
         yield return new WaitForSeconds(shootingCoolDown);
-        onCoolDown = false;
     }
 }
