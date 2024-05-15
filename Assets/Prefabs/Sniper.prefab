@@ -79,6 +79,7 @@ MonoBehaviour:
   fireMode: {fileID: 11400000, guid: 74fb3c83a2d189f4ab5ecf41999c125b, type: 2}
   magazineSize: 5
   shootingCoolDown: 0.2
+  reloadingDuration: 2
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -94,6 +95,21 @@ MonoBehaviour:
           m_StringArgument: sniper rifle 2_hands_AimShoot_sniper rifle 2
           m_BoolArgument: 0
         m_CallState: 1
+  onReload:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1635724989554180878}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: sniper rifle 2_hands_Reload_sniper rifle 2
+          m_BoolArgument: 0
+        m_CallState: 2
   bulletPrefab: {fileID: 5278746626831598590, guid: 925d9eae7b7107c4a8d11c11312bb325, type: 3}
   shootingPoint: {fileID: 881857444667273507}
 --- !u!1001 &667379137468758597

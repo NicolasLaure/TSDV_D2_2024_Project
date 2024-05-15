@@ -10,7 +10,9 @@ public abstract class Weapon : MonoBehaviour
 
     [Tooltip("Time in seconds for the weapon to be fired again")]
     [SerializeField] private float shootingCoolDown;
+    [SerializeField] private float reloadingDuration;
     [SerializeField] private UnityEvent onShoot;
+    [SerializeField] private UnityEvent onReload;
     private bool isReloading = false;
     private int currentMagazine;
 
@@ -59,8 +61,9 @@ public abstract class Weapon : MonoBehaviour
 
     private IEnumerator ReloadCoroutine()
     {
+        onReload.Invoke();
         isReloading = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(reloadingDuration);
         isReloading = false;
         currentMagazine = magazineSize;
     }
