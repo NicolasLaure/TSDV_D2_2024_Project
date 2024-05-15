@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TargetCollider : MonoBehaviour
 {
-    Target target;
+    [SerializeField] private Target target;
 
     private void Awake()
     {
-        target = transform.parent.GetComponent<Target>();
+        if (target == null)
+            target = transform.parent.GetComponent<Target>();
     }
     private void OnCollisionEnter(Collision collision)
     {
