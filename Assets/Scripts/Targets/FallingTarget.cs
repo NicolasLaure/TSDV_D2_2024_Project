@@ -7,7 +7,7 @@ public class FallingTarget : Target
     private void Fall()
     {
         originalRotation = transform.rotation;
-        transform.Rotate(transform.forward, 90);
+        transform.Rotate(transform.right, 90);
         canFall = false;
     }
 
