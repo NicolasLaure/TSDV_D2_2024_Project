@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +16,8 @@ public class AmmoUI : MonoBehaviour
     private void Awake()
     {
         playerWeaponHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponHandler>();
-    }
-    void Start()
-    {
         playerWeaponHandler.onWeaponChange += OnWeaponChange;
     }
-
     void OnWeaponChange<T>(T weapon) where T : Weapon
     {
         if (currentWeapon != null)

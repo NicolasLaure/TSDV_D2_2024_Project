@@ -15,12 +15,9 @@ public class WeaponHandler : MonoBehaviour
     public Action<Weapon> onWeaponChange;
     public WeaponSO CurrentWeaponSO { get { return currentWeaponSO; } }
 
-    private void Awake()
-    {
-        onWeaponChange += OnWeaponGrab;
-    }
     private void Start()
     {
+        onWeaponChange += OnWeaponGrab;
         foreach (GameObject weapon in weaponPrefabs)
         {
             GameObject instance = Instantiate(weapon, holdingPoint);
@@ -30,7 +27,7 @@ public class WeaponHandler : MonoBehaviour
         onWeaponChange.Invoke(weapons[0].GetComponent<Weapon>());
     }
 
-    private void OnWeaponGrab<T>(T weapon) where T : Weapon
+    public void OnWeaponGrab<T>(T weapon) where T : Weapon
     {
         if (currentWeapon != null)
             currentWeapon.SetActive(false);
