@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed32acdaa8cb1b44d9fde304bbbf83ad, type: 3}
   m_Name: SLR
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4335228271852131389, guid: 7b9e7492b55c6b041a91a7781a9e4e93, type: 3}
+  magazineSize: 5
+  shootingCoolDown: 0.3
+  reloadingDuration: 2

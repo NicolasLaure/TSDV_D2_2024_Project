@@ -46,8 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMode: {fileID: 11400000, guid: 74fb3c83a2d189f4ab5ecf41999c125b, type: 2}
-  magazineSize: 18
-  shootingCoolDown: 0.3
+  weaponSO: {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  onReload:
+    m_PersistentCalls:
+      m_Calls: []
   layer:
     serializedVersion: 2
     m_Bits: 1

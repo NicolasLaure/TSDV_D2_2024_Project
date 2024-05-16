@@ -77,9 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireMode: {fileID: 11400000, guid: 74fb3c83a2d189f4ab5ecf41999c125b, type: 2}
-  magazineSize: 5
-  shootingCoolDown: 0.2
-  reloadingDuration: 2
+  weaponSO: {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
   onShoot:
     m_PersistentCalls:
       m_Calls:

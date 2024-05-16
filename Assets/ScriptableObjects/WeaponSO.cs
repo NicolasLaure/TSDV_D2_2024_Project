@@ -6,5 +6,13 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     [SerializeField] public string weaponName { get { return weaponName; } private set { } }
-    [SerializeField] public GameObject weaponPrefab;
+
+    [SerializeField] private int magazineSize;
+    [Tooltip("Time in seconds for the weapon to be fired again")]
+    [SerializeField] private float shootingCoolDown;
+    [SerializeField] private float reloadingDuration;
+
+    public int MagazineSize { get { return magazineSize; } }
+    public float ShootingCoolDown { get { return shootingCoolDown; } }
+    public float ReloadingDuration { get { return reloadingDuration; } }
 }
