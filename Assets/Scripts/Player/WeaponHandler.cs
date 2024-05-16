@@ -30,7 +30,7 @@ public class WeaponHandler : MonoBehaviour
         onWeaponChange.Invoke(weapons[0].GetComponent<Weapon>());
     }
 
-    public void OnWeaponGrab<T>(T weapon) where T : Weapon
+    private void OnWeaponGrab<T>(T weapon) where T : Weapon
     {
         if (currentWeapon != null)
             currentWeapon.SetActive(false);
