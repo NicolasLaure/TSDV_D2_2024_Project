@@ -8,8 +8,9 @@ public abstract class Weapon : MonoBehaviour
     private Coroutine fireCoroutine;
 
     [SerializeField] private WeaponSO weaponSO;
-    [SerializeField] private UnityEvent onShoot;
-    [SerializeField] private UnityEvent onReload;
+    [SerializeField] public UnityEvent onShoot;
+    [SerializeField] public UnityEvent onReload;
+    [SerializeField] public UnityEvent onReloadFinished;
     private bool isReloading = false;
     private int currentMagazine;
 
@@ -17,7 +18,10 @@ public abstract class Weapon : MonoBehaviour
     private Coroutine fullAutoCoroutine;
 
     public float LastShotTime { get; set; }
-    protected void Start()
+    public int CurrentAmmo { get { return currentMagazine; } }
+    public WeaponSO WeaponSO { get { return weaponSO; } }
+
+    protected void Awake()
     {
         currentMagazine = weaponSO.MagazineSize;
     }
@@ -63,6 +67,7 @@ public abstract class Weapon : MonoBehaviour
         yield return new WaitForSeconds(weaponSO.ReloadingDuration);
         isReloading = false;
         currentMagazine = weaponSO.MagazineSize;
+        onReloadFinished.Invoke();
     }
 
     //private IEnumerator BurstAuto()
