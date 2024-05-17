@@ -44,7 +44,7 @@ public class WeaponHandler : MonoBehaviour
     }
     public void CancelShoot()
     {
-        if (isInCombatMode && currentWeapon != null)
+        if (currentWeapon != null)
             currentWeapon.GetComponent<Weapon>().StopShooting();
     }
     public void SetWeaponRumbler(bool value)

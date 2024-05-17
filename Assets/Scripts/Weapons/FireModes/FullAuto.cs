@@ -11,6 +11,5 @@ public class FullAuto : FireMode
             thisWeapon.FireWeapon();
             yield return thisWeapon.ShootCoolDown();
         }
-        yield break;
     }
 }

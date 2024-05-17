@@ -31,14 +31,18 @@ public abstract class Weapon : MonoBehaviour
             return;
 
         if (fireCoroutine == null)
+        {
+            isFiring = true;
             fireCoroutine = StartCoroutine(fireMode.Fire(this));
+        }
     }
     public void StopShooting()
     {
-        if (fullAutoCoroutine != null)
+        if (fireCoroutine != null)
         {
             isFiring = false;
             StopCoroutine(fireCoroutine);
+            fireCoroutine = null;
         }
     }
     public void Reload()

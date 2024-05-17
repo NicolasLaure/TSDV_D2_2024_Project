@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d45e45db734420469332c8125e06c1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireMode: {fileID: 11400000, guid: 74fb3c83a2d189f4ab5ecf41999c125b, type: 2}
+  fireMode: {fileID: 11400000, guid: fc22601b9af1ea34181a49ecb24bdb79, type: 2}
   weaponSO: {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
   onShoot:
     m_PersistentCalls:
