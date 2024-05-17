@@ -11,7 +11,7 @@ public class InputReader : MonoBehaviour
     private CharacterMovement playerMovement;
     private FirstPersonLook playerLook;
     private WeaponHandler weaponHandler;
-    
+
     void Start()
     {
         playerMovement = GetComponent<CharacterMovement>();
@@ -23,6 +23,7 @@ public class InputReader : MonoBehaviour
         input.Player.Movement.performed += OnMovementPerformed;
         input.Player.Movement.canceled += OnMovementCanceled;
         input.Player.Look.performed += OnLookPerformed;
+        input.Player.Look.canceled += OnLookCanceled;
         input.Player.Shoot.performed += OnShootPerformed;
         input.Player.Shoot.canceled += OnShootCanceled;
         input.Player.Reload.started += OnReloadStarted;
@@ -38,7 +39,15 @@ public class InputReader : MonoBehaviour
     }
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
-        playerLook.RotateTowards(context.ReadValue<Vector2>());
+        if (context.control.device is Mouse)
+            playerLook.RotateTowards(context.ReadValue<Vector2>());
+        else
+            playerLook.SetRotation(context.ReadValue<Vector2>());
+    }
+    private void OnLookCanceled(InputAction.CallbackContext context)
+    {
+        if (context.control.device is Gamepad)
+            playerLook.SetRotation(context.ReadValue<Vector2>());
     }
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
@@ -52,4 +61,5 @@ public class InputReader : MonoBehaviour
     {
         weaponHandler.ReloadWeapon();
     }
+
 }
