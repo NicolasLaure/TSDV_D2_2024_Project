@@ -16,7 +16,7 @@ public abstract class Weapon : MonoBehaviour
 
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
-
+    
     public float LastShotTime { get; set; }
     public int CurrentAmmo { get { return currentMagazine; } }
     public WeaponSO WeaponSO { get { return weaponSO; } }
@@ -59,7 +59,6 @@ public abstract class Weapon : MonoBehaviour
     {
         return currentMagazine > 0;
     }
-
     private IEnumerator ReloadCoroutine()
     {
         onReload.Invoke();
@@ -87,4 +86,5 @@ public abstract class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(weaponSO.ShootingCoolDown);
     }
+
 }

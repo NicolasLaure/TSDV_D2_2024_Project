@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112933528316728835}
   - component: {fileID: 5612489875575466517}
+  - component: {fileID: 8063764016806816716}
   m_Layer: 0
   m_Name: Glock
   m_TagString: Untagged
@@ -53,10 +54,25 @@ MonoBehaviour:
   onReload:
     m_PersistentCalls:
       m_Calls: []
+  onReloadFinished:
+    m_PersistentCalls:
+      m_Calls: []
   layer:
     serializedVersion: 2
     m_Bits: 1
   maxHitDistance: 100
+--- !u!114 &8063764016806816716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335228271852131389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb79801d0e83b340bf6aa3d0f7daf20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2258605893649586783
 PrefabInstance:
   m_ObjectHideFlags: 0

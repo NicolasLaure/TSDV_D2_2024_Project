@@ -12,7 +12,16 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private float shootingCoolDown;
     [SerializeField] private float reloadingDuration;
 
+    [Header("Joystick Rumble variables")]
+    [SerializeField] private float rumbleDuration;
+    [SerializeField] private float rumbleLowIntensity;
+    [SerializeField] private float rumbleHighIntensity;
+
     public int MagazineSize { get { return magazineSize; } }
     public float ShootingCoolDown { get { return shootingCoolDown; } }
     public float ReloadingDuration { get { return reloadingDuration; } }
+
+    public float RumbleDuration { get { return rumbleDuration; } }
+    public float RumbleLowIntensity { get { return rumbleLowIntensity; } }
+    public float RumbleHighIntensity { get { return rumbleHighIntensity; } }
 }

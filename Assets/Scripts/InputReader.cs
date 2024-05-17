@@ -52,6 +52,7 @@ public class InputReader : MonoBehaviour
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         weaponHandler.ShootWeapon();
+        weaponHandler.SetWeaponRumbler(context.control.device is Gamepad);
     }
     private void OnShootCanceled(InputAction.CallbackContext context)
     {

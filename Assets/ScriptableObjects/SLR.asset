@@ -15,3 +15,6 @@ MonoBehaviour:
   magazineSize: 5
   shootingCoolDown: 0.3
   reloadingDuration: 2
+  rumbleDuration: 0.2
+  rumbleLowIntensity: 0.7
+  rumbleHighIntensity: 0.2

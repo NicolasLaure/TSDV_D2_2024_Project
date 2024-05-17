@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112933528316728835}
   - component: {fileID: 3318758669694066594}
+  - component: {fileID: -5737225609857373825}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -108,8 +109,23 @@ MonoBehaviour:
           m_StringArgument: sniper rifle 2_hands_Reload_sniper rifle 2
           m_BoolArgument: 0
         m_CallState: 2
+  onReloadFinished:
+    m_PersistentCalls:
+      m_Calls: []
   bulletPrefab: {fileID: 5278746626831598590, guid: 925d9eae7b7107c4a8d11c11312bb325, type: 3}
   shootingPoint: {fileID: 881857444667273507}
+--- !u!114 &-5737225609857373825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4335228271852131389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb79801d0e83b340bf6aa3d0f7daf20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &667379137468758597
 PrefabInstance:
   m_ObjectHideFlags: 0
