@@ -16,7 +16,7 @@ public abstract class Weapon : MonoBehaviour
 
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
-    
+
     public float LastShotTime { get; set; }
     public int CurrentAmmo { get { return currentMagazine; } }
     public WeaponSO WeaponSO { get { return weaponSO; } }
@@ -43,7 +43,8 @@ public abstract class Weapon : MonoBehaviour
     }
     public void Reload()
     {
-        StartCoroutine(ReloadCoroutine());
+        if (!isReloading)
+            StartCoroutine(ReloadCoroutine());
     }
     public virtual void FireWeapon()
     {
