@@ -32,7 +32,10 @@ public class InputReader : MonoBehaviour
         pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
         input.Game.Pause.performed += OnPause;
     }
-
+    private void OnDestroy()
+    {
+        input.Dispose();
+    }
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         playerMovement.SetDir(context.ReadValue<Vector2>());

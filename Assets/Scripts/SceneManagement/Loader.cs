@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Loader : MonoBehaviour
 {
-    public void ChangeScene(int buildIndex)
+    public static void ChangeScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
     }

@@ -1693,10 +1693,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1069372574}
-        m_TargetAssemblyTypeName: Loader, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 3
+      - m_Target: {fileID: 49039698}
+        m_TargetAssemblyTypeName: Pause, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1911,17 +1911,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170f88653e00e9d49984afd0200a0cf6, type: 3}
---- !u!114 &1069372574 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2500303886468227049, guid: 170f88653e00e9d49984afd0200a0cf6, type: 3}
-  m_PrefabInstance: {fileID: 1069372573}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40d9822cda6a6334faa406405cf74020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1075408537
 PrefabInstance:
   m_ObjectHideFlags: 0
