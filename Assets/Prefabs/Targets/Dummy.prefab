@@ -197,4 +197,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoverDuration: 1.25
-  duration: 0.2
+  fallDuration: 0.2
+  getUpDuration: 0.3

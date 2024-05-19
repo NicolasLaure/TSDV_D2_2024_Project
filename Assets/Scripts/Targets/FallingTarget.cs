@@ -5,6 +5,7 @@ public class FallingTarget : Target
 {
     private bool canFall = true;
     [SerializeField] private float fallDuration = 0.3f;
+    [SerializeField] private float getUpDuration = 0.3f;
 
     private void GetUp()
     {
@@ -17,18 +18,34 @@ public class FallingTarget : Target
         {
             yield return FallCoroutine();
             yield return new WaitForSeconds(recoverDuration);
-            GetUp();
+            yield return GetUpCoroutine();
+            //GetUp();
         }
     }
     private IEnumerator FallCoroutine()
     {
+        originalRotation = transform.rotation;
+
         float startTime = Time.time;
         float timer = 0;
-        float targetRotation = transform.rotation.x + 90;
+        float targetRotation = transform.rotation.eulerAngles.x + 90;
         while (timer < fallDuration)
         {
             timer = Time.time - startTime;
-            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.x, targetRotation, timer / fallDuration), 0, 0);
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, targetRotation, timer / fallDuration), 0, 0);
+            yield return null;
+        }
+    }
+
+    private IEnumerator GetUpCoroutine()
+    {
+        float startTime = Time.time;
+        float timer = 0;
+        // float targetRotation = transform.rotation.x - 90;
+        while (timer < getUpDuration)
+        {
+            timer = Time.time - startTime;
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, originalRotation.eulerAngles.x, timer / getUpDuration), 0, 0);
             yield return null;
         }
     }
