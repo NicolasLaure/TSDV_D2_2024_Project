@@ -10,6 +10,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
     private GameObject currentWeapon = null;
+    private int currentWeaponIndex = 0;
     private bool isInCombatMode = true;
     private WeaponRumble weaponRumbleController;
 
@@ -24,7 +25,8 @@ public class WeaponHandler : MonoBehaviour
             weapons.Add(instance);
             instance.SetActive(false);
         }
-        onWeaponChange.Invoke(weapons[0].GetComponent<Weapon>());
+        currentWeaponIndex = 0;
+        onWeaponChange.Invoke(weapons[currentWeaponIndex].GetComponent<Weapon>());
     }
 
     public void OnWeaponGrab<T>(T weapon) where T : Weapon
@@ -56,5 +58,16 @@ public class WeaponHandler : MonoBehaviour
     {
         if (isInCombatMode && currentWeapon != null)
             currentWeapon.GetComponent<Weapon>().Reload();
+    }
+
+    public void ScrollWeapon(int value)
+    {
+        currentWeaponIndex += value;
+        if (currentWeaponIndex < 0)
+            currentWeaponIndex = weapons.Count - 1;
+        else if (currentWeaponIndex >= weapons.Count)
+            currentWeaponIndex = 0;
+
+        onWeaponChange.Invoke(weapons[currentWeaponIndex].GetComponent<Weapon>());
     }
 }

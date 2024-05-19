@@ -27,6 +27,7 @@ public class InputReader : MonoBehaviour
         input.Player.Shoot.performed += OnShootPerformed;
         input.Player.Shoot.canceled += OnShootCanceled;
         input.Player.Reload.started += OnReloadStarted;
+        input.Player.ChangeWeapon.started += OnWeaponChange;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
@@ -62,5 +63,9 @@ public class InputReader : MonoBehaviour
     {
         weaponHandler.ReloadWeapon();
     }
-
+    private void OnWeaponChange(InputAction.CallbackContext context)
+    {
+        int axisValue = (int)Mathf.Ceil(context.ReadValue<float>());
+        weaponHandler.ScrollWeapon(axisValue);
+    }
 }
