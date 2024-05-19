@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FirstPersonLook : MonoBehaviour
 {
+    [Range(0, 1)]
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float maxVerticalRotation;
     private float rotX = 0;
@@ -25,7 +26,7 @@ public class FirstPersonLook : MonoBehaviour
         transform.Rotate(Vector3.up, dir.x * mouseSensitivity);
         rotX += dir.y * mouseSensitivity;
         rotX = Mathf.Clamp(rotX, -maxVerticalRotation, maxVerticalRotation);
-        Camera.main.transform.localRotation = Quaternion.Euler(-rotX,0,0);
+        Camera.main.transform.localRotation = Quaternion.Euler(-rotX, 0, 0);
     }
     public void SetRotation(Vector2 dir)
     {
