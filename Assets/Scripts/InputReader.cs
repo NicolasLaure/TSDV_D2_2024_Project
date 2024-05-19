@@ -11,7 +11,7 @@ public class InputReader : MonoBehaviour
     private CharacterMovement playerMovement;
     private FirstPersonLook playerLook;
     private WeaponHandler weaponHandler;
-
+    [SerializeField] private GameObject pausePanel;
     void Start()
     {
         playerMovement = GetComponent<CharacterMovement>();
@@ -28,6 +28,9 @@ public class InputReader : MonoBehaviour
         input.Player.Shoot.canceled += OnShootCanceled;
         input.Player.Reload.started += OnReloadStarted;
         input.Player.ChangeWeapon.started += OnWeaponChange;
+
+        pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
+        input.Game.Pause.performed += OnPause;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
@@ -67,5 +70,18 @@ public class InputReader : MonoBehaviour
     {
         int axisValue = (int)Mathf.Ceil(context.ReadValue<float>());
         weaponHandler.ScrollWeapon(axisValue);
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        pausePanel.SetActive(!pausePanel.activeInHierarchy);
+    }
+
+    private void OnPausePanelChange(bool value)
+    {
+        if (value == true)
+            input.Player.Disable();
+        else
+            input.Player.Enable();
     }
 }
