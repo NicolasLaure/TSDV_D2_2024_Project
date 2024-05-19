@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class FallingTarget : Target
 {
-    bool canFall = true;
-    private void Fall()
-    {
-        originalRotation = transform.rotation;
-        transform.Rotate(transform.right, 90);
-        canFall = false;
-    }
+    private bool canFall = true;
+    [SerializeField] private float fallDuration = 0.3f;
 
     private void GetUp()
     {
@@ -20,9 +15,21 @@ public class FallingTarget : Target
     {
         if (canFall)
         {
-            Fall();
+            yield return FallCoroutine();
             yield return new WaitForSeconds(recoverDuration);
             GetUp();
+        }
+    }
+    private IEnumerator FallCoroutine()
+    {
+        float startTime = Time.time;
+        float timer = 0;
+        float targetRotation = transform.rotation.x + 90;
+        while (timer < fallDuration)
+        {
+            timer = Time.time - startTime;
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.x, targetRotation, timer / fallDuration), 0, 0);
+            yield return null;
         }
     }
 }
