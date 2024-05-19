@@ -25,6 +25,11 @@ public abstract class Weapon : MonoBehaviour
     {
         currentMagazine = weaponSO.MagazineSize;
     }
+    private void OnEnable()
+    {
+        isReloading = false;
+        isFiring = false;
+    }
     public void Shoot()
     {
         if (!CanShoot())
