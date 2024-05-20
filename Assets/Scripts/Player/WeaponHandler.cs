@@ -9,6 +9,8 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private WeaponSO currentWeaponSO = null;
     [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
+    [SerializeField] private List<GameObject> heldWeapons = new List<GameObject>();
+    [SerializeField] private int maxHeldWeaponsQty;
     private GameObject currentWeapon = null;
     private int currentWeaponIndex = 0;
     private bool isInCombatMode = true;
@@ -18,7 +20,7 @@ public class WeaponHandler : MonoBehaviour
     public WeaponSO CurrentWeaponSO { get { return currentWeaponSO; } }
     private void Start()
     {
-        onWeaponChange += OnWeaponGrab;
+        onWeaponChange += OnWeaponChanged;
         foreach (GameObject weapon in weaponPrefabs)
         {
             GameObject instance = Instantiate(weapon, holdingPoint);
@@ -26,10 +28,11 @@ public class WeaponHandler : MonoBehaviour
             instance.SetActive(false);
         }
         currentWeaponIndex = 0;
-        onWeaponChange.Invoke(weapons[currentWeaponIndex].GetComponent<Weapon>());
+        heldWeapons.Add(weapons[0]);
+        onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
     }
 
-    public void OnWeaponGrab<T>(T weapon) where T : Weapon
+    public void OnWeaponChanged<T>(T weapon) where T : Weapon
     {
         if (currentWeapon != null)
             currentWeapon.SetActive(false);
@@ -64,10 +67,44 @@ public class WeaponHandler : MonoBehaviour
     {
         currentWeaponIndex += value;
         if (currentWeaponIndex < 0)
-            currentWeaponIndex = weapons.Count - 1;
-        else if (currentWeaponIndex >= weapons.Count)
+            currentWeaponIndex = heldWeapons.Count - 1;
+        else if (currentWeaponIndex >= heldWeapons.Count)
             currentWeaponIndex = 0;
 
-        onWeaponChange.Invoke(weapons[currentWeaponIndex].GetComponent<Weapon>());
+        onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+    }
+
+    public bool TryGrabWeapon(Weapon weapon)
+    {
+        GameObject weaponsInstance = null;
+        foreach (GameObject weaponGameObject in weapons)
+        {
+            if (weaponGameObject.GetComponent<Weapon>().WeaponSO == weapon.WeaponSO)
+                weaponsInstance = weaponGameObject;
+        }
+
+        if (heldWeapons.Contains(weaponsInstance))
+            return false;
+
+        if (heldWeapons.Count < maxHeldWeaponsQty)
+        {
+            heldWeapons.Add(weaponsInstance);
+            return true;
+        }
+
+        heldWeapons.RemoveAt(currentWeaponIndex);
+        heldWeapons.Insert(currentWeaponIndex, weaponsInstance);
+        onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        return true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<Weapon>(out Weapon weapon))
+        {
+            Debug.Log("DASDA");
+            if (TryGrabWeapon(weapon))
+                Destroy(other.gameObject);
+        }
     }
 }
