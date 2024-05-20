@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
+  unGrabbableDuration: 1
 --- !u!1001 &8762750185263542668
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2064,6 +2064,10 @@ PrefabInstance:
       value: 0.345
       objectReference: {fileID: 0}
     - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+      propertyPath: dropForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: maxHeldWeaponsQty
       value: 2
       objectReference: {fileID: 0}

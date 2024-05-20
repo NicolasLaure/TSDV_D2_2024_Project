@@ -7,10 +7,11 @@ public class WeaponHandler : MonoBehaviour
 {
     [SerializeField] private Transform holdingPoint;
     [SerializeField] private WeaponSO currentWeaponSO = null;
-    [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
-    [SerializeField] private List<GameObject> weapons = new List<GameObject>();
-    [SerializeField] private List<GameObject> heldWeapons = new List<GameObject>();
     [SerializeField] private int maxHeldWeaponsQty;
+    [SerializeField] private float dropForce;
+    [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
+    private List<GameObject> weapons = new List<GameObject>();
+    private List<GameObject> heldWeapons = new List<GameObject>();
     private GameObject currentWeapon = null;
     private int currentWeaponIndex = 0;
     private bool isInCombatMode = true;
@@ -104,6 +105,7 @@ public class WeaponHandler : MonoBehaviour
         {
             GameObject weaponPrefab = heldWeapons[currentWeaponIndex].GetComponent<Weapon>().EnvironmentWeaponPrefab;
             GameObject weapon = GameObject.Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+            StartCoroutine(weapon.GetComponent<EnvironmentWeapon>().ThrowWeapon(Camera.main.transform.forward * dropForce));
             heldWeapons.RemoveAt(currentWeaponIndex);
             onWeaponChange.Invoke(heldWeapons[0].GetComponent<Weapon>());
             return true;
