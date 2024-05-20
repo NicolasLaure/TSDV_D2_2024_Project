@@ -17,6 +17,16 @@ public class InputReader : MonoBehaviour
         playerMovement = GetComponent<CharacterMovement>();
         playerLook = GetComponent<FirstPersonLook>();
         weaponHandler = GetComponent<WeaponHandler>();
+
+        StartCoroutine(InitializeInput());
+    }
+    private void OnDestroy()
+    {
+        input.Dispose();
+    }
+    private IEnumerator InitializeInput()
+    {
+        yield return null;
         input = new PlayerInput();
         input.Enable();
 
@@ -31,10 +41,6 @@ public class InputReader : MonoBehaviour
 
         pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
         input.Game.Pause.performed += OnPause;
-    }
-    private void OnDestroy()
-    {
-        input.Dispose();
     }
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
