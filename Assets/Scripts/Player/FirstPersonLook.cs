@@ -39,4 +39,9 @@ public class FirstPersonLook : MonoBehaviour
         else
             Cursor.lockState = CursorLockMode.None;
     }
+
+    public void SetSensitivity(float newSensitivity)
+    {
+        mouseSensitivity = newSensitivity;
+    }
 }
