@@ -8,6 +8,7 @@ public abstract class Weapon : MonoBehaviour
     private Coroutine fireCoroutine;
 
     [SerializeField] private WeaponSO weaponSO;
+    [SerializeField] private GameObject environmentWeaponPrefab;
     [SerializeField] public UnityEvent onShoot;
     [SerializeField] public UnityEvent onReload;
     [SerializeField] public UnityEvent onReloadFinished;
@@ -20,6 +21,7 @@ public abstract class Weapon : MonoBehaviour
     public float LastShotTime { get; set; }
     public int CurrentAmmo { get { return currentMagazine; } }
     public WeaponSO WeaponSO { get { return weaponSO; } }
+    public GameObject EnvironmentWeaponPrefab { get { return environmentWeaponPrefab; } }
 
     protected void Awake()
     {

@@ -38,6 +38,7 @@ public class InputReader : MonoBehaviour
         input.Player.Shoot.canceled += OnShootCanceled;
         input.Player.Reload.started += OnReloadStarted;
         input.Player.ChangeWeapon.started += OnWeaponChange;
+        input.Player.Drop.performed += OnWeaponDrop;
 
         pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
         input.Game.Pause.performed += OnPause;
@@ -79,6 +80,10 @@ public class InputReader : MonoBehaviour
     {
         int axisValue = (int)Mathf.Ceil(context.ReadValue<float>());
         weaponHandler.ScrollThroughHeldWeapons(axisValue);
+    }
+    private void OnWeaponDrop(InputAction.CallbackContext context)
+    {
+        weaponHandler.TryDropWeapon();
     }
 
     private void OnPause(InputAction.CallbackContext context)

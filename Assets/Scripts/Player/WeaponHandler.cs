@@ -98,6 +98,19 @@ public class WeaponHandler : MonoBehaviour
         return true;
     }
 
+    public bool TryDropWeapon()
+    {
+        if (heldWeapons.Count > 1)
+        {
+            GameObject weaponPrefab = heldWeapons[currentWeaponIndex].GetComponent<Weapon>().EnvironmentWeaponPrefab;
+            GameObject weapon = GameObject.Instantiate(weaponPrefab, transform.position, Quaternion.identity);
+            heldWeapons.RemoveAt(currentWeaponIndex);
+            onWeaponChange.Invoke(heldWeapons[0].GetComponent<Weapon>());
+            return true;
+        }
+        return false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<Weapon>(out Weapon weapon))
