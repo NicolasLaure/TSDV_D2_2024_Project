@@ -74,12 +74,12 @@ public class WeaponHandler : MonoBehaviour
         onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
     }
 
-    public bool TryGrabWeapon(Weapon weapon)
+    public bool TryGrabWeapon(WeaponSO weapon)
     {
         GameObject weaponsInstance = null;
         foreach (GameObject weaponGameObject in weapons)
         {
-            if (weaponGameObject.GetComponent<Weapon>().WeaponSO == weapon.WeaponSO)
+            if (weaponGameObject.GetComponent<Weapon>().WeaponSO == weapon)
                 weaponsInstance = weaponGameObject;
         }
 
@@ -113,10 +113,9 @@ public class WeaponHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Weapon>(out Weapon weapon))
+        if (other.gameObject.TryGetComponent<EnvironmentWeapon>(out EnvironmentWeapon weapon))
         {
-            Debug.Log("DASDA");
-            if (TryGrabWeapon(weapon))
+            if (TryGrabWeapon(weapon.Weapon))
                 Destroy(other.gameObject);
         }
     }
