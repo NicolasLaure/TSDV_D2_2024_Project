@@ -78,7 +78,7 @@ public class InputReader : MonoBehaviour
     private void OnWeaponChange(InputAction.CallbackContext context)
     {
         int axisValue = (int)Mathf.Ceil(context.ReadValue<float>());
-        weaponHandler.ScrollWeapon(axisValue);
+        weaponHandler.ScrollThroughHeldWeapons(axisValue);
     }
 
     private void OnPause(InputAction.CallbackContext context)

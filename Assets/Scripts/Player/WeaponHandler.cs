@@ -63,7 +63,7 @@ public class WeaponHandler : MonoBehaviour
             currentWeapon.GetComponent<Weapon>().Reload();
     }
 
-    public void ScrollWeapon(int value)
+    public void ScrollThroughHeldWeapons(int value)
     {
         currentWeaponIndex += value;
         if (currentWeaponIndex < 0)
