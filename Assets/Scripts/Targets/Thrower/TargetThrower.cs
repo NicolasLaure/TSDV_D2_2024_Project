@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetThrower : MonoBehaviour
 {
-    [Range(0, 30)]
+    [Range(0, 300)]
     [SerializeField] private float force;
     [SerializeField] private float maxCoolDown;
     [SerializeField] private float horizontalAmplitude;
@@ -19,15 +19,18 @@ public class TargetThrower : MonoBehaviour
     private void Update()
     {
         if (canThrow)
+        {
             ThrowTarget();
+            StartCoroutine(ThrowCoolDown());
+        }
     }
     private void ThrowTarget()
     {
         float randomRotationY = Random.Range(-horizontalAmplitude / 2, horizontalAmplitude / 2);
         float randomRotationX = Random.Range(-verticalAmplitude / 2, verticalAmplitude / 2);
         Quaternion throwingRotation = Quaternion.Euler(transform.rotation.eulerAngles.x + randomRotationX, transform.rotation.eulerAngles.y + randomRotationY, transform.rotation.eulerAngles.z);
-        Instantiate(targetPrefab, transform.position, throwingRotation);
-        StartCoroutine(ThrowCoolDown());
+        GameObject target = Instantiate(targetPrefab, transform.position, throwingRotation);
+        target.GetComponent<Rigidbody>().AddForce(target.transform.forward * force);
     }
 
     private IEnumerator ThrowCoolDown()
