@@ -29,6 +29,10 @@ public class FallingTarget : Target
         float startTime = Time.time;
         float timer = 0;
         float targetRotation = transform.rotation.eulerAngles.x + 90;
+
+        if (TryGetComponent<MovingTarget>(out MovingTarget moving))
+            moving.Stop();
+
         while (timer < fallDuration)
         {
             timer = Time.time - startTime;
@@ -48,5 +52,8 @@ public class FallingTarget : Target
             transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, originalRotation.eulerAngles.x, timer / getUpDuration), 0, 0);
             yield return null;
         }
+
+        if (TryGetComponent<MovingTarget>(out MovingTarget moving))
+            moving.StartMoving();
     }
 }

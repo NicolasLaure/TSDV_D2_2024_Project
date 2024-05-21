@@ -14,7 +14,7 @@ public class MovingTarget : MonoBehaviour
     private void Start()
     {
         currentTargetPos = minXObject;
-        SetDir();
+        StartMoving();
     }
     void Update()
     {
@@ -30,6 +30,15 @@ public class MovingTarget : MonoBehaviour
     private void SwitchDir()
     {
         currentTargetPos = currentTargetPos == minXObject ? maxXObject : minXObject;
+        SetDir();
+    }
+
+    public void Stop()
+    {
+        dir = Vector3.zero;
+    }
+    public void StartMoving()
+    {
         SetDir();
     }
 }
