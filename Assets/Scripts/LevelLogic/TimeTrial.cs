@@ -26,9 +26,7 @@ public class TimeTrial : MonoBehaviour
         while (timer < trialDuration)
         {
             timer = Time.time - startTime;
-            Debug.Log($"Time left {trialDuration - timer}");
             yield return null;
         }
-            Debug.Log($"Trial Finish");
     }
 }
