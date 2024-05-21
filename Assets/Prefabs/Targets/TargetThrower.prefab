@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78929640cefb14c4bba785358a6a26f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetQty: 10
   force: 275
   maxCoolDown: 5
   horizontalAmplitude: 15

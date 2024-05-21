@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TargetThrower : MonoBehaviour
 {
+    [SerializeField] private int targetQty;
     [Range(0, 300)]
     [SerializeField] private float force;
     [SerializeField] private float maxCoolDown;
@@ -11,18 +12,9 @@ public class TargetThrower : MonoBehaviour
     [SerializeField] private float verticalAmplitude;
     [SerializeField] private GameObject targetPrefab;
 
-    private bool canThrow = false;
     private void Start()
     {
-        StartCoroutine(ThrowCoolDown());
-    }
-    private void Update()
-    {
-        if (canThrow)
-        {
-            ThrowTarget();
-            StartCoroutine(ThrowCoolDown());
-        }
+        StartCoroutine(StartThrowing());
     }
     private void ThrowTarget()
     {
@@ -32,11 +24,16 @@ public class TargetThrower : MonoBehaviour
         GameObject target = Instantiate(targetPrefab, transform.position, throwingRotation);
         target.GetComponent<Rigidbody>().AddForce(target.transform.forward * force);
     }
-
+    public IEnumerator StartThrowing()
+    {
+        for (int i = 0; i < targetQty; i++)
+        {
+            yield return ThrowCoolDown();
+            ThrowTarget();
+        }
+    }
     private IEnumerator ThrowCoolDown()
     {
-        canThrow = false;
         yield return new WaitForSeconds(Random.Range(0.5f, maxCoolDown));
-        canThrow = true;
     }
 }
