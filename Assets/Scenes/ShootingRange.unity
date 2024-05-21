@@ -682,6 +682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 155972044}
+  - component: {fileID: 155972045}
   m_Layer: 0
   m_Name: TimeTrialLevel
   m_TagString: Untagged
@@ -709,6 +710,19 @@ Transform:
   - {fileID: 1032074488}
   m_Father: {fileID: 682260618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155972045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155972043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b62e4114cc9fc449aedccb699ff71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trialDuration: 5
 --- !u!1001 &217458296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5218,16 +5232,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 436286730515924768, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5620747416488034780, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1130032445775634987, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
 --- !u!1001 &7212208020903591221
 PrefabInstance:
