@@ -6,11 +6,16 @@ public class ThrowersController : MonoBehaviour
 {
     [SerializeField] private List<TargetThrower> throwers = new List<TargetThrower>();
     [SerializeField] private ThrowersStartButton button;
+    [SerializeField] private ThrowerModifier decrease;
+    [SerializeField] private ThrowerModifier increase;
+    [SerializeField] private TMPro.TextMeshPro qtyText;
     private int targetsToThrowQty = 10;
 
     private void Start()
     {
         button.onStartThrowing += OnStartShooting;
+        decrease.onModifierHit += OnModifyQty;
+        increase.onModifierHit += OnModifyQty;
     }
     private void OnStartShooting()
     {
@@ -23,4 +28,11 @@ public class ThrowersController : MonoBehaviour
             thrower.throwCoroutine = StartCoroutine(thrower.StartThrowing());
         }
     }
+
+    private void OnModifyQty(int value)
+    {
+        targetsToThrowQty += value;
+        qtyText.text = targetsToThrowQty.ToString();
+    }
+
 }

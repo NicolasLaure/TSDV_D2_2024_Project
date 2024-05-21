@@ -1034,7 +1034,8 @@ GameObject:
   - component: {fileID: 386550565}
   - component: {fileID: 386550564}
   - component: {fileID: 386550563}
-  - component: {fileID: 386550562}
+  - component: {fileID: 386550566}
+  - component: {fileID: 386550567}
   m_Layer: 0
   m_Name: DecreaseButton
   m_TagString: Untagged
@@ -1057,19 +1058,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 29045033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &386550562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 386550560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0868e620dedc8df4697bbfc1583a30cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recoverDuration: 0
 --- !u!65 &386550563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1141,6 +1129,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386550560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &386550566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386550560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4eecca1aaf55fb409356e544013b40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoverDuration: 0
+  modifyValue: -1
+--- !u!114 &386550567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386550560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23d0e59fbe89e24c8b9bb0035d31ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 386550566}
 --- !u!1 &434904129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,6 +2024,9 @@ MonoBehaviour:
   - {fileID: 1734307062}
   - {fileID: 1840573012}
   button: {fileID: 700922325}
+  decrease: {fileID: 386550566}
+  increase: {fileID: 1363794030}
+  qtyText: {fileID: 790258067}
 --- !u!1 &790258065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,7 +3766,8 @@ GameObject:
   - component: {fileID: 1363794029}
   - component: {fileID: 1363794028}
   - component: {fileID: 1363794027}
-  - component: {fileID: 1363794026}
+  - component: {fileID: 1363794030}
+  - component: {fileID: 1363794031}
   m_Layer: 0
   m_Name: IncreaseButton
   m_TagString: Untagged
@@ -3773,19 +3792,6 @@ Transform:
   - {fileID: 1814724689}
   m_Father: {fileID: 29045033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1363794026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363794024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0868e620dedc8df4697bbfc1583a30cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recoverDuration: 0
 --- !u!65 &1363794027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3857,6 +3863,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363794024}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1363794030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363794024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4eecca1aaf55fb409356e544013b40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoverDuration: 0
+  modifyValue: 1
+--- !u!114 &1363794031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363794024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23d0e59fbe89e24c8b9bb0035d31ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1363794030}
 --- !u!4 &1404516869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4646160277296803439, guid: 2d1aed8ada79e4d4e99084037c3b094a, type: 3}
