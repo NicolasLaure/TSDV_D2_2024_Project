@@ -45,11 +45,10 @@ public class TimeTrial : MonoBehaviour
 
     private IEnumerator PresentTarget()
     {
-        Debug.Log("TARGEEET");
         canSpawn = false;
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 0.5f));
 
-        target.isEnemy = UnityEngine.Random.Range(0, 2) == 1;
+        target.isEnemy = UnityEngine.Random.value > 0.2f;
         target.transform.position = GetRandomPosition();
         target.gameObject.SetActive(true);
         canSpawn = true;
