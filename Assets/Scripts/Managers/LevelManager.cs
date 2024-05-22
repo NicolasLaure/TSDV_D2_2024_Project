@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         trial.GetComponent<TimeTrial>().onTrialFinish += EndTrial;
     }
 
