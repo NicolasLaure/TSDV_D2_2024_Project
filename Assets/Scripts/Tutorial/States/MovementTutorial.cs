@@ -6,10 +6,12 @@ public class MovementTutorial : TutorialState
 {
     [SerializeField] private CharacterMovement player;
     private Vector3 playerStartPos;
+    private Quaternion playerOriginalRotation;
 
     [SerializeField] private GameObject welcomePanel;
     [SerializeField] private GameObject movementPanel;
     [SerializeField] private GameObject lookAroundPanel;
+    [SerializeField] private GameObject lookGunPanel;
 
 
     [SerializeField] private LayerMask weaponMask;
@@ -27,8 +29,14 @@ public class MovementTutorial : TutorialState
         movementPanel.SetActive(false);
 
         lookAroundPanel.SetActive(true);
-        yield return new WaitUntil(isPlayerLookingTowardsGun);
+        playerOriginalRotation = player.transform.rotation;
+        yield return new WaitUntil(HasPlayerRotated);
+        yield return new WaitForSeconds(1);
         lookAroundPanel.SetActive(false);
+
+        lookGunPanel.SetActive(true);
+        yield return new WaitUntil(isPlayerLookingTowardsGun);
+        lookGunPanel.SetActive(false);
 
         onStateFinished.Invoke();
     }
@@ -38,6 +46,10 @@ public class MovementTutorial : TutorialState
         return player.transform.position != playerStartPos;
     }
 
+    private bool HasPlayerRotated()
+    {
+        return playerOriginalRotation != player.transform.rotation;
+    }
     private bool isPlayerLookingTowardsGun()
     {
         return Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, 100f, weaponMask);
