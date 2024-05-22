@@ -5,7 +5,6 @@ using UnityEngine;
 public class HitscanWeapon : Weapon
 {
     [Header("HitScan Attributes")]
-    //[SerializeField] private float distance;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float maxHitDistance;
     private RaycastHit hit;
@@ -25,7 +24,7 @@ public class HitscanWeapon : Weapon
         base.FireWeapon();
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxHitDistance, layer))
         {
-            Debug.Log($"HITSCAN SHOT Hit pos = {hit.point}");
+            decals.SpawnBulletHole(hit.collider.transform, hit.point, hit.normal);
             hitPositions.Add(hit.point);
 
             Target hittedTarget = hit.collider.transform.GetComponentInParent<Target>();

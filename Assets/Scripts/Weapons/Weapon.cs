@@ -12,6 +12,10 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] public UnityEvent onShoot;
     [SerializeField] public UnityEvent onReload;
     [SerializeField] public UnityEvent onReloadFinished;
+
+    [Header("Visuals")]
+    [SerializeField] protected DecalsHandler decals;
+
     private bool isReloading = false;
     private int currentMagazine;
 
@@ -26,6 +30,7 @@ public abstract class Weapon : MonoBehaviour
     protected void Awake()
     {
         currentMagazine = weaponSO.MagazineSize;
+        decals = GameObject.FindObjectOfType<DecalsHandler>();
     }
     private void OnEnable()
     {

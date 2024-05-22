@@ -6,8 +6,8 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float shootingForce;
     [SerializeField] private float lifeTime;
+    [SerializeField] private DecalsHandler decals;
     private Rigidbody rb;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //decals.SpawnBulletHole(collision.transform.position, collision.);
         Destroy(this.gameObject);
     }
 }
