@@ -33,7 +33,7 @@ public class ShootingTutorial : TutorialState
         for (int i = 0; i < targetPositions.Count; i++)
         {
             target.transform.position = targetPositions[i].position;
-            target.transform.forward = targetPositions[i].forward;
+            target.transform.rotation = targetPositions[i].rotation;
             target.SetActive(true);
             yield return new WaitUntil(WasTargetHitted);
         }
