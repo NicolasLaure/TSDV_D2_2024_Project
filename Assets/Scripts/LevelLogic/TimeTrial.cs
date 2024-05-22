@@ -12,16 +12,21 @@ public class TimeTrial : MonoBehaviour
 
     private bool canSpawn = true;
     public Action onTrialFinish;
+
+    private int score = 0;
     private void Start()
     {
         //suscribe to start level
         OnStartTrial();
+        target.onTrialTargetShot += OnTargetShot;
     }
 
     private void OnStartTrial()
     {
         if (trial != null)
             StopCoroutine(trial);
+
+        score = 0;
         trial = StartCoroutine(TrialCoroutine());
     }
     private IEnumerator TrialCoroutine()
@@ -54,5 +59,13 @@ public class TimeTrial : MonoBehaviour
     {
         Transform randomPos = possiblePositions[UnityEngine.Random.Range(0, possiblePositions.Count)].transform;
         return randomPos.position;
+    }
+
+    private void OnTargetShot(bool isEnemy)
+    {
+        if (isEnemy)
+            score++;
+        else
+            score--;
     }
 }

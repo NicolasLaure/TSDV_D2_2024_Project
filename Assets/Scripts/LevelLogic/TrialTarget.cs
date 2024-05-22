@@ -8,7 +8,7 @@ public class TrialTarget : FallingTarget
     [SerializeField] public bool isEnemy;
 
     private Coroutine turnOffCoroutine;
-    public Action<bool> trialTargetShot;
+    public Action<bool> onTrialTargetShot;
 
     private void OnEnable()
     {
@@ -30,6 +30,6 @@ public class TrialTarget : FallingTarget
     }
     private void GotShot()
     {
-        //  trialTargetShot.Invoke(isEnemy);
+        onTrialTargetShot.Invoke(isEnemy);
     }
 }
