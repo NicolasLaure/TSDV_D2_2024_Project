@@ -14,13 +14,16 @@ public class TimeTrial : MonoBehaviour
     public Action onTrialFinish;
 
     private int score = 0;
-    private void Start()
+    private void Awake()
     {
         //suscribe to start level
-        OnStartTrial();
         target.onTrialTargetShot += OnTargetShot;
     }
 
+    private void OnEnable()
+    {
+        OnStartTrial();
+    }
     private void OnStartTrial()
     {
         if (trial != null)
