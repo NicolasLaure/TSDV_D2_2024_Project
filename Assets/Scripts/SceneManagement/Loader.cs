@@ -17,4 +17,9 @@ public class Loader : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(buildIndex);
     }
+
+    public void ExitApp()
+    {
+        Application.Quit();
+    }
 }
