@@ -16,9 +16,12 @@ public class TimeTrial : MonoBehaviour
 
     private int highScore = 0;
     private int score = 0;
+
+    public int HighScore { get { return highScore; } }
+    public int Score { get { return score; } }
+
     private void Awake()
     {
-        //suscribe to start level
         target.onTrialTargetShot += OnTargetShot;
     }
 
@@ -51,6 +54,8 @@ public class TimeTrial : MonoBehaviour
                 StartCoroutine(PresentTarget());
             yield return null;
         }
+        if (score > highScore)
+            highScore = score;
         onTrialFinish.Invoke();
     }
 

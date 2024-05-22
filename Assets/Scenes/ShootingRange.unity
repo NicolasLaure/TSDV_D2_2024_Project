@@ -1885,6 +1885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497009447}
+  - component: {fileID: 497009448}
   m_Layer: 0
   m_Name: TrialController
   m_TagString: Untagged
@@ -1912,6 +1913,21 @@ Transform:
   - {fileID: 189256592}
   m_Father: {fileID: 682260618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497009448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497009446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6769e4f4262bb4bbb14e868b102995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastScoreText: {fileID: 189256593}
+  highScoreText: {fileID: 892493833}
+  trial: {fileID: 155972045}
 --- !u!4 &498419482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5015851073235153941, guid: fd8212a6b4413da43bfbf816034a6a69, type: 3}
