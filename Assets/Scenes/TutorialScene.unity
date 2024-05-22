@@ -251,8 +251,11 @@ MonoBehaviour:
   m_text: 'There should be a gun on your right hand
 
 
+    get there to grab it
 
-    get there to grab it'
+
+    Then
+    use mouse wheel or gamepad shoulders to switch weapons'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 427bbe5a9503f14478c814b3f08dfb55, type: 2}
   m_sharedMaterial: {fileID: -1151786797399103051, guid: 427bbe5a9503f14478c814b3f08dfb55, type: 2}
@@ -402,6 +405,43 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a60aed3109aac2e4e8b4fbd8e35506ec, type: 3}
+--- !u!1 &18349868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 18349869}
+  m_Layer: 5
+  m_Name: ShootingTutorialPanels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &18349869
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18349868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1407398136}
+  - {fileID: 1322868420}
+  m_Father: {fileID: 1104708279}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &29429452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2802,6 +2842,7 @@ RectTransform:
   - {fileID: 49039697}
   - {fileID: 1342595613}
   - {fileID: 780149234}
+  - {fileID: 18349869}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3585,7 +3626,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 596073905}
-  m_Father: {fileID: 1342595613}
+  m_Father: {fileID: 18349869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3662,8 +3703,6 @@ RectTransform:
   - {fileID: 1767916058}
   - {fileID: 1576466886}
   - {fileID: 1560392320}
-  - {fileID: 1407398136}
-  - {fileID: 1322868420}
   m_Father: {fileID: 1104708279}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3759,7 +3798,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1034859860}
-  m_Father: {fileID: 1342595613}
+  m_Father: {fileID: 18349869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
