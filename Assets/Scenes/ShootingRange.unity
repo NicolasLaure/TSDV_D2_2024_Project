@@ -920,6 +920,7 @@ MonoBehaviour:
   - {fileID: 1221967471}
   - {fileID: 1446587518}
   - {fileID: 1217458678}
+  trialUI: {fileID: 1120855844}
 --- !u!1 &189256591
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,6 +3642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120855843}
+  - component: {fileID: 1120855844}
   m_Layer: 5
   m_Name: TrialHud
   m_TagString: Untagged
@@ -3669,6 +3671,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1120855844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120855842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da71299c2cd8fe46b412b3854a154e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1050371250}
+  timeText: {fileID: 1236508360}
 --- !u!1 &1132928654
 GameObject:
   m_ObjectHideFlags: 0

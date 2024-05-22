@@ -8,6 +8,7 @@ public class TimeTrial : MonoBehaviour
     [SerializeField] private float trialDuration;
     [SerializeField] private TrialTarget target;
     [SerializeField] private List<Transform> possiblePositions = new List<Transform>();
+    [SerializeField] private TrialUI trialUI;
     private Coroutine trial;
 
     private bool canSpawn = true;
@@ -23,6 +24,11 @@ public class TimeTrial : MonoBehaviour
     private void OnEnable()
     {
         OnStartTrial();
+        trialUI.gameObject.SetActive(true);
+    }
+    private void OnDisable()
+    {
+        trialUI.gameObject.SetActive(false);
     }
     private void OnStartTrial()
     {
@@ -39,6 +45,7 @@ public class TimeTrial : MonoBehaviour
         while (timer < trialDuration)
         {
             timer = Time.time - startTime;
+            trialUI.OnTimeUpdated((int)trialDuration - (int)timer);
             if (!target.gameObject.activeInHierarchy && canSpawn)
                 StartCoroutine(PresentTarget());
             yield return null;
@@ -69,5 +76,7 @@ public class TimeTrial : MonoBehaviour
             score++;
         else
             score--;
+
+        trialUI.OnScoreUpdated(score);
     }
 }
