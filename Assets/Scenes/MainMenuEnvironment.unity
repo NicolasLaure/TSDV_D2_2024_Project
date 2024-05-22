@@ -989,8 +989,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1598204087}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.37260416, y: 0.8224075}
-  m_AnchorMax: {x: 0.62983334, y: 0.9614075}
+  m_AnchorMin: {x: 0.24143751, y: 0.8224075}
+  m_AnchorMax: {x: 0.7585625, y: 0.9614075}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: Desert Storm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 427bbe5a9503f14478c814b3f08dfb55, type: 2}
   m_sharedMaterial: {fileID: -1151786797399103051, guid: 427bbe5a9503f14478c814b3f08dfb55, type: 2}
@@ -1023,8 +1023,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4287285242
+  m_fontColor: {r: 0.9811321, g: 0.7812171, b: 0.54147387, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1041,8 +1041,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 130
+  m_fontSizeBase: 130
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
