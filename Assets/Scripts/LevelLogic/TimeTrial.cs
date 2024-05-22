@@ -14,6 +14,7 @@ public class TimeTrial : MonoBehaviour
     private bool canSpawn = true;
     public Action onTrialFinish;
 
+    private int highScore = 0;
     private int score = 0;
     private void Awake()
     {

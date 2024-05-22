@@ -7,6 +7,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject trainingTargets;
     [SerializeField] private GameObject trial;
 
+    private void Start()
+    {
+        trial.GetComponent<TimeTrial>().onTrialFinish += EndTrial;
+    }
+
+    private void EndTrial()
+    {
+        ChangeActiveMode(false);
+    }
     public void ChangeActiveMode(bool shouldStartTrial)
     {
         trainingTargets.SetActive(!shouldStartTrial);
