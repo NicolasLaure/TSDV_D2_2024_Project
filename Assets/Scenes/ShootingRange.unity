@@ -246,6 +246,8 @@ MonoBehaviour:
   getUpDuration: 0.3
   lifeDuration: 2
   isEnemy: 1
+  enemyMat: {fileID: 2100000, guid: dfcdd443340780844a6ab27a54aa7951, type: 2}
+  hostageMat: {fileID: 2100000, guid: df8a369bce30d6341bdbb5c17c9130e3, type: 2}
 --- !u!1 &43665417
 GameObject:
   m_ObjectHideFlags: 0
