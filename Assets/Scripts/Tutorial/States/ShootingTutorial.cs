@@ -13,7 +13,6 @@ public class ShootingTutorial : TutorialState
     [SerializeField] private GameObject truckPanel;
     protected override IEnumerator StartStateCoroutine()
     {
-        target.GetComponent<TrialTarget>().onTrialTargetShot += OnTargetHitted;
         warningPanel.SetActive(true);
         yield return new WaitForSeconds(panelDuration);
         warningPanel.SetActive(false);
@@ -24,7 +23,6 @@ public class ShootingTutorial : TutorialState
         yield return new WaitForSeconds(panelDuration);
         truckPanel.SetActive(false);
 
-        target.GetComponent<TrialTarget>().onTrialTargetShot -= OnTargetHitted;
         onStateFinished.Invoke();
     }
 
@@ -37,12 +35,6 @@ public class ShootingTutorial : TutorialState
             target.SetActive(true);
             yield return new WaitUntil(WasTargetHitted);
         }
-        yield break;
-    }
-
-    private void OnTargetHitted(bool isEnemy)
-    {
-
     }
     private bool WasTargetHitted()
     {

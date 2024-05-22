@@ -36,7 +36,7 @@ public class FallingTarget : Target
         while (timer < fallDuration)
         {
             timer = Time.time - startTime;
-            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, targetRotation, timer / fallDuration), 0, 0);
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, targetRotation, timer / fallDuration), originalRotation.eulerAngles.y, originalRotation.eulerAngles.z);
             yield return null;
         }
     }
