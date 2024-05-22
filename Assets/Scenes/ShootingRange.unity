@@ -1099,6 +1099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_BaseWall_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1630052041012002, guid: f996731b12085f44883c30318a77c3c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4646407613516282, guid: f996731b12085f44883c30318a77c3c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1474,9 +1478,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1536,9 +1548,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1686,7 +1706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 87.363, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.942, y: 4.575}
+  m_AnchoredPosition: {x: 27.195, y: 4.575}
   m_SizeDelta: {x: 3.11, y: 0.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &189256593
@@ -1831,9 +1851,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2462,9 +2490,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3472,9 +3508,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3921,7 +3965,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &737241061
 Transform:
@@ -3931,7 +3975,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737241060}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -27.49, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3945,7 +3989,7 @@ Transform:
   - {fileID: 1848363709}
   - {fileID: 1339034631}
   - {fileID: 1916895799}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1241165926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &746298416
 PrefabInstance:
@@ -3955,9 +3999,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4568,7 +4620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 87.363, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.942, y: 5.207}
+  m_AnchoredPosition: {x: 27.195, y: 5.207}
   m_SizeDelta: {x: 3.11, y: 0.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &892493833
@@ -4749,9 +4801,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4939,9 +4999,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6057,9 +6125,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7129,6 +7205,8 @@ Transform:
   - {fileID: 961057104}
   - {fileID: 71619487}
   - {fileID: 1883506197}
+  - {fileID: 1306616842}
+  - {fileID: 737241061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1243626201
@@ -7794,7 +7872,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1306616842
 Transform:
@@ -7804,7 +7882,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306616841}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 27.77, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7818,7 +7896,7 @@ Transform:
   - {fileID: 1561833752}
   - {fileID: 168635888}
   - {fileID: 1148686441}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1241165926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1309351193 stripped
 Transform:
@@ -7836,6 +7914,10 @@ PrefabInstance:
     - target: {fileID: 1630052041012002, guid: f996731b12085f44883c30318a77c3c8, type: 3}
       propertyPath: m_Name
       value: SM_Prop_BaseWall_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1630052041012002, guid: f996731b12085f44883c30318a77c3c8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4646407613516282, guid: f996731b12085f44883c30318a77c3c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8041,9 +8123,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8370,9 +8460,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8683,9 +8781,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9063,9 +9169,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1306616842}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10445,9 +10559,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10792,9 +10914,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11394,9 +11524,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 737241061}
     m_Modifications:
+    - target: {fileID: 1086843499554702, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_Name
       value: SM_Prop_WireFence_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712709652979322, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11872,7 +12010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 87.363, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.942, y: 5.98}
+  m_AnchoredPosition: {x: 27.216, y: 5.98}
   m_SizeDelta: {x: 3.11, y: 0.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011045146
@@ -12293,9 +12431,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2133080836}
     m_Modifications:
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4579
+      objectReference: {fileID: 0}
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99963826
+      objectReference: {fileID: 0}
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.026897034
+      objectReference: {fileID: 0}
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 273000400901345808, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.083
+      objectReference: {fileID: 0}
     - target: {fileID: 3651928644540918659, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269794349277006017, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.68199
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269794349277006017, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7086003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269794349277006017, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70561016
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269794349277006017, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -26.977194
+      objectReference: {fileID: 0}
+    - target: {fileID: 4269794349277006017, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.758
       objectReference: {fileID: 0}
     - target: {fileID: 5236302971914682878, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_Name
@@ -12432,5 +12618,3 @@ SceneRoots:
   - {fileID: 1458343136}
   - {fileID: 1823930652}
   - {fileID: 2000156416}
-  - {fileID: 1306616842}
-  - {fileID: 737241061}
