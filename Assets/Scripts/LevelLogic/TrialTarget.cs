@@ -2,20 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class TrialTarget : MonoBehaviour
+public class TrialTarget : FallingTarget
 {
+    [SerializeField] private float lifeDuration;
     [SerializeField] public bool isEnemy;
-    private Target target;
 
+    private Coroutine turnOffCoroutine;
     public Action<bool> trialTargetShot;
-    private void Start()
-    {
-        target = GetComponent<Target>();
-        target.shotReceived += GotShot;
-    }
 
+    private void OnEnable()
+    {
+        StartCoroutine(GetUpCoroutine());
+        turnOffCoroutine = StartCoroutine(TurnOffCoroutine());
+    }
+    protected override IEnumerator GotShotCoroutine()
+    {
+        GotShot();
+        StopCoroutine(turnOffCoroutine);
+        yield return FallCoroutine();
+        gameObject.SetActive(false);
+    }
+    private IEnumerator TurnOffCoroutine()
+    {
+        yield return new WaitForSeconds(lifeDuration);
+        yield return FallCoroutine();
+        gameObject.SetActive(false);
+    }
     private void GotShot()
     {
-        trialTargetShot.Invoke(isEnemy);
+        //  trialTargetShot.Invoke(isEnemy);
     }
 }

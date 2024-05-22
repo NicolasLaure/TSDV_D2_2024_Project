@@ -22,7 +22,7 @@ public class FallingTarget : Target
             //GetUp();
         }
     }
-    private IEnumerator FallCoroutine()
+    protected IEnumerator FallCoroutine()
     {
         originalRotation = transform.rotation;
 
@@ -41,7 +41,7 @@ public class FallingTarget : Target
         }
     }
 
-    private IEnumerator GetUpCoroutine()
+    protected IEnumerator GetUpCoroutine()
     {
         float startTime = Time.time;
         float timer = 0;
