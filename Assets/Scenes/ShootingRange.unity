@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b62e4114cc9fc449aedccb699ff71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trialDuration: 10
+  trialDuration: 120
   target: {fileID: 9621344}
   possiblePositions:
   - {fileID: 1801847773}
