@@ -8,35 +8,41 @@ public class MovementTutorial : TutorialState
     private Vector3 playerStartPos;
     private Quaternion playerOriginalRotation;
 
+    [Header("Panels")]
     [SerializeField] private GameObject welcomePanel;
     [SerializeField] private GameObject movementPanel;
     [SerializeField] private GameObject lookAroundPanel;
     [SerializeField] private GameObject lookGunPanel;
+    [SerializeField] private float welcomeDuration;
+    [SerializeField] private float panelfadeDuration;
+    [SerializeField] private float endDuration;
 
-
+    [Space]
     [SerializeField] private LayerMask weaponMask;
 
     protected override IEnumerator StartStateCoroutine()
     {
         welcomePanel.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(welcomeDuration);
         welcomePanel.SetActive(false);
         movementPanel.SetActive(true);
 
         playerStartPos = player.transform.position;
         yield return new WaitUntil(HasPlayerMoved);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(panelfadeDuration);
         movementPanel.SetActive(false);
 
         lookAroundPanel.SetActive(true);
         playerOriginalRotation = player.transform.rotation;
         yield return new WaitUntil(HasPlayerRotated);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(panelfadeDuration);
         lookAroundPanel.SetActive(false);
 
         lookGunPanel.SetActive(true);
         yield return new WaitUntil(isPlayerLookingTowardsGun);
         lookGunPanel.SetActive(false);
+
+        yield return new WaitForSeconds(endDuration);
 
         onStateFinished.Invoke();
     }
