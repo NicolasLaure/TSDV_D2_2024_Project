@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47599afb6a6bdf248b532d310cf14258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausePanel: {fileID: 0}
 --- !u!114 &2938696757644597969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4792a3589f5584b8d4be9877af532c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1
+  mouseSensitivity: 0.5
   maxVerticalRotation: 50
 --- !u!114 &6293470276278998262
 MonoBehaviour:
@@ -192,6 +193,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdingPoint: {fileID: 1846149704081319501}
   currentWeaponSO: {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
+  maxHeldWeaponsQty: 0
+  dropForce: 0
+  weaponPrefabs: []
 --- !u!1 &2000676563451461925
 GameObject:
   m_ObjectHideFlags: 0
