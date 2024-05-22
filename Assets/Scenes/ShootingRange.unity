@@ -4948,8 +4948,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.964391, y: 2.2696733, z: 8.842473}
-  m_Center: {x: 0.00000060271054, y: 1.1348231, z: -0.22359861}
+  m_Size: {x: 4.964391, y: 2.2696733, z: 7.7290087}
+  m_Center: {x: 0.00000063040414, y: 1.1348231, z: 0.33312654}
 --- !u!1 &877236251
 GameObject:
   m_ObjectHideFlags: 0
@@ -13524,6 +13524,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.73
       objectReference: {fileID: 0}
+    - target: {fileID: 3779071669899611658, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057615573282814047, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4269794349277006017, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_LocalPosition.z
       value: 16.68199
@@ -13592,7 +13600,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.73
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 342472178034754605, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+    - {fileID: 5079010115105591385, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+    - {fileID: 3779071669899611658, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
