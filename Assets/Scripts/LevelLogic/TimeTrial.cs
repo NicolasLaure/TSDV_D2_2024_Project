@@ -6,8 +6,8 @@ using System;
 public class TimeTrial : MonoBehaviour
 {
     [SerializeField] private float trialDuration;
-    [SerializeField] private List<Target> targets = new List<Target>();
-    [SerializeField] private List<PossiblePosition> possiblePositions = new List<PossiblePosition>();
+    [SerializeField] private Target target;
+    [SerializeField] private List<Transform> possiblePositions = new List<Transform>();
     private Coroutine trial;
 
     public Action onTrialFinish;
