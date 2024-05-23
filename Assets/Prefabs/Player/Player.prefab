@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4792a3589f5584b8d4be9877af532c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 0.25
+  playerConfig: {fileID: 11400000, guid: c21c86be3ca54f14389472e3cadf321a, type: 2}
   maxVerticalRotation: 50
 --- !u!114 &6293470276278998262
 MonoBehaviour:

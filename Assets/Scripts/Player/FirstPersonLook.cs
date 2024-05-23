@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FirstPersonLook : MonoBehaviour
 {
-    [Range(0, 1)]
-    [SerializeField] private float mouseSensitivity;
+    [SerializeField] PlayerConfigSO playerConfig;
+    private float mouseSensitivity;
     [SerializeField] private float maxVerticalRotation;
     private float rotX = 0;
     Vector2 rotationDir = Vector2.zero;
     private void Start()
     {
+        mouseSensitivity = playerConfig.lookSensitivity;
         SetMouseLockState(true);
     }
 
@@ -42,6 +43,7 @@ public class FirstPersonLook : MonoBehaviour
 
     public void SetSensitivity(float newSensitivity)
     {
-        mouseSensitivity = newSensitivity;
+        playerConfig.lookSensitivity = newSensitivity;
+        mouseSensitivity = playerConfig.lookSensitivity;
     }
 }

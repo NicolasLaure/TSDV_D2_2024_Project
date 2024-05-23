@@ -22,7 +22,8 @@ public class InputReader : MonoBehaviour
     }
     private void OnDestroy()
     {
-        input.Dispose();
+        if (input != null)
+            input.Dispose();
     }
     private IEnumerator InitializeInput()
     {
