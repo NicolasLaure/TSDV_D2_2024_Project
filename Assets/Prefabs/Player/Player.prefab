@@ -239,8 +239,8 @@ GameObject:
   - component: {fileID: 3375720958099746492}
   - component: {fileID: 6680065683963470801}
   m_Layer: 0
-  m_Name: Main CameraGunClipping
-  m_TagString: MainCamera
+  m_Name: CameraGunClipping
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,8 +291,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 200
   field of view: 60
   orthographic: 0
   orthographic size: 5
