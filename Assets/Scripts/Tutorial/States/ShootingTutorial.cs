@@ -9,6 +9,7 @@ public class ShootingTutorial : TutorialState
 
     [Header("Panel management")]
     [SerializeField] private float panelDuration;
+    [SerializeField] private float endPanelDuration;
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private GameObject truckPanel;
     protected override IEnumerator StartStateCoroutine()
@@ -20,7 +21,7 @@ public class ShootingTutorial : TutorialState
         yield return TargetsPop();
 
         truckPanel.SetActive(true);
-        yield return new WaitForSeconds(panelDuration);
+        yield return new WaitForSeconds(endPanelDuration);
         truckPanel.SetActive(false);
 
         onStateFinished.Invoke();
