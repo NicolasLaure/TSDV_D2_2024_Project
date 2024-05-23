@@ -9328,6 +9328,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d3a45ade0e0c37429c35f1e9f42bff2, type: 3}
+--- !u!1 &1662350878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1662350880}
+  - component: {fileID: 1662350879}
+  m_Layer: 0
+  m_Name: Cheats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1662350879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662350878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4bc0149b0902042a3e3200b1ec31dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSOs:
+  - {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
+  - {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
+--- !u!4 &1662350880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662350878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1681718470 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 346430011941183920, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
@@ -12643,3 +12690,4 @@ SceneRoots:
   - {fileID: 1069372573}
   - {fileID: 296451071}
   - {fileID: 1458343136}
+  - {fileID: 1662350880}

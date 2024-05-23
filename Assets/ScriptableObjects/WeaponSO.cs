@@ -17,7 +17,7 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private float rumbleLowIntensity;
     [SerializeField] private float rumbleHighIntensity;
 
-    public int MagazineSize { get { return magazineSize; } }
+    public int MagazineSize { get { return magazineSize; } set { magazineSize = value; } }
     public float ShootingCoolDown { get { return shootingCoolDown; } }
     public float ReloadingDuration { get { return reloadingDuration; } }
 

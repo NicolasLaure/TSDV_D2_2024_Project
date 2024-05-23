@@ -1,0 +1,54 @@
+{
+    "name": "CheatsInput",
+    "maps": [
+        {
+            "name": "Cheats",
+            "id": "d1230032-826e-42c6-99fd-f0b5932b6470",
+            "actions": [
+                {
+                    "name": "MaxAmmo",
+                    "type": "Button",
+                    "id": "c0aa76fc-4981-4ca3-a9ca-8cd2554643ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextLevel",
+                    "type": "Button",
+                    "id": "98128e37-8413-40c4-9911-2dc3a63d778f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "db47c945-326d-414f-9218-9c31b6d154c6",
+                    "path": "<Keyboard>/f10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MaxAmmo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "880567b5-55e9-4681-bc68-a9f66f87c739",
+                    "path": "<Keyboard>/f8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
