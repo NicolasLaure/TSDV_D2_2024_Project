@@ -82,9 +82,10 @@ MonoBehaviour:
   onReloadFinished:
     m_PersistentCalls:
       m_Calls: []
+  decals: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 10241
   maxHitDistance: 100
 --- !u!114 &8063764016806816716
 MonoBehaviour:

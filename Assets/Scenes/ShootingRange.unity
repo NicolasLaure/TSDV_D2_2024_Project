@@ -835,7 +835,7 @@ GameObject:
   - component: {fileID: 90115917}
   - component: {fileID: 90115919}
   - component: {fileID: 90115918}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StopText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2960,7 +2960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 447626167}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5272,7 +5272,7 @@ GameObject:
   - component: {fileID: 1051510869}
   - component: {fileID: 1051510871}
   - component: {fileID: 1051510870}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7124,7 +7124,7 @@ GameObject:
   - component: {fileID: 1258430644}
   - component: {fileID: 1258430647}
   - component: {fileID: 1258430648}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9845,7 +9845,7 @@ GameObject:
   - component: {fileID: 1808453545}
   - component: {fileID: 1808453548}
   - component: {fileID: 1808453549}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10673,7 +10673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1908462969}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: StopButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12488,6 +12488,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -3.083
       objectReference: {fileID: 0}
+    - target: {fileID: 436286730515924768, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1175719191864721725, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568016779267299639, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3389673777497871961, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3651928644540918659, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.73
@@ -12523,6 +12539,14 @@ PrefabInstance:
     - target: {fileID: 5236302971914682878, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_Name
       value: ThrowersController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5709404628013840154, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765751728958126710, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7255220633520636683, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12567,6 +12591,10 @@ PrefabInstance:
     - target: {fileID: 7625591239877203779, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555297978535258948, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 342472178034754605, guid: 8da17dc448b4ae04b92e7beb6e3d4c20, type: 3}
