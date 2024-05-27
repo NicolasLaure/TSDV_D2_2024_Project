@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f0aaa329b16c4147b20175d81b1e30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 641803521}
   welcomePanel: {fileID: 1642872567}
   movementPanel: {fileID: 1767916057}
   lookAroundPanel: {fileID: 1576466885}
@@ -1560,6 +1560,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6299982365166262033, guid: 2d4642e9035901c40bc868fa48666f60, type: 3}
   m_PrefabInstance: {fileID: 606397520}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &641803521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+  m_PrefabInstance: {fileID: 1217461618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257cff5095cb9d74e8c5a9f7c5120143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &663660303
 PrefabInstance:
   m_ObjectHideFlags: 0
