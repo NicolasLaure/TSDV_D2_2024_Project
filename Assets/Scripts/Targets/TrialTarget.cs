@@ -29,6 +29,11 @@ public class TrialTarget : FallingTarget
         GotShot();
         StopCoroutine(turnOffCoroutine);
         yield return FallCoroutine();
+        //foreach (GameObject decal in transform)
+        //{
+        //    if (decal.CompareTag("Decal"))
+        //        FindObjectOfType<DecalsHandler>().RemoveDecal(decal);
+        //}
         gameObject.SetActive(false);
     }
     private IEnumerator TurnOffCoroutine()
