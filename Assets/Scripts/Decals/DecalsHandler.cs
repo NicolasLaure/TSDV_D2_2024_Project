@@ -22,4 +22,13 @@ public class DecalsHandler : MonoBehaviour
             Destroy(decal);
         }
     }
+
+    public void RemoveDecal(GameObject decal)
+    {
+        if (decals.Contains(decal))
+        {
+            decals.Remove(decal);
+            Destroy(decal);
+        }
+    }
 }

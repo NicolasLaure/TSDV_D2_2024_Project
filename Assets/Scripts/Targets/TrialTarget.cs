@@ -29,11 +29,7 @@ public class TrialTarget : FallingTarget
         GotShot();
         StopCoroutine(turnOffCoroutine);
         yield return FallCoroutine();
-        //foreach (GameObject decal in transform)
-        //{
-        //    if (decal.CompareTag("Decal"))
-        //        FindObjectOfType<DecalsHandler>().RemoveDecal(decal);
-        //}
+        ClearDecals();
         gameObject.SetActive(false);
     }
     private IEnumerator TurnOffCoroutine()
@@ -45,5 +41,17 @@ public class TrialTarget : FallingTarget
     private void GotShot()
     {
         onTrialTargetShot.Invoke(isEnemy);
+    }
+
+    private void ClearDecals()
+    {
+        foreach (Collider collider in transform.GetComponentsInChildren<Collider>())
+        {
+            foreach (Transform decal in collider.transform)
+            {
+                if (decal.CompareTag("Decal"))
+                    FindObjectOfType<DecalsHandler>().RemoveDecal(decal.gameObject);
+            }
+        }
     }
 }
