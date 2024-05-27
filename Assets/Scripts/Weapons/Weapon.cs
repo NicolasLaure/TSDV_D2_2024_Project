@@ -40,7 +40,11 @@ public abstract class Weapon : MonoBehaviour
     public void Shoot()
     {
         if (!CanShoot())
+        {
+            if (!HasBullets())
+                Reload();
             return;
+        }
 
         if (fireCoroutine == null)
         {
