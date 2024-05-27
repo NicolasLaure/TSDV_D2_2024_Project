@@ -23,7 +23,10 @@ public class InputReader : MonoBehaviour
     private void OnDestroy()
     {
         if (input != null)
+        {
+            RemoveListeners();
             input.Dispose();
+        }
     }
     private IEnumerator InitializeInput()
     {
@@ -43,6 +46,21 @@ public class InputReader : MonoBehaviour
 
         pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
         input.Game.Pause.performed += OnPause;
+    }
+
+    private void RemoveListeners()
+    {
+        input.Player.Movement.performed -= OnMovementPerformed;
+        input.Player.Movement.canceled -= OnMovementCanceled;
+        input.Player.Look.performed -= OnLookPerformed;
+        input.Player.Look.canceled -= OnLookCanceled;
+        input.Player.Shoot.performed -= OnShootPerformed;
+        input.Player.Shoot.canceled -= OnShootCanceled;
+        input.Player.Reload.started -= OnReloadStarted;
+        input.Player.ChangeWeapon.started -= OnWeaponChange;
+        input.Player.Drop.performed -= OnWeaponDrop;
+        input.Game.Pause.performed -= OnPause;
+
     }
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
