@@ -5742,7 +5742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.05
+      value: 3.96
       objectReference: {fileID: 0}
     - target: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5784,26 +5784,6 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 16247
       objectReference: {fileID: 0}
-    - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
-      propertyPath: dropForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
-      propertyPath: maxHeldWeaponsQty
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
-      propertyPath: weaponPrefabs.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
-      propertyPath: weaponPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 4335228271852131389, guid: 8179bd4920804094183b70f2fd57f956, type: 3}
-    - target: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
-      propertyPath: weaponPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 4335228271852131389, guid: 7b9e7492b55c6b041a91a7781a9e4e93, type: 3}
     - target: {fileID: 8619327755401806180, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_Layer
       value: 7
