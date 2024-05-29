@@ -49,6 +49,7 @@ MonoBehaviour:
   fireMode: {fileID: 11400000, guid: 74fb3c83a2d189f4ab5ecf41999c125b, type: 2}
   weaponSO: {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
   environmentWeaponPrefab: {fileID: 8472990650184265077, guid: 84c36840f8365e84e91ef97c153974b2, type: 3}
+  weaponAnimator: {fileID: 4491145466483289987}
   onShoot:
     m_PersistentCalls:
       m_Calls:

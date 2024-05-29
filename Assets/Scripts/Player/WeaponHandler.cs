@@ -64,6 +64,10 @@ public class WeaponHandler : MonoBehaviour
             currentWeapon.GetComponent<Weapon>().Reload();
     }
 
+    public void SetWalkingState(Vector2 movementDir)
+    {
+        currentWeapon.GetComponent<Weapon>().OnMovementChange(movementDir);
+    }
     public void ScrollThroughHeldWeapons(int value)
     {
         currentWeaponIndex += value;

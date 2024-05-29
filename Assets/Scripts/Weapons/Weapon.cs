@@ -9,6 +9,8 @@ public abstract class Weapon : MonoBehaviour
 
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private GameObject environmentWeaponPrefab;
+    [SerializeField] private Animator weaponAnimator;
+
     [SerializeField] public UnityEvent onShoot;
     [SerializeField] public UnityEvent onReload;
     [SerializeField] public UnityEvent onReloadFinished;
@@ -90,6 +92,13 @@ public abstract class Weapon : MonoBehaviour
         onReloadFinished.Invoke();
     }
 
+    public void OnMovementChange(Vector2 dir)
+    {
+        if (dir != Vector2.zero)
+            weaponAnimator.SetBool("isWalking", true);
+        else
+            weaponAnimator.SetBool("isWalking", false);
+    }
     //private IEnumerator BurstAuto()
     //{
     //    isFiring = true;

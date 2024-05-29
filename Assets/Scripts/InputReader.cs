@@ -64,11 +64,14 @@ public class InputReader : MonoBehaviour
     }
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
-        playerMovement.SetDir(context.ReadValue<Vector2>());
+        Vector2 dir = context.ReadValue<Vector2>();
+        playerMovement.SetDir(dir);
+        weaponHandler.SetWalkingState(dir);
     }
     private void OnMovementCanceled(InputAction.CallbackContext context)
     {
         playerMovement.SetDir(Vector2.zero);
+        weaponHandler.SetWalkingState(Vector2.zero);
     }
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
