@@ -20,4 +20,16 @@ public abstract class Target : MonoBehaviour
         StartCoroutine(GotShotCoroutine());
     }
     protected abstract IEnumerator GotShotCoroutine();
+
+    public void ClearDecals()
+    {
+        foreach (Collider collider in transform.GetComponentsInChildren<Collider>())
+        {
+            foreach (Transform decal in collider.transform)
+            {
+                if (decal.CompareTag("Decal"))
+                    FindObjectOfType<DecalsHandler>().RemoveDecal(decal.gameObject);
+            }
+        }
+    }
 }

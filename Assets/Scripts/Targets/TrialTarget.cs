@@ -42,16 +42,4 @@ public class TrialTarget : FallingTarget
     {
         onTrialTargetShot.Invoke(isEnemy);
     }
-
-    private void ClearDecals()
-    {
-        foreach (Collider collider in transform.GetComponentsInChildren<Collider>())
-        {
-            foreach (Transform decal in collider.transform)
-            {
-                if (decal.CompareTag("Decal"))
-                    FindObjectOfType<DecalsHandler>().RemoveDecal(decal.gameObject);
-            }
-        }
-    }
 }
