@@ -7,6 +7,7 @@ public class TutorialTarget : FallingTarget
     protected override IEnumerator GotShotCoroutine()
     {
         yield return FallCoroutine();
+        ClearDecals();
         gameObject.SetActive(false);
     }
 }
