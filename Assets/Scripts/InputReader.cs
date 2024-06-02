@@ -78,10 +78,12 @@ public class InputReader : MonoBehaviour
     private void OnSprintPerformed(InputAction.CallbackContext context)
     {
         playerMovement.SetSprint(true);
+        weaponHandler.SetSprint(true);
     }
     private void OnSprintCanceled(InputAction.CallbackContext context)
     {
         playerMovement.SetSprint(false);
+        weaponHandler.SetSprint(false);
     }
     private void OnLookPerformed(InputAction.CallbackContext context)
     {

@@ -68,6 +68,10 @@ public class WeaponHandler : MonoBehaviour
     {
         currentWeapon.GetComponent<Weapon>().OnMovementChange(movementDir);
     }
+    public void SetSprint(bool shouldPlayRunAnim)
+    {
+        currentWeapon.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
+    }
     public void ScrollThroughHeldWeapons(int value)
     {
         currentWeaponIndex += value;

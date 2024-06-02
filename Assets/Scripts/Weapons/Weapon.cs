@@ -99,6 +99,11 @@ public abstract class Weapon : MonoBehaviour
         else
             weaponAnimator.SetBool("isWalking", false);
     }
+
+    public void OnSprintChange(bool value)
+    {
+        weaponAnimator.SetBool("isSprinting", value);
+    }
     //private IEnumerator BurstAuto()
     //{
     //    isFiring = true;
