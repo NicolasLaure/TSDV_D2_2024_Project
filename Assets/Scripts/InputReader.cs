@@ -75,14 +75,13 @@ public class InputReader : MonoBehaviour
         playerMovement.SetDir(Vector2.zero);
         weaponHandler.SetWalkingState(Vector2.zero);
     }
-
     private void OnSprintPerformed(InputAction.CallbackContext context)
     {
-
+        playerMovement.SetSprint(true);
     }
     private void OnSprintCanceled(InputAction.CallbackContext context)
     {
-
+        playerMovement.SetSprint(false);
     }
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
