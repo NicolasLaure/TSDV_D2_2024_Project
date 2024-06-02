@@ -80,6 +80,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a2321ee-a182-453d-8dce-d2da9131c546"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1a8eec6-a31d-46d7-85b9-aabe0a4f8d81"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a08d5ff-66e0-41d7-89d5-ac8b44306960"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -322,6 +353,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_ChangeWeapon = m_Player.FindAction("ChangeWeapon", throwIfNotFound: true);
         m_Player_Drop = m_Player.FindAction("Drop", throwIfNotFound: true);
+        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Pause = m_Game.FindAction("Pause", throwIfNotFound: true);
@@ -392,6 +424,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_ChangeWeapon;
     private readonly InputAction m_Player_Drop;
+    private readonly InputAction m_Player_Sprint;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -402,6 +435,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputAction @ChangeWeapon => m_Wrapper.m_Player_ChangeWeapon;
         public InputAction @Drop => m_Wrapper.m_Player_Drop;
+        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -429,6 +463,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Drop.started += instance.OnDrop;
             @Drop.performed += instance.OnDrop;
             @Drop.canceled += instance.OnDrop;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -451,6 +488,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Drop.started -= instance.OnDrop;
             @Drop.performed -= instance.OnDrop;
             @Drop.canceled -= instance.OnDrop;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -522,6 +562,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnChangeWeapon(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
     public interface IGameActions
     {

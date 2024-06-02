@@ -36,6 +36,8 @@ public class InputReader : MonoBehaviour
 
         input.Player.Movement.performed += OnMovementPerformed;
         input.Player.Movement.canceled += OnMovementCanceled;
+        input.Player.Sprint.performed += OnSprintPerformed;
+        input.Player.Sprint.canceled += OnSprintCanceled;
         input.Player.Look.performed += OnLookPerformed;
         input.Player.Look.canceled += OnLookCanceled;
         input.Player.Shoot.performed += OnShootPerformed;
@@ -72,6 +74,15 @@ public class InputReader : MonoBehaviour
     {
         playerMovement.SetDir(Vector2.zero);
         weaponHandler.SetWalkingState(Vector2.zero);
+    }
+
+    private void OnSprintPerformed(InputAction.CallbackContext context)
+    {
+
+    }
+    private void OnSprintCanceled(InputAction.CallbackContext context)
+    {
+
     }
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
