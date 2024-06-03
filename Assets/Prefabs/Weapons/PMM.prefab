@@ -62,7 +62,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: pistol1_hands_Fire_pistol1
+          m_StringArgument: Shoot
           m_BoolArgument: 0
         m_CallState: 2
   onReload:
@@ -77,7 +77,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: pistol1_hands_ReloadNoAmmo_pistol1
+          m_StringArgument: ReloadNoAmmo
           m_BoolArgument: 0
         m_CallState: 2
   onReloadFinished:
@@ -443,7 +443,7 @@ Animator:
   m_GameObject: {fileID: 1412238874399958798}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed32bfac434cc344795e583bb3a92310, type: 2}
+  m_Controller: {fileID: 22100000, guid: 95eafbb30fe53094ca9f42ffba29007e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
