@@ -16,9 +16,15 @@ public class WeaponHandler : MonoBehaviour
     private int currentWeaponIndex = 0;
     private bool isInCombatMode = true;
     private WeaponRumble weaponRumbleController;
+    private CharacterMovement playerMovement;
 
     public Action<Weapon> onWeaponChange;
     public WeaponSO CurrentWeaponSO { get { return currentWeaponSO; } }
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<CharacterMovement>();
+    }
     private void Start()
     {
         onWeaponChange += OnWeaponChanged;
@@ -31,6 +37,9 @@ public class WeaponHandler : MonoBehaviour
         currentWeaponIndex = 0;
         heldWeapons.Add(weapons[0]);
         onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+
+        playerMovement.onCharacterMove += SetWalkingState;
+        playerMovement.onCharacterSprint += SetSprint;
     }
 
     public void OnWeaponChanged<T>(T weapon) where T : Weapon

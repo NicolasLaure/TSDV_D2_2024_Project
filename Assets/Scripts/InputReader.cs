@@ -68,22 +68,18 @@ public class InputReader : MonoBehaviour
     {
         Vector2 dir = context.ReadValue<Vector2>();
         playerMovement.SetDir(dir);
-        weaponHandler.SetWalkingState(dir);
     }
     private void OnMovementCanceled(InputAction.CallbackContext context)
     {
         playerMovement.SetDir(Vector2.zero);
-        weaponHandler.SetWalkingState(Vector2.zero);
     }
     private void OnSprintPerformed(InputAction.CallbackContext context)
     {
         playerMovement.SetSprint(true);
-        weaponHandler.SetSprint(true);
     }
     private void OnSprintCanceled(InputAction.CallbackContext context)
     {
         playerMovement.SetSprint(false);
-        weaponHandler.SetSprint(false);
     }
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
