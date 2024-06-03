@@ -24,7 +24,9 @@ public class HitscanWeapon : Weapon
         base.FireWeapon();
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxHitDistance, layer))
         {
-            decals.SpawnBulletHole(hit.collider.transform, hit.point, hit.normal);
+            if (decals != null)
+                decals.SpawnBulletHole(hit.collider.transform, hit.point, hit.normal);
+
             hitPositions.Add(hit.point);
 
             Target hittedTarget = hit.collider.transform.GetComponentInParent<Target>();

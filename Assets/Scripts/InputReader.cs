@@ -46,8 +46,11 @@ public class InputReader : MonoBehaviour
         input.Player.ChangeWeapon.started += OnWeaponChange;
         input.Player.Drop.performed += OnWeaponDrop;
 
-        pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
-        input.Game.Pause.performed += OnPause;
+        if (pausePanel)
+        {
+            pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
+            input.Game.Pause.performed += OnPause;
+        }
     }
 
     private void RemoveListeners()
