@@ -94,7 +94,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: sniper rifle 2_hands_AimShoot_sniper rifle 2
+          m_StringArgument: Shoot
           m_BoolArgument: 0
         m_CallState: 1
   onReload:
@@ -109,7 +109,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: sniper rifle 2_hands_Reload_sniper rifle 2
+          m_StringArgument: ReloadNoAmmo
           m_BoolArgument: 0
         m_CallState: 2
   onReloadFinished:
@@ -465,7 +465,7 @@ Animator:
   m_GameObject: {fileID: 396994185679980308}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 70abbbce7625e574886c734e9bdae7f7, type: 2}
+  m_Controller: {fileID: 22100000, guid: 81af65e65839d454c9266f0674b09d61, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
