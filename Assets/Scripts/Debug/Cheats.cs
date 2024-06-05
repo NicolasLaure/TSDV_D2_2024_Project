@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Cheats : MonoBehaviour
 {
     [SerializeField] private List<WeaponSO> weaponSOs = new List<WeaponSO>();
+    [SerializeField] private MagazineSO cheatMag;
 
     private CheatsInput cheats;
 
@@ -22,13 +23,16 @@ public class Cheats : MonoBehaviour
     {
         foreach (WeaponSO weapon in weaponSOs)
         {
-            weapon.MagazineSize = 999;
+            if (weapon.CurrentMagazine != cheatMag)
+                weapon.CurrentMagazine = cheatMag;
+            else
+                weapon.SetDefault();
         }
     }
     private void NextScene(InputAction.CallbackContext context)
     {
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if(nextIndex < SceneManager.sceneCountInBuildSettings)
-        Loader.ChangeScene(nextIndex);
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+            Loader.ChangeScene(nextIndex);
     }
 }

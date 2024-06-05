@@ -2141,6 +2141,7 @@ MonoBehaviour:
   weaponSOs:
   - {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
   - {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
+  cheatMag: {fileID: 11400000, guid: 7c15115a234d02a409eed400363621a4, type: 2}
 --- !u!4 &1018662066
 Transform:
   m_ObjectHideFlags: 0

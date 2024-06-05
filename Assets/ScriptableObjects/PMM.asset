@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed32acdaa8cb1b44d9fde304bbbf83ad, type: 3}
   m_Name: PMM
   m_EditorClassIdentifier: 
-  magazineSize: 8
+  defaultMagazine: {fileID: 11400000, guid: e376ad804abbb81468a5e311e6bd592a, type: 2}
   shootingCoolDown: 0.2
   reloadingDuration: 1
   rumbleDuration: 0

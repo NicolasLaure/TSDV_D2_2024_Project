@@ -24,6 +24,11 @@ public class WeaponHandler : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<CharacterMovement>();
+
+        foreach (GameObject weapon in weaponPrefabs)
+        {
+            weapon.GetComponent<Weapon>().WeaponSO.SetDefault();
+        }
     }
     private void Start()
     {
