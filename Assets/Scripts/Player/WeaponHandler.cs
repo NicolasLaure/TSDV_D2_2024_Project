@@ -45,7 +45,11 @@ public class WeaponHandler : MonoBehaviour
     public void OnWeaponChanged<T>(T weapon) where T : Weapon
     {
         if (currentWeapon != null)
+        {
+            SetWalkingState(Vector2.zero);
+            SetSprint(false);
             currentWeapon.SetActive(false);
+        }
 
         currentWeapon = weapon.gameObject;
         currentWeapon.SetActive(true);
@@ -81,6 +85,7 @@ public class WeaponHandler : MonoBehaviour
     {
         currentWeapon.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
     }
+    
     public void ScrollThroughHeldWeapons(int value)
     {
         currentWeaponIndex += value;
