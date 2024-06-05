@@ -4091,6 +4091,7 @@ MonoBehaviour:
   - {fileID: 561205658}
   - {fileID: 1075410283}
   - {fileID: 475419571}
+  saveFile: {fileID: 11400000, guid: 9c7c17f7c8c5f224596f3cab8a55a16b, type: 2}
 --- !u!1 &1576466885
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,6 +4323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a78dde04bbe1b4eaf9f22d7a805e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialManager: {fileID: 1574601725}
 --- !u!1 &1642872567
 GameObject:
   m_ObjectHideFlags: 0

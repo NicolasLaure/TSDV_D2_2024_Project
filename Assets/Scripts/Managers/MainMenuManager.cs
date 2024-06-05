@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    private static bool isFirstRun = true;
-
-    [RuntimeInitializeOnLoadMethod]
-    static void OnRuntimeMethodLoad()
-    {
-        isFirstRun = true;
-    }
+    [SerializeField] private GameSaveSO saveFile;
 
     private void Start()
     {
@@ -19,11 +13,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (isFirstRun)
+        if (!saveFile.wasTutorialFinished)
             Loader.ChangeScene(1);
         else
             Loader.ChangeScene(2);
-
-        isFirstRun = false;
     }
 }

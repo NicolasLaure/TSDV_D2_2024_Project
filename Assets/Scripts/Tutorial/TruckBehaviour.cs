@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TruckBehaviour : MonoBehaviour
 {
+    [SerializeField] private TutorialManager tutorialManager;
     public void EnableCollider()
     {
         GetComponent<Collider>().enabled = true;
@@ -11,6 +12,6 @@ public class TruckBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Loader.ChangeScene(2);
+        tutorialManager.EndTutorial();
     }
 }

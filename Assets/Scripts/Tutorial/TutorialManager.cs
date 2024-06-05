@@ -5,8 +5,9 @@ using UnityEngine;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private List<TutorialState> tutorialStates = new List<TutorialState>();
-    private TutorialState currentState;
+    [SerializeField] private GameSaveSO saveFile;
 
+    private TutorialState currentState;
     private int currentIndex = 0;
     private void Start()
     {
@@ -31,4 +32,9 @@ public class TutorialManager : MonoBehaviour
         Debug.Log($"The Current state is: {currentState.name}");
     }
 
+    public void EndTutorial()
+    {
+        Loader.ChangeScene(2);
+        saveFile.wasTutorialFinished = true;
+    }
 }
