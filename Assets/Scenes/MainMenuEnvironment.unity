@@ -2938,6 +2938,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1037052952}
+    - target: {fileID: 5357443269230545140, guid: d279238f0b195b14a9e3c51a52faff96, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357443269230545140, guid: d279238f0b195b14a9e3c51a52faff96, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c7c17f7c8c5f224596f3cab8a55a16b, type: 2}
+    - target: {fileID: 5357443269230545140, guid: d279238f0b195b14a9e3c51a52faff96, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetSave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357443269230545140, guid: d279238f0b195b14a9e3c51a52faff96, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameSaveSO, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5990129471547346135, guid: d279238f0b195b14a9e3c51a52faff96, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

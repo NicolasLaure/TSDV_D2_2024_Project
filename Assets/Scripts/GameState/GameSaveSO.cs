@@ -6,4 +6,9 @@ using UnityEngine;
 public class GameSaveSO : ScriptableObject
 {
     public bool wasTutorialFinished = false;   
+
+    public void ResetSave()
+    {
+        wasTutorialFinished = false;
+    }
 }
