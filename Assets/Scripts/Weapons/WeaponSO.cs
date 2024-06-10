@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New WeaponSO", menuName = "ScriptableObjects/Weapon", order = 0)]
@@ -18,8 +17,17 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private float rumbleHighIntensity;
 
     private MagazineSO currentMagazine;
+    public event Action onMagChanged;
     public int MagazineSize { get { return currentMagazine.Size; } }
-    public MagazineSO CurrentMagazine { get { return currentMagazine; } set { currentMagazine = value; } }
+    public MagazineSO CurrentMagazine
+    {
+        get { return currentMagazine; }
+        set
+        {
+            onMagChanged?.Invoke();
+            currentMagazine = value;
+        }
+    }
     public float ShootingCoolDown { get { return shootingCoolDown; } }
     public float ReloadingDuration { get { return reloadingDuration; } }
 
@@ -29,6 +37,7 @@ public class WeaponSO : ScriptableObject
 
     public void SetDefault()
     {
+        onMagChanged?.Invoke();
         currentMagazine = defaultMagazine;
     }
 }

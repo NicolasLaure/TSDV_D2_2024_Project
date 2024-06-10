@@ -33,6 +33,7 @@ public abstract class Weapon : MonoBehaviour
     {
         currentMagazine = weaponSO.MagazineSize;
         decals = GameObject.FindObjectOfType<DecalsHandler>();
+        weaponSO.onMagChanged += OnMagazineChanged;
     }
     private void OnEnable()
     {
@@ -92,6 +93,15 @@ public abstract class Weapon : MonoBehaviour
         onReloadFinished.Invoke();
     }
 
+    private void OnMagazineChanged()
+    {
+        currentMagazine = weaponSO.MagazineSize;
+        if (this.isActiveAndEnabled)
+        {
+            Debug.Log("MagChanged");
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
     public void OnMovementChange(Vector2 dir)
     {
         if (dir != Vector2.zero)

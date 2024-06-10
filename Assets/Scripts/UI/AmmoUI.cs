@@ -45,6 +45,7 @@ public class AmmoUI : MonoBehaviour
 
     private void SetUiElements()
     {
+        magazineSize = "/" + currentWeapon.WeaponSO.MagazineSize;
         ammoText.text = currentAmmo + magazineSize;
         ammoSlider.value = currentWeapon.CurrentAmmo;
     }
