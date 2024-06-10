@@ -34,7 +34,7 @@ public class TutorialManager : MonoBehaviour
 
     public void EndTutorial()
     {
-        Loader.ChangeScene(2);
         saveFile.wasTutorialFinished = true;
+        Loader.ChangeScene(2);
     }
 }
