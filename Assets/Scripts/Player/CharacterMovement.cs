@@ -30,7 +30,8 @@ public class CharacterMovement : MonoBehaviour
         }
 
         Vector3 movementDir = transform.right * localMovementDir.x + transform.forward * localMovementDir.z;
-        characterController.Move(movementDir * speed * currentMultiplier * Time.deltaTime);
+        Vector3 gravity = Physics.gravity;
+        characterController.Move(gravity + movementDir * speed * currentMultiplier * Time.deltaTime);
     }
     public void SetDir(Vector2 dir)
     {
