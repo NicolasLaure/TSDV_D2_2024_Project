@@ -6,7 +6,6 @@ public class SpinningTarget : Target
 {
     protected override IEnumerator GotShotCoroutine()
     {
-        originalRotation = transform.rotation;
         float timer = Time.time;
         float duration = Time.time + recoverDuration; 
         while (timer <= duration)

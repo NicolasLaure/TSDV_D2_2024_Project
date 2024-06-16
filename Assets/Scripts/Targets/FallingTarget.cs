@@ -24,8 +24,6 @@ public class FallingTarget : Target
     }
     protected IEnumerator FallCoroutine()
     {
-        originalRotation = transform.rotation;
-
         float startTime = Time.time;
         float timer = 0;
         float targetRotation = transform.rotation.eulerAngles.x + 90;

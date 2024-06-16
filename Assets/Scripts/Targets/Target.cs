@@ -13,6 +13,7 @@ public abstract class Target : MonoBehaviour
     private void Awake()
     {
         shotReceived += OnShotReceived;
+        originalRotation = transform.rotation;
     }
   
     private void OnShotReceived()
