@@ -8,7 +8,9 @@ public class TrackTarget : FallingTarget
     public bool WasShotDown { get { return wasShotDown; } }
     public void SetDown()
     {
-        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + 90, originalRotation.eulerAngles.y, originalRotation.eulerAngles.z);
+        if (transform.rotation == originalRotation)
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + 90, originalRotation.eulerAngles.y, originalRotation.eulerAngles.z);
+
         wasShotDown = false;
     }
     public void GetUp()
