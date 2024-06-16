@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TrackTarget : FallingTarget
 {
+    private bool wasShotDown = false;
+    public bool WasShotDown { get { return wasShotDown; } }
     public void SetDown()
     {
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + 90, originalRotation.eulerAngles.y, originalRotation.eulerAngles.z);
+        wasShotDown = false;
     }
     public void GetUp()
     {
@@ -14,6 +17,7 @@ public class TrackTarget : FallingTarget
     }
     protected override IEnumerator GotShotCoroutine()
     {
+        wasShotDown = true;
         yield return FallCoroutine();
     }
 }
