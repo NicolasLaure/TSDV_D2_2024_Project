@@ -10,17 +10,15 @@ public class TrainingTrackManager : MonoBehaviour
     private void Awake()
     {
         onStateChange += AddState;
-       
+
     }
     private void Start()
     {
-        foreach (TrackState state in targetGroups)
-        {
-            state.Initialize();
-        }
+        InitializeStates();
     }
     public void StartTrack()
     {
+        InitializeStates();
         targetGroups[0].Enter();
         onRestart?.Invoke();
     }
@@ -32,6 +30,13 @@ public class TrainingTrackManager : MonoBehaviour
             {
                 state.Enter();
             }
+        }
+    }
+    private void InitializeStates()
+    {
+        foreach (TrackState state in targetGroups)
+        {
+            state.Initialize();
         }
     }
     public void StartTimer()
