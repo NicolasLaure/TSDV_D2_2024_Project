@@ -10,11 +10,14 @@ public class TrainingTrackManager : MonoBehaviour
     private void Awake()
     {
         onStateChange += AddState;
-
     }
     private void Start()
     {
         InitializeStates();
+    }
+    private void OnDestroy()
+    {
+        onStateChange -= AddState;
     }
     public void StartTrack()
     {
