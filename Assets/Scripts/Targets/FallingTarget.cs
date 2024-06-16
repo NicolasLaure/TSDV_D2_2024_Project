@@ -7,11 +7,6 @@ public class FallingTarget : Target
     [SerializeField] private float fallDuration = 0.3f;
     [SerializeField] private float getUpDuration = 0.3f;
 
-    private void GetUp()
-    {
-        transform.rotation = originalRotation;
-        canFall = true;
-    }
     protected override IEnumerator GotShotCoroutine()
     {
         if (canFall)
@@ -47,7 +42,7 @@ public class FallingTarget : Target
         while (timer < getUpDuration)
         {
             timer = Time.time - startTime;
-            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, originalRotation.eulerAngles.x, timer / getUpDuration), 0, 0);
+            transform.rotation = Quaternion.Euler(Mathf.Lerp(transform.rotation.eulerAngles.x, originalRotation.eulerAngles.x, timer / getUpDuration), originalRotation.eulerAngles.y, originalRotation.eulerAngles.z);
             yield return null;
         }
 
