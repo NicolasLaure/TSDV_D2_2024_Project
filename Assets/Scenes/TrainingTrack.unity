@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 124290023}
   - component: {fileID: 124290025}
   - component: {fileID: 124290024}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: StairsTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2777,7 +2777,7 @@ GameObject:
   - component: {fileID: 546931706}
   - component: {fileID: 546931708}
   - component: {fileID: 546931707}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SmallSquareRoomTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4088,7 +4088,7 @@ GameObject:
   - component: {fileID: 765337041}
   - component: {fileID: 765337043}
   - component: {fileID: 765337042}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BigRoomTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5165,7 +5165,7 @@ GameObject:
   - component: {fileID: 985137587}
   - component: {fileID: 985137589}
   - component: {fileID: 985137588}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SmallSlopeRoomTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9911,7 +9911,7 @@ GameObject:
   - component: {fileID: 2005881019}
   - component: {fileID: 2005881021}
   - component: {fileID: 2005881020}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LastRoomTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

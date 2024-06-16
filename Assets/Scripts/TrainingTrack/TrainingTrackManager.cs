@@ -21,7 +21,6 @@ public class TrainingTrackManager : MonoBehaviour
     }
     public void StartTrack()
     {
-        Debug.Log("Start Track");
         targetGroups[0].Enter();
         onRestart?.Invoke();
     }
