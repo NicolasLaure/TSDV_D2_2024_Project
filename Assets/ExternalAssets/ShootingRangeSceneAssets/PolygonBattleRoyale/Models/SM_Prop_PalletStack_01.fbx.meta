@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: db8bc3d166184ac4d85181169931b8e5
-timeCreated: 1536626384
+guid: fc88cb2b0d4fb704ea6ea4ce16582ce2
+timeCreated: 1536626385
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: SM_Prop_Range_Wall_Door_01
+    4300000: SM_Prop_PalletStack_01
     9500000: //RootNode
   materials:
     importMaterials: 0

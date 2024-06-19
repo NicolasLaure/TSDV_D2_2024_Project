@@ -1,15 +1,20 @@
 fileFormatVersion: 2
-guid: db8bc3d166184ac4d85181169931b8e5
-timeCreated: 1536626384
+guid: 288b42701c4799046a7c2086a1248155
+timeCreated: 1536626380
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: SM_Prop_Crate_Small_01_Lid
     400000: //RootNode
+    400002: SM_Prop_Crate_Small_01_Lid
     2300000: //RootNode
+    2300002: SM_Prop_Crate_Small_01_Lid
     3300000: //RootNode
-    4300000: SM_Prop_Range_Wall_Door_01
+    3300002: SM_Prop_Crate_Small_01_Lid
+    4300000: SM_Prop_Crate_Small_01
+    4300002: SM_Prop_Crate_Small_01_Lid
     9500000: //RootNode
   materials:
     importMaterials: 0
