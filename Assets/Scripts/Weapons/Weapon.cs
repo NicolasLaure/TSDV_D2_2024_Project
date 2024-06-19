@@ -40,6 +40,10 @@ public abstract class Weapon : MonoBehaviour
         isReloading = false;
         isFiring = false;
     }
+    private void OnDestroy()
+    {
+        weaponSO.onMagChanged -= OnMagazineChanged;
+    }
     public void Shoot()
     {
         if (!CanShoot())
