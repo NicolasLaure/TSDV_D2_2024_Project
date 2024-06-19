@@ -12,6 +12,12 @@ public class ShootingTutorial : TutorialState
     [SerializeField] private float endPanelDuration;
     [SerializeField] private GameObject warningPanel;
     [SerializeField] private GameObject truckPanel;
+
+    private void Awake()
+    {
+        target.SetActive(false);
+    }
+
     protected override IEnumerator StartStateCoroutine()
     {
         warningPanel.SetActive(true);
