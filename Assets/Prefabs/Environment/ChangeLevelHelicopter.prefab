@@ -27,11 +27,11 @@ Transform:
   m_GameObject: {fileID: 6012989089559681692}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.60501194, y: -3.3866346, z: -0.25059664}
+  m_LocalScale: {x: 0.23866348, y: 0.23866348, z: 0.23866348}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4187369751187622298}
+  m_Father: {fileID: 7906259422842585809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8497924290849708012
 BoxCollider:
@@ -76,6 +76,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4187369751187622298}
+  - component: {fileID: 3271996224799674150}
   m_Layer: 0
   m_Name: ChangeLevelHelicopter
   m_TagString: Untagged
@@ -98,8 +99,55 @@ Transform:
   m_Children:
   - {fileID: 536619318359719498}
   - {fileID: 7906259422842585809}
-  - {fileID: 1793905103451939487}
+  - {fileID: 4883008546675115643}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3271996224799674150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6086923277898358858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bb60e0cbd884b4594163ebd0d11bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  helicopterSpawnPos: {fileID: 4883008546675115643}
+  travelDuration: 5
+  helicopter: {fileID: 6437921707432287835}
+  rope: {fileID: 4775608928636076537}
+--- !u!1 &7143353421542399857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4883008546675115643}
+  m_Layer: 0
+  m_Name: HelicopterSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4883008546675115643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143353421542399857}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4187369751187622298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4712671321096295080
 PrefabInstance:
@@ -179,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rope
       objectReference: {fileID: 0}
+    - target: {fileID: 831018549981944773, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2627477635251869933, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.19
@@ -241,8 +293,16 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2627477635251869933, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7282436475766245957}
+    - targetCorrespondingSourceObject: {fileID: 2627477635251869933, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1793905103451939487}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
+--- !u!1 &4775608928636076537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 831018549981944773, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
+  m_PrefabInstance: {fileID: 5318190354517105212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7906259422842585809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2627477635251869933, guid: e4d89ae13c771e34f9b8b5e8379668b9, type: 3}
@@ -260,13 +320,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelicopterV1
       objectReference: {fileID: 0}
-    - target: {fileID: 8417442085250704511, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8417442085250704511, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.23
+    - target: {fileID: 8277268270088658548, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8760929607941571790, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -308,8 +364,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9215913463001387831, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -319,3 +374,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8760929607941571790, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
   m_PrefabInstance: {fileID: 9144391242593745540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6437921707432287835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2864131910491776223, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
+  m_PrefabInstance: {fileID: 9144391242593745540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c33a1ea553892499acef37a0a6a70a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
