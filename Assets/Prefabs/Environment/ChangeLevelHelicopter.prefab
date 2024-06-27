@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1793905103451939487}
   - component: {fileID: 8497924290849708012}
-  m_Layer: 0
+  - component: {fileID: 6766040910511522486}
+  m_Layer: 14
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +54,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9629192, y: 7.274679, z: 1.873949}
   m_Center: {x: 2.5595937, y: 6.9911366, z: 1.0237896}
+--- !u!114 &6766040910511522486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012989089559681692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ceffd9579e6764ea659f7e9027e707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: TrainingTrack
 --- !u!1 &6086923277898358858
 GameObject:
   m_ObjectHideFlags: 0
