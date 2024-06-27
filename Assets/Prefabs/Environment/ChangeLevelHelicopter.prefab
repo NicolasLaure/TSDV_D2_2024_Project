@@ -345,6 +345,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4180876399903360061, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3916378637302920650, guid: 538a09c12b7e35a4ab67bb53fbb31030, type: 2}
+    - target: {fileID: 4180876399903360061, guid: 16ac732b58c8753419a01038b1642b0d, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.size
       value: 2
       objectReference: {fileID: 0}
