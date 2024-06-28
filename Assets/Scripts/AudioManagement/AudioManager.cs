@@ -39,6 +39,13 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat("Master", linearToDecibel(values.master));
         mixer.SetFloat("Sfx", linearToDecibel(values.sfx));
         mixer.SetFloat("Music", linearToDecibel(values.music));
+
+        mixer.GetFloat("Master", out float master);
+        mixer.GetFloat("Sfx", out float sfx);
+        mixer.GetFloat("Music", out float music);
+        Debug.Log(master);
+        Debug.Log(sfx);
+        Debug.Log(music);
     }
 
     public void SetDefaultVolumes()
