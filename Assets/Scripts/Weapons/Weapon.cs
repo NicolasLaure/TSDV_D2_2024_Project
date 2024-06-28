@@ -77,7 +77,7 @@ public abstract class Weapon : MonoBehaviour
     {
         LastShotTime = Time.time;
         currentMagazine--;
-        onShoot.Invoke();
+        onShoot?.Invoke();
     }
     public bool CanShoot()
     {
@@ -89,12 +89,12 @@ public abstract class Weapon : MonoBehaviour
     }
     private IEnumerator ReloadCoroutine()
     {
-        onReload.Invoke();
+        onReload?.Invoke();
         isReloading = true;
         yield return new WaitForSeconds(weaponSO.ReloadingDuration);
         isReloading = false;
         currentMagazine = weaponSO.MagazineSize;
-        onReloadFinished.Invoke();
+        onReloadFinished?.Invoke();
     }
 
     private void OnMagazineChanged()
