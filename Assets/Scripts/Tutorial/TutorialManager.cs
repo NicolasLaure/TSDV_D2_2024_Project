@@ -35,6 +35,6 @@ public class TutorialManager : MonoBehaviour
     public void EndTutorial()
     {
         saveFile.wasTutorialFinished = true;
-        Loader.ChangeScene(2);
+        Loader.ChangeScene("ShootingRange");
     }
 }

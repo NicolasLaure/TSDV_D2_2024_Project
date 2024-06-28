@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eabafcf1b5b61f4db1a09517a746f1f, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  master: 30
-  sfx: 30
-  music: 30
+  master: 1
+  sfx: 1
+  music: 1

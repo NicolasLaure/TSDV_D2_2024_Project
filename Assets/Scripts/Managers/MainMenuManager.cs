@@ -14,8 +14,8 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         if (!saveFile.wasTutorialFinished)
-            Loader.ChangeScene(1);
+            Loader.ChangeScene("TutorialScene");
         else
-            Loader.ChangeScene(2);
+            Loader.ChangeScene("ShootingRange");
     }
 }
