@@ -40,6 +40,6 @@ public class TrialTarget : FallingTarget
     }
     private void GotShot()
     {
-        onTrialTargetShot.Invoke(isEnemy);
+        onTrialTargetShot?.Invoke(isEnemy);
     }
 }

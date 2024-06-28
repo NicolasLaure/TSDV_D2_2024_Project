@@ -44,7 +44,7 @@ public class MovementTutorial : TutorialState
 
         yield return new WaitForSeconds(endDuration);
 
-        onStateFinished.Invoke();
+        onStateFinished?.Invoke();
     }
 
     private bool HasPlayerMoved()

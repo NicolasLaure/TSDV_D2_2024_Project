@@ -33,7 +33,7 @@ public class HitscanWeapon : Weapon
             if (hittedTarget != null)
             {
                 Debug.Log("Shot received");
-                hittedTarget.shotReceived.Invoke();
+                hittedTarget.shotReceived?.Invoke();
             }
         }
     }

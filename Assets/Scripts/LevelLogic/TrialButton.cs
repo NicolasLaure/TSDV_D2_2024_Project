@@ -9,7 +9,7 @@ public class TrialButton : Target
 
     protected override IEnumerator GotShotCoroutine()
     {
-        onButtonHit.Invoke();
+        onButtonHit?.Invoke();
         yield break;
     }
 }

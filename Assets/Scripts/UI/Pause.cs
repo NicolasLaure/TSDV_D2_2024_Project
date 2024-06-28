@@ -12,7 +12,7 @@ public class Pause : MonoBehaviour
         shouldUnpause = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
-        onPausePanelStateChange.Invoke(true);
+        onPausePanelStateChange?.Invoke(true);
     }
     private void OnDisable()
     {
@@ -20,7 +20,7 @@ public class Pause : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
-            onPausePanelStateChange.Invoke(false);
+            onPausePanelStateChange?.Invoke(false);
         }
     }
 

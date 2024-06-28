@@ -7,7 +7,7 @@ public class ThrowersStartButton : Target
     public Action onStartThrowing;
     protected override IEnumerator GotShotCoroutine()
     {
-        onStartThrowing.Invoke();
+        onStartThrowing?.Invoke();
         yield break;
     }
 }

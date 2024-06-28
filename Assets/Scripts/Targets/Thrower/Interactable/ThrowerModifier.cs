@@ -8,7 +8,7 @@ public class ThrowerModifier : Target
     public Action<int> onModifierHit;
     protected override IEnumerator GotShotCoroutine()
     {
-        onModifierHit.Invoke(modifyValue);
+        onModifierHit?.Invoke(modifyValue);
         yield break;
     }
 }

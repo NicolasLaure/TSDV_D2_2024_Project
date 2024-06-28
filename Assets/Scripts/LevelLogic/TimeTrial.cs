@@ -56,7 +56,7 @@ public class TimeTrial : MonoBehaviour
         }
         if (score > highScore)
             highScore = score;
-        onTrialFinish.Invoke();
+        onTrialFinish?.Invoke();
     }
 
     private IEnumerator PresentTarget()

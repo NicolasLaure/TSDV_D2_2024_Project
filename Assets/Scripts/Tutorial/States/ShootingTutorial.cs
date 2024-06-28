@@ -30,7 +30,7 @@ public class ShootingTutorial : TutorialState
         yield return new WaitForSeconds(endPanelDuration);
         truckPanel.SetActive(false);
 
-        onStateFinished.Invoke();
+        onStateFinished?.Invoke();
     }
 
     private IEnumerator TargetsPop()

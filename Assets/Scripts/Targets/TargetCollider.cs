@@ -13,6 +13,6 @@ public class TargetCollider : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        target.shotReceived.Invoke();
+        target.shotReceived?.Invoke();
     }
 }

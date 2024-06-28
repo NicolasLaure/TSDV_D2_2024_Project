@@ -41,10 +41,16 @@ public class WeaponHandler : MonoBehaviour
         }
         currentWeaponIndex = 0;
         heldWeapons.Add(weapons[0]);
-        onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
 
         playerMovement.onCharacterMove += SetWalkingState;
         playerMovement.onCharacterSprint += SetSprint;
+    }
+    private void OnDestroy()
+    {
+        onWeaponChange -= OnWeaponChanged;
+        playerMovement.onCharacterMove -= SetWalkingState;
+        playerMovement.onCharacterSprint -= SetSprint;
     }
 
     public void OnWeaponChanged<T>(T weapon) where T : Weapon
@@ -90,7 +96,7 @@ public class WeaponHandler : MonoBehaviour
     {
         currentWeapon.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
     }
-    
+
     public void ScrollThroughHeldWeapons(int value)
     {
         currentWeaponIndex += value;
@@ -99,7 +105,7 @@ public class WeaponHandler : MonoBehaviour
         else if (currentWeaponIndex >= heldWeapons.Count)
             currentWeaponIndex = 0;
 
-        onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
     }
 
     public bool TryGrabWeapon(WeaponSO weapon)
@@ -122,7 +128,7 @@ public class WeaponHandler : MonoBehaviour
 
         heldWeapons.RemoveAt(currentWeaponIndex);
         heldWeapons.Insert(currentWeaponIndex, weaponsInstance);
-        onWeaponChange.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
         return true;
     }
 
@@ -134,7 +140,7 @@ public class WeaponHandler : MonoBehaviour
             GameObject weapon = GameObject.Instantiate(weaponPrefab, transform.position, Quaternion.identity);
             StartCoroutine(weapon.GetComponent<EnvironmentWeapon>().ThrowWeapon(Camera.main.transform.forward * dropForce));
             heldWeapons.RemoveAt(currentWeaponIndex);
-            onWeaponChange.Invoke(heldWeapons[0].GetComponent<Weapon>());
+            onWeaponChange?.Invoke(heldWeapons[0].GetComponent<Weapon>());
             return true;
         }
         return false;

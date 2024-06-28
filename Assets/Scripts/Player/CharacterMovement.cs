@@ -36,19 +36,19 @@ public class CharacterMovement : MonoBehaviour
     public void SetDir(Vector2 dir)
     {
         localMovementDir = new Vector3(dir.x, 0, dir.y);
-        onCharacterMove.Invoke(dir);
+        onCharacterMove?.Invoke(dir);
     }
     public void SetSprint(bool isSprinting)
     {
         if (isSprinting && localMovementDir != Vector3.zero)
         {
             currentMultiplier = sprintSpeedMultiplier;
-            onCharacterSprint.Invoke(true);
+            onCharacterSprint?.Invoke(true);
         }
         else
         {
             currentMultiplier = 1;
-            onCharacterSprint.Invoke(false);
+            onCharacterSprint?.Invoke(false);
         }
     }
 }
