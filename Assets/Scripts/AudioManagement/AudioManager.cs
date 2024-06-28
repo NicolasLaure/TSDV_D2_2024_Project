@@ -8,7 +8,8 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [SerializeField] private AudioMixer mixer;
-
+    [SerializeField] private AudioMixerValuesSO defaultVolumes;
+    [SerializeField] private AudioMixerValuesSO currentVolumes;
     public Action<AudioMixerValuesSO> onVolumeChanged;
 
     private void Awake()
@@ -24,6 +25,7 @@ public class AudioManager : MonoBehaviour
         }
 
         onVolumeChanged += OnVolumeChanged;
+        SetDefaultVolumes();
     }
 
     private void OnDestroy()
@@ -38,16 +40,25 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat("Music", linearToDecibel(values.music));
     }
 
+    public void SetDefaultVolumes()
+    {
+        currentVolumes.master = defaultVolumes.master;
+        currentVolumes.sfx = defaultVolumes.sfx;
+        currentVolumes.music = defaultVolumes.music;
+
+        onVolumeChanged?.Invoke(currentVolumes);
+    }
+
     /// <summary>
-    /// Returns a decibel in the proper range [-144Db, 20Db] clamping input between 0 and 100
+    /// Returns a decibel in the proper range [-144Db, 15Db] clamping input between 0 and 2
     /// </summary>
     private float linearToDecibel(float input)
     {
-        input = Mathf.Clamp(input, 0, 100);
+        input = Mathf.Clamp(input, 0, 2);
 
         if (input == 0)
             return -144f;
 
-        return Mathf.Log10(input) * 10;
+        return Mathf.Log10(input) * 50;
     }
 }
