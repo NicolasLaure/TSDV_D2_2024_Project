@@ -952,14 +952,12 @@ MonoBehaviour:
   - {fileID: 8064508970553032655}
   - {fileID: 7953664761508721016}
   panelDuration: 3
+  timeBetweenMedals: 0
   tiersAchieved: 0
   tierTimes:
   - 40
   - 25
   - 15
-  tier1Time: 50
-  tier2Time: 35
-  tier3Time: 20
   tierTexts: {fileID: 9047053551972350763}
   finalTimeText: {fileID: 5423804469962343115}
   bestTimeText: {fileID: 7663191134695487810}
@@ -976,6 +974,7 @@ GameObject:
   - component: {fileID: 5457874032649921112}
   - component: {fileID: 4019131047570687313}
   - component: {fileID: 408159817106873983}
+  - component: {fileID: 8706357420604307766}
   m_Layer: 5
   m_Name: BronzeTier
   m_TagString: Untagged
@@ -1040,6 +1039,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8706357420604307766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6177887614156504368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4dc15c885d7e428927888e54c272b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSizeMultiplier: 2
+  animDuration: 0.5
 --- !u!1 &7561417055806367734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1263,7 @@ GameObject:
   - component: {fileID: 6317483804575433770}
   - component: {fileID: 1745402830317160430}
   - component: {fileID: 6714375374395260559}
+  - component: {fileID: 8171992843950144035}
   m_Layer: 5
   m_Name: GoldTier
   m_TagString: Untagged
@@ -1314,6 +1328,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8171992843950144035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953664761508721016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4dc15c885d7e428927888e54c272b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSizeMultiplier: 2
+  animDuration: 0.5
 --- !u!1 &8064508970553032655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1353,7 @@ GameObject:
   - component: {fileID: 586898229706386953}
   - component: {fileID: 3172543142653775013}
   - component: {fileID: 5501681627390692846}
+  - component: {fileID: 6770361911249022840}
   m_Layer: 5
   m_Name: SilverTier
   m_TagString: Untagged
@@ -1389,6 +1418,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6770361911249022840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064508970553032655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4dc15c885d7e428927888e54c272b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialSizeMultiplier: 2
+  animDuration: 0.5
 --- !u!1 &8666963263649971898
 GameObject:
   m_ObjectHideFlags: 0
