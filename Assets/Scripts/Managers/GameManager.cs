@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private int firstSceneIndex = 1;
     private void Start()
     {
-        Loader.AddScene(1);
+        Loader.AddScene(firstSceneIndex);
+        Loader.FirstInteractableSceneIndex = firstSceneIndex;
     }
 }

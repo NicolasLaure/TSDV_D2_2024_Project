@@ -30,8 +30,10 @@ public class Cheats : MonoBehaviour
     }
     private void NextScene(InputAction.CallbackContext context)
     {
-        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (nextIndex < SceneManager.sceneCountInBuildSettings)
-            Loader.ChangeScene(nextIndex);
+        Loader.ChangeToNextScene();
+    }
+    private void PrevScene(InputAction.CallbackContext context)
+    {
+        Loader.ChangeToPreviousScene();
     }
 }

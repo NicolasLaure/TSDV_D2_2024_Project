@@ -9,6 +9,18 @@ public class Loader : MonoBehaviour
     private static AsyncOperation changeSceneAsync = null;
     private static string asyncSceneName = null;
     private static int currentSceneIndex = 0;
+    private static int firstInteractableSceneIndex = 0;
+    private static int lastInteractableSceneIndex = 0;
+
+    public static int FirstInteractableSceneIndex
+    {
+        get { return firstInteractableSceneIndex; }
+        set
+        {
+            firstInteractableSceneIndex = value;
+            lastInteractableSceneIndex = SceneManager.sceneCountInBuildSettings - firstInteractableSceneIndex;
+        }
+    }
 
     private void Awake()
     {
@@ -31,7 +43,16 @@ public class Loader : MonoBehaviour
         SceneManager.LoadScene(name, LoadSceneMode.Additive);
         currentSceneIndex = SceneManager.GetSceneByName(name).buildIndex;
     }
-
+    public static void ChangeToNextScene()
+    {
+        if (currentSceneIndex + 1 <= lastInteractableSceneIndex)
+            ChangeScene(currentSceneIndex + 1);
+    }
+    public static void ChangeToPreviousScene()
+    {
+        if (currentSceneIndex - 1 >= firstInteractableSceneIndex)
+            ChangeScene(currentSceneIndex - 1);
+    }
     public static void AddScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
