@@ -44,6 +44,15 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PrevLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e0b8afa-18e2-4087-a8d8-dedd5edff6c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                     ""action"": ""NextLevel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4c86d790-7681-4e6b-9de6-1e4b01d8511a"",
+                    ""path"": ""<Keyboard>/f6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PrevLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
         m_Cheats_MaxAmmo = m_Cheats.FindAction("MaxAmmo", throwIfNotFound: true);
         m_Cheats_NextLevel = m_Cheats.FindAction("NextLevel", throwIfNotFound: true);
+        m_Cheats_PrevLevel = m_Cheats.FindAction("PrevLevel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +162,14 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
     private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
     private readonly InputAction m_Cheats_MaxAmmo;
     private readonly InputAction m_Cheats_NextLevel;
+    private readonly InputAction m_Cheats_PrevLevel;
     public struct CheatsActions
     {
         private @CheatsInput m_Wrapper;
         public CheatsActions(@CheatsInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @MaxAmmo => m_Wrapper.m_Cheats_MaxAmmo;
         public InputAction @NextLevel => m_Wrapper.m_Cheats_NextLevel;
+        public InputAction @PrevLevel => m_Wrapper.m_Cheats_PrevLevel;
         public InputActionMap Get() { return m_Wrapper.m_Cheats; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +185,9 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
             @NextLevel.started += instance.OnNextLevel;
             @NextLevel.performed += instance.OnNextLevel;
             @NextLevel.canceled += instance.OnNextLevel;
+            @PrevLevel.started += instance.OnPrevLevel;
+            @PrevLevel.performed += instance.OnPrevLevel;
+            @PrevLevel.canceled += instance.OnPrevLevel;
         }
 
         private void UnregisterCallbacks(ICheatsActions instance)
@@ -172,6 +198,9 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
             @NextLevel.started -= instance.OnNextLevel;
             @NextLevel.performed -= instance.OnNextLevel;
             @NextLevel.canceled -= instance.OnNextLevel;
+            @PrevLevel.started -= instance.OnPrevLevel;
+            @PrevLevel.performed -= instance.OnPrevLevel;
+            @PrevLevel.canceled -= instance.OnPrevLevel;
         }
 
         public void RemoveCallbacks(ICheatsActions instance)
@@ -193,5 +222,6 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
     {
         void OnMaxAmmo(InputAction.CallbackContext context);
         void OnNextLevel(InputAction.CallbackContext context);
+        void OnPrevLevel(InputAction.CallbackContext context);
     }
 }

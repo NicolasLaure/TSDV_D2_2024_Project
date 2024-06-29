@@ -17,6 +17,7 @@ public class Cheats : MonoBehaviour
 
         cheats.Cheats.MaxAmmo.performed += InfiniteAmmo;
         cheats.Cheats.NextLevel.performed += NextScene;
+        cheats.Cheats.PrevLevel.performed += PrevScene;
     }
     private void InfiniteAmmo(InputAction.CallbackContext context)
     {
