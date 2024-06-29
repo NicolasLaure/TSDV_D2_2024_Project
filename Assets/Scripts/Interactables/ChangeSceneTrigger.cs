@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ChangeSceneTrigger : MonoBehaviour
 {
-    [SerializeField] string nextSceneName;
-    [SerializeField] Loader loader;
+    //[SerializeField] string nextSceneName;
     private void OnTriggerEnter(Collider other)
     {
-        loader.ChangeToAsyncLoadedScene();
+        Loader.ChangeToAsyncLoadedScene();
     }
 }

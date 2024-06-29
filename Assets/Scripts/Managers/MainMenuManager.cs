@@ -5,7 +5,6 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameSaveSO saveFile;
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;

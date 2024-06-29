@@ -30,6 +30,6 @@ public class Pause : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 1;
 
-        Loader.ChangeScene(0);
+        Loader.ChangeScene("MainMenuEnvironment");
     }
 }

@@ -26,7 +26,6 @@ public class AudioManager : MonoBehaviour
 
         onVolumeChanged += OnVolumeChanged;
         SetDefaultVolumes();
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void OnDestroy()

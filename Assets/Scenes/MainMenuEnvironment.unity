@@ -2938,6 +2938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveFile: {fileID: 11400000, guid: 9c7c17f7c8c5f224596f3cab8a55a16b, type: 2}
+  loader: {fileID: 1666121643}
 --- !u!4 &2102144913
 Transform:
   m_ObjectHideFlags: 0

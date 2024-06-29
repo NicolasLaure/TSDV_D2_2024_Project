@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Loader loader;
     private void Start()
     {
-        loader.AddScene(1);
+        Loader.AddScene(1);
     }
 }

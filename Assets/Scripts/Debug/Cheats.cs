@@ -8,7 +8,6 @@ public class Cheats : MonoBehaviour
 {
     [SerializeField] private List<WeaponSO> weaponSOs = new List<WeaponSO>();
     [SerializeField] private MagazineSO cheatMag;
-
     private CheatsInput cheats;
 
     private void Awake()

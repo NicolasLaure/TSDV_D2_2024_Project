@@ -6,7 +6,6 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private List<TutorialState> tutorialStates = new List<TutorialState>();
     [SerializeField] private GameSaveSO saveFile;
-
     private TutorialState currentState;
     private int currentIndex = 0;
     private void Start()

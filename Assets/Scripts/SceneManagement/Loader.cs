@@ -6,8 +6,9 @@ using System;
 public class Loader : MonoBehaviour
 {
     [SerializeField] private List<string> scenesInBuildNames = new List<string>();
-    private AsyncOperation changeSceneAsync = null;
-    private int currentScene;
+    private static AsyncOperation changeSceneAsync = null;
+    private static string asyncSceneName = null;
+    private static int currentSceneIndex = 0;
 
     private void Awake()
     {
@@ -15,49 +16,50 @@ public class Loader : MonoBehaviour
     }
     public static void ChangeScene(int buildIndex)
     {
-        SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
+        if (currentSceneIndex != 0)
+            RemoveScene(currentSceneIndex);
+
+        SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
+        currentSceneIndex = buildIndex;
     }
 
     public static void ChangeScene(string name)
     {
-        Scene nextScene = SceneManager.GetSceneByName(name);
+        if (currentSceneIndex != 0)
+            RemoveScene(currentSceneIndex);
 
-        if (nextScene != null)
-            SceneManager.LoadScene(name, LoadSceneMode.Single);
-        else
-            Debug.LogError($"There is no scene with {name} name in build");
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        currentSceneIndex = SceneManager.GetSceneByName(name).buildIndex;
     }
 
-    public void AddScene(int buildIndex)
+    public static void AddScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
+        currentSceneIndex = buildIndex;
     }
 
     public static void AddScene(string name)
     {
-        Scene nextScene = SceneManager.GetSceneByName(name);
-
-        if (nextScene != null)
-            SceneManager.LoadScene(name, LoadSceneMode.Additive);
-        else
-            Debug.LogError($"There is no scene with {name} name in build");
+        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        currentSceneIndex = SceneManager.GetSceneByName(name).buildIndex;
     }
-    public void LoadSceneAsync(string sceneName)
+    public static void LoadSceneAsync(string sceneName)
     {
-        currentScene = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(sceneName);
+        asyncSceneName = sceneName;
         if (changeSceneAsync == null)
         {
-            changeSceneAsync = SceneManager.LoadSceneAsync(sceneName);
+            changeSceneAsync = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             changeSceneAsync.allowSceneActivation = false;
         }
     }
-    public void ChangeToAsyncLoadedScene()
+    public static void ChangeToAsyncLoadedScene()
     {
+        RemoveScene(currentSceneIndex);
         changeSceneAsync.allowSceneActivation = true;
-        RemoveScene(currentScene);
+        currentSceneIndex = SceneManager.GetSceneByName(asyncSceneName).buildIndex;
+        changeSceneAsync = null;
     }
-    public void RemoveScene(int buildIndex)
+    public static void RemoveScene(int buildIndex)
     {
         SceneManager.UnloadSceneAsync(buildIndex);
     }
