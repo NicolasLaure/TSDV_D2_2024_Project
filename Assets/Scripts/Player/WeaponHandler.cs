@@ -12,7 +12,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
     private List<GameObject> weapons = new List<GameObject>();
     private List<GameObject> heldWeapons = new List<GameObject>();
-    private GameObject currentWeapon = null;
+    private GameObject currentWeaponObject = null;
     private int currentWeaponIndex = 0;
     private bool isInCombatMode = true;
     private WeaponRumble weaponRumbleController;
@@ -20,6 +20,16 @@ public class WeaponHandler : MonoBehaviour
 
     public Action<Weapon> onWeaponChange;
     public WeaponSO CurrentWeaponSO { get { return currentWeaponSO; } }
+    public Weapon CurrentWeapon
+    {
+        get
+        {
+            if (currentWeaponObject)
+                return currentWeaponObject.GetComponent<Weapon>();
+            else
+                return null;
+        }
+    }
 
     private void Awake()
     {
@@ -55,27 +65,27 @@ public class WeaponHandler : MonoBehaviour
 
     public void OnWeaponChanged<T>(T weapon) where T : Weapon
     {
-        if (currentWeapon != null)
+        if (currentWeaponObject != null)
         {
             SetWalkingState(Vector2.zero);
             SetSprint(false);
-            currentWeapon.SetActive(false);
+            currentWeaponObject.SetActive(false);
         }
 
-        currentWeapon = weapon.gameObject;
-        currentWeapon.SetActive(true);
-        weaponRumbleController = currentWeapon.GetComponent<WeaponRumble>();
+        currentWeaponObject = weapon.gameObject;
+        currentWeaponObject.SetActive(true);
+        weaponRumbleController = currentWeaponObject.GetComponent<WeaponRumble>();
     }
 
     public void ShootWeapon()
     {
-        if (isInCombatMode && currentWeapon != null)
-            currentWeapon.GetComponent<Weapon>().Shoot();
+        if (isInCombatMode && currentWeaponObject != null)
+            currentWeaponObject.GetComponent<Weapon>().Shoot();
     }
     public void CancelShoot()
     {
-        if (currentWeapon != null)
-            currentWeapon.GetComponent<Weapon>().StopShooting();
+        if (currentWeaponObject != null)
+            currentWeaponObject.GetComponent<Weapon>().StopShooting();
     }
     public void SetWeaponRumbler(bool value)
     {
@@ -84,17 +94,17 @@ public class WeaponHandler : MonoBehaviour
 
     public void ReloadWeapon()
     {
-        if (isInCombatMode && currentWeapon != null)
-            currentWeapon.GetComponent<Weapon>().Reload();
+        if (isInCombatMode && currentWeaponObject != null)
+            currentWeaponObject.GetComponent<Weapon>().Reload();
     }
 
     public void SetWalkingState(Vector2 movementDir)
     {
-        currentWeapon.GetComponent<Weapon>().OnMovementChange(movementDir);
+        currentWeaponObject.GetComponent<Weapon>().OnMovementChange(movementDir);
     }
     public void SetSprint(bool shouldPlayRunAnim)
     {
-        currentWeapon.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
+        currentWeaponObject.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
     }
 
     public void ScrollThroughHeldWeapons(int value)

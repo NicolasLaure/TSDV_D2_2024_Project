@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class AmmoUI : MonoBehaviour
 {
-    private WeaponHandler playerWeaponHandler;
+    [SerializeField] private WeaponHandler playerWeaponHandler;
 
     private string currentAmmo;
     private string magazineSize;
@@ -13,10 +13,16 @@ public class AmmoUI : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI ammoText;
     [SerializeField] private Slider ammoSlider;
 
-    private void Awake()
+    private void Start()
     {
-        playerWeaponHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<WeaponHandler>();
+        if (playerWeaponHandler.CurrentWeapon != null)
+            OnWeaponChange(playerWeaponHandler.CurrentWeapon);
+
         playerWeaponHandler.onWeaponChange += OnWeaponChange;
+    }
+    private void OnDestroy()
+    {
+        playerWeaponHandler.onWeaponChange -= OnWeaponChange;
     }
     void OnWeaponChange<T>(T weapon) where T : Weapon
     {

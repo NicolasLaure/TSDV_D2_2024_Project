@@ -826,6 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1cd64ff85914045b12ef3a365f2f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerWeaponHandler: {fileID: 1075408538}
   ammoText: {fileID: 452465609}
   ammoSlider: {fileID: 1421147824}
 --- !u!1 &90115916
@@ -6043,6 +6044,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+--- !u!114 &1075408538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6293470276278998262, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+  m_PrefabInstance: {fileID: 1075408537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f5abf83bd74a441a502cd14a419c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1080630188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8049484109991452664, guid: b96b0ab13165f8a4c94907ab74289177, type: 3}
