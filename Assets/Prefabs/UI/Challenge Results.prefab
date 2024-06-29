@@ -949,20 +949,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tierObjects:
   - {fileID: 6177887614156504368}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3355319360069432072}
+  - {fileID: 2497410225649399384}
   panelDuration: 3
-  timeBetweenMedals: 0
+  timeBetweenMedals: 0.2
+  tierTexts: {fileID: 9047053551972350763}
+  resultText: {fileID: 5423804469962343115}
+  bestResultText: {fileID: 7663191134695487810}
+  levelScore: 0
+  bestScore: 0
   tiersAchieved: 0
   tierTimes:
   - 40
   - 25
   - 15
-  tierTexts: {fileID: 9047053551972350763}
-  finalTimeText: {fileID: 5423804469962343115}
-  bestTimeText: {fileID: 7663191134695487810}
-  levelTime: 0
-  bestTime: 0
 --- !u!1 &7561417055806367734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1473,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a030b69a9f61ee84d9fb6aaafe320693, type: 3}
+--- !u!1 &2497410225649399384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1197290873581140344, guid: a030b69a9f61ee84d9fb6aaafe320693, type: 3}
+  m_PrefabInstance: {fileID: 3617856059363577632}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4371467844437322032 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1053743619227706896, guid: a030b69a9f61ee84d9fb6aaafe320693, type: 3}
@@ -1591,6 +1596,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a030b69a9f61ee84d9fb6aaafe320693, type: 3}
+--- !u!1 &3355319360069432072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1197290873581140344, guid: a030b69a9f61ee84d9fb6aaafe320693, type: 3}
+  m_PrefabInstance: {fileID: 4471472563200133744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3499994721925065824 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1053743619227706896, guid: a030b69a9f61ee84d9fb6aaafe320693, type: 3}

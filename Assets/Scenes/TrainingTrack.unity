@@ -14579,9 +14579,17 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: resultText
+      value: 
+      objectReference: {fileID: 8729824046549743478}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
       propertyPath: panelDuration
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: bestResultText
+      value: 
+      objectReference: {fileID: 8729824046549743477}
     - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
       propertyPath: timeBetweenMedals
       value: 0.5
@@ -14599,6 +14607,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+--- !u!114 &8729824046549743477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7663191134695487810, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+  m_PrefabInstance: {fileID: 8729824046549743476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8729824046549743478 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5423804469962343115, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+  m_PrefabInstance: {fileID: 8729824046549743476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class LevelResults : MonoBehaviour
 {
     [SerializeField] private List<GameObject> tierObjects = new List<GameObject>();
     [SerializeField] private float panelDuration;
     [SerializeField] private float timeBetweenMedals;
+
+    [SerializeField] protected TierRequirementTextHandler tierTexts;
+    [SerializeField] protected TextMeshProUGUI resultText;
+    [SerializeField] protected TextMeshProUGUI bestResultText;
+
+    [HideInInspector] public float levelScore;
+    [HideInInspector] public float bestScore;
     [HideInInspector] public int tiersAchieved = 0;
     protected virtual void OnEnable()
     {
@@ -32,4 +39,5 @@ public class LevelResults : MonoBehaviour
         }
         gameObject.SetActive(false);
     }
+
 }

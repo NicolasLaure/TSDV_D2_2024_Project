@@ -6,12 +6,6 @@ using TMPro;
 public class TimedLevelResult : LevelResults
 {
     [SerializeField] private List<float> tierTimes = new List<float>();
-    [SerializeField] private TierRequirementTextHandler tierTexts;
-    [SerializeField] private TextMeshProUGUI finalTimeText;
-    [SerializeField] private TextMeshProUGUI bestTimeText;
-
-    [HideInInspector] public float levelTime;
-    [HideInInspector] public float bestTime;
 
     private void OnValidate()
     {
@@ -19,11 +13,11 @@ public class TimedLevelResult : LevelResults
     }
     protected override void OnEnable()
     {
-        if (tierTimes.Count >= 3 && levelTime < tierTimes[2])
+        if (tierTimes.Count >= 3 && levelScore < tierTimes[2])
             tiersAchieved = 3;
-        else if (tierTimes.Count >= 2 && levelTime < tierTimes[1])
+        else if (tierTimes.Count >= 2 && levelScore< tierTimes[1])
             tiersAchieved = 2;
-        else if (tierTimes.Count >= 1 && levelTime < tierTimes[0])
+        else if (tierTimes.Count >= 1 && levelScore < tierTimes[0])
             tiersAchieved = 1;
         else
             tiersAchieved = 0;
@@ -34,12 +28,12 @@ public class TimedLevelResult : LevelResults
 
     private void SetTexts()
     {
-        int minutes = Mathf.FloorToInt(levelTime) / 60;
-        int seconds = Mathf.FloorToInt(levelTime) % 60;
-        finalTimeText.text = "Final Time: " + minutes + ":" + seconds;
+        int minutes = Mathf.FloorToInt(levelScore) / 60;
+        int seconds = Mathf.FloorToInt(levelScore) % 60;
+        resultText.text = "Final Time: " + minutes + ":" + seconds;
 
-        minutes = Mathf.FloorToInt(bestTime) / 60;
-        seconds = Mathf.FloorToInt(bestTime) % 60;
-        bestTimeText.text = "Best Time: " + minutes + ":" + seconds;
+        minutes = Mathf.FloorToInt(bestScore) / 60;
+        seconds = Mathf.FloorToInt(bestScore) % 60;
+        bestResultText.text = "Best Time: " + minutes + ":" + seconds;
     }
 }
