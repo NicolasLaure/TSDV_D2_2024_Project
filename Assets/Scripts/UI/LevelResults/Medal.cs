@@ -10,7 +10,7 @@ public class Medal : MonoBehaviour
     [SerializeField] private float animDuration;
     private RectTransform rectTransform;
 
-    [SerializeField] private UnityAction OnAnimFinished;
+    public UnityEvent OnAnimFinished;
     void OnEnable()
     {
         rectTransform = this.GetComponent<RectTransform>();

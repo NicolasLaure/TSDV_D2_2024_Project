@@ -5593,6 +5593,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4604972532302222, guid: fc25b617fbcf5d54896247a2e6a0ad10, type: 3}
   m_PrefabInstance: {fileID: 865423093}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &873774480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3355319360069432072, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+  m_PrefabInstance: {fileID: 8729824046549743476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &875939683
 GameObject:
   m_ObjectHideFlags: 0
@@ -11852,6 +11857,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4457217087277678, guid: 1b02492fc66581741a9c5fd08841f769, type: 3}
   m_PrefabInstance: {fileID: 1858555338}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1866350960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2497410225649399384, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+  m_PrefabInstance: {fileID: 8729824046549743476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1883312539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14368,6 +14378,14 @@ PrefabInstance:
       propertyPath: timeBetweenMedals
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: tierObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 873774480}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: tierObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1866350960}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
