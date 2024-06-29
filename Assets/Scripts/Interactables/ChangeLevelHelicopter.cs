@@ -15,13 +15,14 @@ public class ChangeLevelHelicopter : MonoBehaviour
     private void Start()
     {
         finalPosition = helicopter.gameObject.transform.position;
+        callHelicopterCoroutine = null;
         helicopter.gameObject.SetActive(false);
-        rope.gameObject.SetActive(false);
+        rope.SetActive(false);
     }
     public void CallChopper()
     {
         if (callHelicopterCoroutine != null)
-            StopCoroutine(callHelicopterCoroutine);
+            return;
 
         callHelicopterCoroutine = StartCoroutine(CallHelicopterCoroutine());
     }

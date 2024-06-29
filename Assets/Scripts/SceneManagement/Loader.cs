@@ -6,6 +6,13 @@ using System;
 public class Loader : MonoBehaviour
 {
     [SerializeField] private List<string> scenesInBuildNames = new List<string>();
+    private AsyncOperation changeSceneAsync = null;
+    private int currentScene;
+
+    private void Awake()
+    {
+        changeSceneAsync = null;
+    }
     public static void ChangeScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
@@ -34,6 +41,21 @@ public class Loader : MonoBehaviour
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
         else
             Debug.LogError($"There is no scene with {name} name in build");
+    }
+    public void LoadSceneAsync(string sceneName)
+    {
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log(sceneName);
+        if (changeSceneAsync == null)
+        {
+            changeSceneAsync = SceneManager.LoadSceneAsync(sceneName);
+            changeSceneAsync.allowSceneActivation = false;
+        }
+    }
+    public void ChangeToAsyncLoadedScene()
+    {
+        changeSceneAsync.allowSceneActivation = true;
+        RemoveScene(currentScene);
     }
     public void RemoveScene(int buildIndex)
     {

@@ -4471,6 +4471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChangeLevelHelicopter
       objectReference: {fileID: 0}
+    - target: {fileID: 6766040910511522486, guid: 537967f7e8d230147a145a318da2c65c, type: 3}
+      propertyPath: loader
+      value: 
+      objectReference: {fileID: 1069372574}
     - target: {fileID: 7906259422842585809, guid: 537967f7e8d230147a145a318da2c65c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 14
@@ -5951,6 +5955,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 170f88653e00e9d49984afd0200a0cf6, type: 3}
+--- !u!114 &1069372574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2500303886468227049, guid: 170f88653e00e9d49984afd0200a0cf6, type: 3}
+  m_PrefabInstance: {fileID: 1069372573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d9822cda6a6334faa406405cf74020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1071619662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10259,18 +10274,30 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 747381315}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1069372574}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
@@ -10278,11 +10305,27 @@ PrefabInstance:
       value: CallChopper
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoadSceneAsync
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ChangeLevelHelicopter, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Loader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: TrainingTrack
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
+      propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3798716931342232476, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
@@ -10299,7 +10342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4300095183347815736, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: m_Name
-      value: EnvironmentButton
+      value: CallHelicopterButton
       objectReference: {fileID: 0}
     - target: {fileID: 8344437477934153478, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: m_LocalScale.x
