@@ -1203,6 +1203,7 @@ MonoBehaviour:
     - {fileID: 1301133369}
   results: {fileID: 923325020}
   timer: {fileID: 685640884}
+  save: {fileID: 11400000, guid: 9c7c17f7c8c5f224596f3cab8a55a16b, type: 2}
 --- !u!4 &174256206
 Transform:
   m_ObjectHideFlags: 0
@@ -14342,6 +14343,18 @@ PrefabInstance:
     - target: {fileID: 7818764958202475155, guid: 4291ff96644cb5646891da04ac564557, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -128.69138
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: tier1Time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: tier2Time
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: tier3Time
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
       propertyPath: panelDuration

@@ -5,21 +5,25 @@ using TMPro;
 
 public class TimedLevelResult : LevelResults
 {
-    [SerializeField] private float tier1Time;
-    [SerializeField] private float tier2Time;
-    [SerializeField] private float tier3Time;
+    [SerializeField] private List<float> tierTimes = new List<float>();
+    [SerializeField] private TierRequirementTextHandler tierTexts;
     [SerializeField] private TextMeshProUGUI finalTimeText;
     [SerializeField] private TextMeshProUGUI bestTimeText;
 
     [HideInInspector] public float levelTime;
     [HideInInspector] public float bestTime;
+
+    private void OnValidate()
+    {
+        tierTexts.UpdateRequirementTimers(tierTimes);
+    }
     protected override void OnEnable()
     {
-        if (levelTime < tier3Time)
+        if (tierTimes.Count >= 3 && levelTime < tierTimes[2])
             tiersAchieved = 3;
-        else if (levelTime < tier2Time)
+        else if (tierTimes.Count >= 2 && levelTime < tierTimes[1])
             tiersAchieved = 2;
-        else if (levelTime < tier1Time)
+        else if (tierTimes.Count >= 1 && levelTime < tierTimes[0])
             tiersAchieved = 1;
         else
             tiersAchieved = 0;
