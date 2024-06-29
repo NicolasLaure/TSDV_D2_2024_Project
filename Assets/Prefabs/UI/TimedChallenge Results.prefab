@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 40s
+  m_text: 30s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -607,6 +607,7 @@ MonoBehaviour:
   - {fileID: 7558874296430320226}
   - {fileID: 5716315061857767489}
   - {fileID: 2524013929733289710}
+  suffix: s
 --- !u!1 &3514404109179325220
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +870,7 @@ GameObject:
   - component: {fileID: 6799189943681921968}
   - component: {fileID: 8720176772975574346}
   m_Layer: 5
-  m_Name: Challenge Results
+  m_Name: TimedChallenge Results
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,9 +961,9 @@ MonoBehaviour:
   bestScore: 0
   tiersAchieved: 0
   tierTimes:
-  - 40
+  - 30
   - 25
-  - 15
+  - 20
 --- !u!1 &7561417055806367734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15s
+  m_text: 20s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

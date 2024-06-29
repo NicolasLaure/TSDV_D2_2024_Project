@@ -10,6 +10,7 @@ public class TimeTrial : MonoBehaviour
     [SerializeField] private List<Transform> possiblePositions = new List<Transform>();
     [SerializeField] private GameSaveSO save;
     [SerializeField] private TrialUI trialUI;
+    [SerializeField] private GameObject results;
     private Coroutine trial;
 
     private bool canSpawn = true;
@@ -60,6 +61,8 @@ public class TimeTrial : MonoBehaviour
 
         highScore = save.shootingRangeHighScore;
 
+        results.GetComponent<LevelResults>().SetScores(score, highScore);
+        results.SetActive(true);
         onTrialFinish?.Invoke();
     }
 

@@ -54,8 +54,7 @@ public class TrainingTrackManager : MonoBehaviour
         timer.gameObject.SetActive(false);
         if (results != null)
         {
-            results.levelScore = elapsedTime;
-            results.bestScore = save.bestTime;
+            results.SetScores(elapsedTime, save.bestTime);
             results.gameObject.SetActive(true);
         }
     }

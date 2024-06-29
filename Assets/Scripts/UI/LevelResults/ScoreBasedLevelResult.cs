@@ -8,7 +8,7 @@ public class ScoreBasedLevelResult : LevelResults
 
     private void OnValidate()
     {
-        tierTexts.UpdateRequirementTimers(scoreTiers);
+        tierTexts.UpdateRequirements(scoreTiers);
     }
 
     protected override void OnEnable()
@@ -30,6 +30,5 @@ public class ScoreBasedLevelResult : LevelResults
     {
         resultText.text = "Final Score: " + levelScore;
         bestResultText.text = "Final Score: " + bestScore;
-
     }
 }

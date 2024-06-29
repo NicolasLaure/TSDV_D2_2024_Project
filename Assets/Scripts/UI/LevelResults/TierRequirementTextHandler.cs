@@ -6,12 +6,12 @@ using TMPro;
 public class TierRequirementTextHandler : MonoBehaviour
 {
     [SerializeField] private List<TextMeshProUGUI> requirementTexts = new List<TextMeshProUGUI>();
-
-    public void UpdateRequirementTimers(List<float> tierTimes)
+    [SerializeField] private string suffix;
+    public void UpdateRequirements(List<float> tierTimes)
     {
         for (int i = 0; i < requirementTexts.Count; i++)
         {
-            requirementTexts[i].text = Mathf.FloorToInt(tierTimes[i]) + "s";
+            requirementTexts[i].text = Mathf.FloorToInt(tierTimes[i]) + suffix;
         }
     }
 }

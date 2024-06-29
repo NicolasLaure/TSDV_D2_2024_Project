@@ -12,8 +12,8 @@ public class LevelResults : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI resultText;
     [SerializeField] protected TextMeshProUGUI bestResultText;
 
-    [HideInInspector] public float levelScore;
-    [HideInInspector] public float bestScore;
+    [HideInInspector] protected float levelScore;
+    [HideInInspector] protected float bestScore;
     [HideInInspector] public int tiersAchieved = 0;
     protected virtual void OnEnable()
     {
@@ -38,6 +38,13 @@ public class LevelResults : MonoBehaviour
             yield return null;
         }
         gameObject.SetActive(false);
+    }
+
+
+    public void SetScores(float currentScore, float bestScore)
+    {
+        this.levelScore = currentScore;
+        this.bestScore = bestScore;
     }
 
 }

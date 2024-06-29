@@ -9,7 +9,7 @@ public class TimedLevelResult : LevelResults
 
     private void OnValidate()
     {
-        tierTexts.UpdateRequirementTimers(tierTimes);
+        tierTexts.UpdateRequirements(tierTimes);
     }
     protected override void OnEnable()
     {
