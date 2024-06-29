@@ -6,6 +6,7 @@ using UnityEngine;
 public class TrainingTrackManager : MonoBehaviour
 {
     [SerializeField] private List<TrackState> targetGroups = new List<TrackState>();
+    [SerializeField] private TimedLevelResult results;
     public Action<string> onStateChange;
     public event Action onRestart;
     Coroutine trackCoroutine = null;
@@ -40,6 +41,13 @@ public class TrainingTrackManager : MonoBehaviour
         {
             elapsedTime = Time.time - startTime;
             yield return null;
+        }
+        Debug.Log(elapsedTime);
+
+        if (results != null)
+        {
+            results.levelTime = elapsedTime;
+            results.gameObject.SetActive(true);
         }
     }
     private void AddState(string stateName)
