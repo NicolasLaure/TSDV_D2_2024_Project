@@ -14360,6 +14360,10 @@ PrefabInstance:
       propertyPath: panelDuration
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8720176772975574346, guid: 4291ff96644cb5646891da04ac564557, type: 3}
+      propertyPath: timeBetweenMedals
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
