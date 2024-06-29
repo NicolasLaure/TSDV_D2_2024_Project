@@ -7,6 +7,7 @@ public class TrainingTrackManager : MonoBehaviour
 {
     [SerializeField] private List<TrackState> targetGroups = new List<TrackState>();
     [SerializeField] private TimedLevelResult results;
+    [SerializeField] private ClockedTrial timer;
     public Action<string> onStateChange;
     public event Action onRestart;
     Coroutine trackCoroutine = null;
@@ -36,14 +37,17 @@ public class TrainingTrackManager : MonoBehaviour
         InitializeStates();
         targetGroups[0].Enter();
         StartTimer();
+        timer.gameObject.SetActive(true);
         onRestart?.Invoke();
         while (!AreAllTargetsDown())
         {
             elapsedTime = Time.time - startTime;
+            timer.OnTimeUpdated(Mathf.FloorToInt(elapsedTime));
             yield return null;
         }
         Debug.Log(elapsedTime);
 
+        timer.gameObject.SetActive(false);
         if (results != null)
         {
             results.levelTime = elapsedTime;
