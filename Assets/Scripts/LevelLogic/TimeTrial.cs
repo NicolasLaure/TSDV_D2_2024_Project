@@ -8,6 +8,7 @@ public class TimeTrial : MonoBehaviour
     [SerializeField] private float trialDuration;
     [SerializeField] private TrialTarget target;
     [SerializeField] private List<Transform> possiblePositions = new List<Transform>();
+    [SerializeField] private GameSaveSO save;
     [SerializeField] private TrialUI trialUI;
     private Coroutine trial;
 
@@ -54,8 +55,11 @@ public class TimeTrial : MonoBehaviour
                 StartCoroutine(PresentTarget());
             yield return null;
         }
-        if (score > highScore)
-            highScore = score;
+        if (score > save.shootingRangeHighScore)
+            save.shootingRangeHighScore = score;
+
+        highScore = save.shootingRangeHighScore;
+
         onTrialFinish?.Invoke();
     }
 

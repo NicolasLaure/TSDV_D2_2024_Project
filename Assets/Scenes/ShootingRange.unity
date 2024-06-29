@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b62e4114cc9fc449aedccb699ff71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trialDuration: 120
+  trialDuration: 30
   target: {fileID: 9621344}
   possiblePositions:
   - {fileID: 1801847773}
@@ -1530,6 +1530,7 @@ MonoBehaviour:
   - {fileID: 1232308866}
   - {fileID: 443078019}
   - {fileID: 967963499}
+  save: {fileID: 11400000, guid: 9c7c17f7c8c5f224596f3cab8a55a16b, type: 2}
   trialUI: {fileID: 1120855844}
 --- !u!1 &166980204
 GameObject:

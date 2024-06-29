@@ -8,6 +8,8 @@ public class TrainingTrackManager : MonoBehaviour
     [SerializeField] private List<TrackState> targetGroups = new List<TrackState>();
     [SerializeField] private TimedLevelResult results;
     [SerializeField] private ClockedTrial timer;
+    [SerializeField] private GameSaveSO save;
+
     public Action<string> onStateChange;
     public event Action onRestart;
     Coroutine trackCoroutine = null;
@@ -46,11 +48,14 @@ public class TrainingTrackManager : MonoBehaviour
             yield return null;
         }
         Debug.Log(elapsedTime);
+        if (save.bestTime == 0 || elapsedTime < save.bestTime)
+            save.bestTime = elapsedTime;
 
         timer.gameObject.SetActive(false);
         if (results != null)
         {
             results.levelTime = elapsedTime;
+            results.bestTime = save.bestTime;
             results.gameObject.SetActive(true);
         }
     }

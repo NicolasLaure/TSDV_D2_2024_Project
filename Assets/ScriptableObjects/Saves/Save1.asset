@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Save1
   m_EditorClassIdentifier: 
   wasTutorialFinished: 0
+  shootingRangeHighScore: 0
+  bestTime: 0
