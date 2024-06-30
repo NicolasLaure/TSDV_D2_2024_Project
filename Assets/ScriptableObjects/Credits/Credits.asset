@@ -27,9 +27,11 @@ MonoBehaviour:
     names:
     - UH-1 Sound
     - Clank Sound
+    - Target Sound
     urls:
     - https://freesound.org/people/SoundFX.studio/sounds/456278/
     - https://freesound.org/people/dheming/sounds/197398/
+    - https://freesound.org/people/xkeril/sounds/742597/
   - Title: Special Thanks
     names:
     - Juan Pablo Varela
@@ -38,7 +40,7 @@ MonoBehaviour:
     - Ignacio Gonzalez Souza
     - N
     - Mateo Viko Monastra
-    - Ingacio "Rojoin" Arrastua
+    - Ignacio "Rojoin" Arrastua
     - Maximiliano Feldman
     - Juan Digilio
     - Dario Otranto
