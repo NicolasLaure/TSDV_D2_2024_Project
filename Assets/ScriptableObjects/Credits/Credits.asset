@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9335ac5c3daf20644ae41e10f92953df, type: 3}
+  m_Name: Credits
+  m_EditorClassIdentifier: 
+  groups:
+  - Title: Developers
+    names:
+    - "Nicol\xE1s Laure"
+    urls:
+    - https://nico-drake.itch.io
+  - Title: Art
+    names:
+    - StylizedSkybox
+    urls:
+    - https://assetstore.unity.com/packages/2d/textures-materials/sky/free-stylized-skybox-212257
+  - Title: Sound
+    names:
+    - UH-1 Sound
+    - Clank Sound
+    urls:
+    - https://freesound.org/people/SoundFX.studio/sounds/456278/
+    - https://freesound.org/people/dheming/sounds/197398/
+  - Title: Special Thanks
+    names:
+    - Juan Pablo Varela
+    - Sergio Baretto
+    - Carolina Pohn
+    - Ignacio Gonzalez Souza
+    - N
+    - Mateo Viko Monastra
+    - Maximiliano Feldman
+    - Juan Digilio
+    urls:
+    - https://freesound.org/people/SoundFX.studio/sounds/456278/
+    - https://freesound.org/people/dheming/sounds/197398/
