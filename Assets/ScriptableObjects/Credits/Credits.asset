@@ -29,13 +29,21 @@ MonoBehaviour:
     - UH-1 Sound
     - Clank Sound
     - Target Sound
-    - Mortar
+    - Mortar Sound
+    - Pistol handling Sound
+    - Sniper Handling Sound
+    - Ak Handling Sound
+    - GunFire Sounds
     urls:
     - https://www.instagram.com/ni_comori/
     - https://freesound.org/people/SoundFX.studio/sounds/456278/
     - https://freesound.org/people/dheming/sounds/197398/
     - https://freesound.org/people/xkeril/sounds/742597/
     - https://freesound.org/people/LeMudCrab/sounds/163458/
+    - https://freesound.org/people/GFL7/sounds/276959/
+    - https://freesound.org/people/Freeman213SG/sounds/326042/
+    - https://freesound.org/people/GFL7/sounds/276963/
+    - https://assetstore.unity.com/packages/audio/sound-fx/free-sound-effects-pack-155776
   - Title: Special Thanks
     names:
     - Juan Pablo Varela
