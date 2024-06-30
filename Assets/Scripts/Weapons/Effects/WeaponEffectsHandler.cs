@@ -31,8 +31,6 @@ public class WeaponEffectsHandler : MonoBehaviour
     {
         foreach (WeaponEffectConfigSO config in effectConfigs.configs)
         {
-            Debug.Log(config.delay);
-            Debug.Log(config.clip.name);
             yield return InvokeCoroutine(config);
         }
     }
