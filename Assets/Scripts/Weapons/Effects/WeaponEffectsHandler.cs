@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class WeaponEffectsHandler : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private List<ParticleSystem> particles = new List<ParticleSystem>();
     public void InvokeEvent(WeaponEffectConfigSO effectConfig)
     {
         StartCoroutine(InvokeCoroutine(effectConfig));
@@ -25,6 +26,11 @@ public class WeaponEffectsHandler : MonoBehaviour
         }
         audioSource.clip = effectConfig.clip;
         audioSource.Play();
+        if (effectConfig.triggerParticles)
+            foreach (ParticleSystem particle in particles)
+            {
+                particle.Play();
+            }
     }
 
     IEnumerator InvokeSecuentialCoroutine(EffectSequenceSO effectConfigs)

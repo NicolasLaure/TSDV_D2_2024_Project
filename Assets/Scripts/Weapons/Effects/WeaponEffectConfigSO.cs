@@ -7,4 +7,5 @@ public class WeaponEffectConfigSO : ScriptableObject
 {
     public float delay;
     public AudioClip clip;
+    public bool triggerParticles;
 }

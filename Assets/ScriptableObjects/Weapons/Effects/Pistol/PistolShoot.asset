@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0.05
   clip: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
+  triggerParticles: 1
