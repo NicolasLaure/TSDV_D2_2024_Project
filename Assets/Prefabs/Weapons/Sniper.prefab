@@ -129,7 +129,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   decals: {fileID: 0}
-  bulletPrefab: {fileID: 5278746626831598590, guid: 925d9eae7b7107c4a8d11c11312bb325, type: 3}
+  bulletConfig: {fileID: 11400000, guid: 8efef682ad3357e41a772862f3504335, type: 2}
   shootingPoint: {fileID: 881857444667273507}
 --- !u!114 &-5737225609857373825
 MonoBehaviour:

@@ -5,12 +5,12 @@ using UnityEngine;
 public class PhysicWeapon : Weapon
 {
     [Header("Physical Attributes")]
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private BulletConfigSO bulletConfig;
     [SerializeField] private Transform shootingPoint;
 
     public override void FireWeapon()
     {
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint);
+        GameObject bullet = BulletFactory.CreateBullet(bulletConfig, decals, this.shootingPoint);
         bullet.transform.parent = null;
         base.FireWeapon();
     }

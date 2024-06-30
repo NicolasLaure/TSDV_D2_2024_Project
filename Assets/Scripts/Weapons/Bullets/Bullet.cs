@@ -8,6 +8,11 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifeTime;
     [SerializeField] private DecalsHandler decals;
     private Rigidbody rb;
+
+    public float ShootingForce { get { return shootingForce; } set { shootingForce = value; } }
+    public float LifeTime { get { return lifeTime; } set { lifeTime = value; } }
+    public DecalsHandler Decals { get { return decals; } set { decals = value; } }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
