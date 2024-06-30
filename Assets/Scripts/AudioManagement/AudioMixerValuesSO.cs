@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New AudioMixerValues", menuName = "Audio/MixerValues", order = 0)]
+[CreateAssetMenu(fileName = "New AudioMixerValues", menuName = "ScriptableObjects/Audio/MixerValues", order = 0)]
 public class AudioMixerValuesSO : ScriptableObject
 {
     public float master = 0f;

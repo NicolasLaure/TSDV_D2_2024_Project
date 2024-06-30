@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New FireModeSO", menuName = "Weapons/FireMode/Burst", order = 0)]
+[CreateAssetMenu(fileName = "New FireModeSO", menuName = "ScriptableObjects/Weapons/FireMode/Burst", order = 0)]
 public class Burst : FireMode
 {
     [Header("Burst")]

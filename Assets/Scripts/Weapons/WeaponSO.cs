@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New WeaponSO", menuName = "ScriptableObjects/Weapon", order = 0)]
+[CreateAssetMenu(fileName = "New WeaponSO", menuName = "ScriptableObjects/Weapons/Weapon", order = 0)]
 public class WeaponSO : ScriptableObject
 {
     [SerializeField] public string weaponName { get { return weaponName; } private set { } }
