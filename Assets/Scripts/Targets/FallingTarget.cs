@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 public class FallingTarget : Target
 {
     private bool canFall = true;
     [SerializeField] private float fallDuration = 0.3f;
     [SerializeField] private float getUpDuration = 0.3f;
-
+    [SerializeField] private UnityEvent onTargetFall;
+    [SerializeField] private UnityEvent onTargetGetUp;
     protected override IEnumerator GotShotCoroutine()
     {
         if (canFall)
@@ -22,6 +25,7 @@ public class FallingTarget : Target
         float startTime = Time.time;
         float timer = 0;
         float targetRotation = transform.rotation.eulerAngles.x + 90;
+        onTargetFall?.Invoke();
 
         if (TryGetComponent<MovingTarget>(out MovingTarget moving))
             moving.Stop();
@@ -38,6 +42,7 @@ public class FallingTarget : Target
     {
         float startTime = Time.time;
         float timer = 0;
+        onTargetGetUp?.Invoke();
         // float targetRotation = transform.rotation.x - 90;
         while (timer < getUpDuration)
         {

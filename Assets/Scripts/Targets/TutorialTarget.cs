@@ -7,6 +7,7 @@ public class TutorialTarget : FallingTarget
     private void OnEnable()
     {
         originalRotation = transform.rotation;
+        StartCoroutine(GetUpCoroutine());
     }
     protected override IEnumerator GotShotCoroutine()
     {
