@@ -70,10 +70,10 @@ MonoBehaviour:
       - m_Target: {fileID: -9021182662088492187}
         m_TargetAssemblyTypeName: WeaponEffectsHandler, Assembly-CSharp
         m_MethodName: InvokeEvent
-        m_Mode: 4
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 4376a04fa50223a4f925ee0974288b72, type: 2}
+          m_ObjectArgumentAssemblyTypeName: WeaponEffectConfigSO, Assembly-CSharp
           m_IntArgument: 1
           m_FloatArgument: 0.05
           m_StringArgument: Shoot
@@ -89,6 +89,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ReloadNoAmmo
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -9021182662088492187}
+        m_TargetAssemblyTypeName: WeaponEffectsHandler, Assembly-CSharp
+        m_MethodName: InvokeSecuentialEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 9a823e478acc7d74390c31c1eb4e86db, type: 2}
+          m_ObjectArgumentAssemblyTypeName: EffectSequenceSO, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: ReloadNoAmmo
@@ -114,45 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444c3575ac704a949847f5e4804aefaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodsToInvoke:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1042103030056808145}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 113977103090393949}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Emit
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1392913948189914252}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  audioSource: {fileID: 1042103030056808145}
 --- !u!114 &8063764016806816716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,11 +488,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
---- !u!198 &113977103090393949 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19876208, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
-  m_PrefabInstance: {fileID: 113977103104633389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &113977103104543793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484892, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
@@ -694,11 +663,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
---- !u!198 &1392913948189914252 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
-  m_PrefabInstance: {fileID: 1392913948208306312}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1392913948208262480 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 488920, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
