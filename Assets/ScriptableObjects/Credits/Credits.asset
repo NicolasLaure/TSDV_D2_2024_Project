@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Credits
   m_EditorClassIdentifier: 
   groups:
-  - Title: Developers
+  - Title: Development
     names:
     - "Nicol\xE1s Laure"
     urls:
@@ -38,8 +38,8 @@ MonoBehaviour:
     - Ignacio Gonzalez Souza
     - N
     - Mateo Viko Monastra
+    - Ingacio "Rojoin" Arrastua
     - Maximiliano Feldman
     - Juan Digilio
-    urls:
-    - https://freesound.org/people/SoundFX.studio/sounds/456278/
-    - https://freesound.org/people/dheming/sounds/197398/
+    - Dario Otranto
+    urls: []
