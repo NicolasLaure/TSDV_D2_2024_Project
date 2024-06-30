@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mesh: {fileID: -7204647971529134275, guid: d28201cb9fed9bc479e6e04e6ea83f3e, type: 3}
   mat: {fileID: -7126193129781715291, guid: d28201cb9fed9bc479e6e04e6ea83f3e, type: 3}
+  trailObject: {fileID: 3525019163608111499, guid: 8464e10252c73ad4dadbba26deba1bb8, type: 3}
+  layerIndex: 12
   bulletForce: 100
   lifeTime: 2
