@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TargetThrower : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class TargetThrower : MonoBehaviour
     [SerializeField] private float verticalAmplitude;
     [SerializeField] private GameObject targetPrefab;
 
+    [SerializeField] private UnityEvent onTargetShot;
     public Coroutine throwCoroutine;
     public int TargetsQty { set { targetsQty = value; } }
     private void Start()
@@ -25,6 +27,7 @@ public class TargetThrower : MonoBehaviour
         Quaternion throwingRotation = Quaternion.Euler(transform.rotation.eulerAngles.x + randomRotationX, transform.rotation.eulerAngles.y + randomRotationY, transform.rotation.eulerAngles.z);
         GameObject target = Instantiate(targetPrefab, transform.position, throwingRotation);
         target.GetComponent<Rigidbody>().AddForce(target.transform.forward * force);
+        onTargetShot?.Invoke();
     }
     public IEnumerator StartThrowing()
     {
