@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 194764480155588859}
   - component: {fileID: 6284757894679604471}
   - component: {fileID: -676904428537887642}
+  - component: {fileID: -1906961754995559425}
   - component: {fileID: 6561678769054445354}
   m_Layer: 7
   m_Name: Ak47
@@ -113,6 +114,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb79801d0e83b340bf6aa3d0f7daf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1906961754995559425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295500145176690527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444c3575ac704a949847f5e4804aefaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 6561678769054445354}
 --- !u!82 &6561678769054445354
 AudioSource:
   m_ObjectHideFlags: 0

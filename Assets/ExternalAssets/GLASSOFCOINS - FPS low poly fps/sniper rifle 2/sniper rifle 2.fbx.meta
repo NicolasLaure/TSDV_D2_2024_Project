@@ -118,7 +118,7 @@ ModelImporter:
       name: sniper rifle 2_hands|AimShoot_sniper rifle 2
       takeName: sniper rifle 2_hands|AimShoot_sniper rifle 2
       internalID: -5760171960903378143
-      firstFrame: 10
+      firstFrame: 0
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
