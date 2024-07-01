@@ -5987,6 +5987,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 7788916196855658639, guid: a71ea9ef9b659a24f8107f8b0b13cdce, type: 3}
+      propertyPath: m_Size.x
+      value: 3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788916196855658639, guid: a71ea9ef9b659a24f8107f8b0b13cdce, type: 3}
+      propertyPath: m_Size.y
+      value: 2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788916196855658639, guid: a71ea9ef9b659a24f8107f8b0b13cdce, type: 3}
+      propertyPath: m_Size.z
+      value: 2.16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
