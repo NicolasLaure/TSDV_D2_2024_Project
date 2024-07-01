@@ -15,6 +15,10 @@ public class ClockedTrial : MonoBehaviour
     {
         int minutes = timeLeft / 60;
         int seconds = timeLeft % 60;
-        timeText.text = minutes + ":" + seconds;
+        string divider = ":";
+        if (seconds < 10)
+            divider += 0.ToString();
+
+        timeText.text = minutes + divider + seconds;
     }
 }
