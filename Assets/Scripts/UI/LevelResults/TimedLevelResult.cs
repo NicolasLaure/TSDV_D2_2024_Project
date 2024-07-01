@@ -15,7 +15,7 @@ public class TimedLevelResult : LevelResults
     {
         if (tierTimes.Count >= 3 && levelScore < tierTimes[2])
             tiersAchieved = 3;
-        else if (tierTimes.Count >= 2 && levelScore< tierTimes[1])
+        else if (tierTimes.Count >= 2 && levelScore < tierTimes[1])
             tiersAchieved = 2;
         else if (tierTimes.Count >= 1 && levelScore < tierTimes[0])
             tiersAchieved = 1;
@@ -28,12 +28,10 @@ public class TimedLevelResult : LevelResults
 
     private void SetTexts()
     {
-        int minutes = Mathf.FloorToInt(levelScore) / 60;
         int seconds = Mathf.FloorToInt(levelScore) % 60;
-        resultText.text = "Final Time: " + minutes + ":" + seconds;
+        resultText.text = "Final Time:  " + seconds + "s";
 
-        minutes = Mathf.FloorToInt(bestScore) / 60;
         seconds = Mathf.FloorToInt(bestScore) % 60;
-        bestResultText.text = "Best Time: " + minutes + ":" + seconds;
+        bestResultText.text = "Best Time:  " + seconds + "s";
     }
 }
