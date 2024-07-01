@@ -553,8 +553,8 @@ RectTransform:
   - {fileID: 2500742467732395686}
   m_Father: {fileID: 9021268806875938439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.8715209, y: 0.028592596}
-  m_AnchorMax: {x: 1, y: 0.124000005}
+  m_AnchorMin: {x: 0.84200007, y: 0.017}
+  m_AnchorMax: {x: 0.9850001, y: 0.116000004}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -570,6 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1cd64ff85914045b12ef3a365f2f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerWeaponHandler: {fileID: 0}
   ammoText: {fileID: 4559083400811148269}
   ammoSlider: {fileID: 6915302530828241908}
 --- !u!1 &5851593886191922244
