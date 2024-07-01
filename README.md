@@ -2,7 +2,7 @@
 
 **Explore and master the trials at the shooting range and whenever you feel ready call the chopper to go to the final track.**
 
-[Itch Page](https://itch.io/game/edit/2803452)
+[Itch Page](https://nico-drake.itch.io/desert-storm)
 
 
 Credits
