@@ -29,6 +29,6 @@ public class ScoreBasedLevelResult : LevelResults
     private void SetTexts()
     {
         resultText.text = "Final Score: " + levelScore;
-        bestResultText.text = "Final Score: " + bestScore;
+        bestResultText.text = "Best Score: " + bestScore;
     }
 }
