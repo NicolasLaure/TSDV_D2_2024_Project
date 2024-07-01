@@ -61,7 +61,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1.5
+    value: 2
   zBias:
     overrideState: 0
     value: 0.000056
