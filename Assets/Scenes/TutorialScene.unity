@@ -2346,7 +2346,7 @@ MonoBehaviour:
   - {fileID: 1594915729}
   target: {fileID: 2104678739}
   panelDuration: 1
-  endPanelDuration: 3
+  endPanelDuration: 2
   warningPanel: {fileID: 1322868419}
   truckPanel: {fileID: 1407398135}
 --- !u!1 &1104708275
