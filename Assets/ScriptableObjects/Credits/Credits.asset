@@ -15,17 +15,32 @@ MonoBehaviour:
   groups:
   - Title: Development
     names:
-    - "Nicol\xE1s Laure"
+    - Nicolas Laure
     urls:
     - https://nico-drake.itch.io
   - Title: Art
     names:
-    - StylizedSkybox
+    - Nicole Yeger
+    - POLYGON Battle Royale
+    - Stylized Skybox
+    - Kenney Ranks
+    - Free medieval floor
+    - Drones
+    - Military Free
+    - Low Poly FPS Map
+    - Low Poly Weapons
     urls:
+    - https://www.instagram.com/ni_comori/
+    - https://assetstore.unity.com/packages/3d/environments/urban/polygon-battle-royale-low-poly-3d-art-by-synty-128513
     - https://assetstore.unity.com/packages/2d/textures-materials/sky/free-stylized-skybox-212257
+    - https://kenney.nl/assets/ranks-pack
+    - https://assetstore.unity.com/packages/2d/textures-materials/floors/free-medieval-floor-tile-material-207107
+    - https://assetstore.unity.com/packages/3d/vehicles/air/mini-drone-set-1-233380
+    - https://assetstore.unity.com/packages/3d/environments/military-free-260358
+    - https://assetstore.unity.com/packages/3d/environments/low-poly-fps-map-lite-258453
+    - https://assetstore.unity.com/packages/3d/props/weapons/glassofcoins-low-poly-fps-pack-196540
   - Title: Sound
     names:
-    - Nicole Yeger
     - UH-1 Sound
     - Clank Sound
     - Target Sound
@@ -35,7 +50,6 @@ MonoBehaviour:
     - Ak Handling Sound
     - GunFire Sounds
     urls:
-    - https://www.instagram.com/ni_comori/
     - https://freesound.org/people/SoundFX.studio/sounds/456278/
     - https://freesound.org/people/dheming/sounds/197398/
     - https://freesound.org/people/xkeril/sounds/742597/
@@ -50,7 +64,6 @@ MonoBehaviour:
     - Sergio Baretto
     - Carolina Pohn
     - Ignacio Gonzalez Souza
-    - N
     - Mateo Viko Monastra
     - Ignacio "Rojoin" Arrastua
     - Maximiliano Feldman
