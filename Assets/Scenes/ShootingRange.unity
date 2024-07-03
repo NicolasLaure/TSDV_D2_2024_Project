@@ -4684,6 +4684,10 @@ PrefabInstance:
       propertyPath: loader
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6766040910511522486, guid: 537967f7e8d230147a145a318da2c65c, type: 3}
+      propertyPath: nextSceneName
+      value: TrainingTrack
+      objectReference: {fileID: 0}
     - target: {fileID: 7906259422842585809, guid: 537967f7e8d230147a145a318da2c65c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.526788
@@ -10519,7 +10523,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

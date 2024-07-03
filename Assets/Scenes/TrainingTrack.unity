@@ -4756,7 +4756,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3772370178521280918, guid: 00baee42536cf82419ceb81fbd4e3801, type: 3}
       propertyPath: OnButtonPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
