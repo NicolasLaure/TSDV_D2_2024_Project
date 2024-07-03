@@ -28,14 +28,6 @@ public class Loader : MonoBehaviour
     }
     public static void ChangeScene(int buildIndex)
     {
-        if (asyncSceneName != null)
-        {
-            Debug.Log("Unload AsyncScene");
-            ChangeToAsyncLoadedScene();
-            RemoveScene(currentSceneIndex);
-            asyncSceneName = null;
-        }
-
         if (currentSceneIndex != 0)
             RemoveScene(currentSceneIndex);
 
@@ -45,14 +37,6 @@ public class Loader : MonoBehaviour
 
     public static void ChangeScene(string name)
     {
-        if (asyncSceneName != null)
-        {
-            Debug.Log("Unload AsyncScene");
-            ChangeToAsyncLoadedScene();
-            RemoveScene(currentSceneIndex);
-            asyncSceneName = null;
-        }
-
         if (currentSceneIndex != 0)
             RemoveScene(currentSceneIndex);
 
@@ -95,7 +79,6 @@ public class Loader : MonoBehaviour
         changeSceneAsync.allowSceneActivation = true;
         currentSceneIndex = SceneManager.GetSceneByName(asyncSceneName).buildIndex;
         changeSceneAsync = null;
-        asyncSceneName = null;
     }
     public static void RemoveScene(int buildIndex)
     {
