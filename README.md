@@ -2,6 +2,19 @@
 
 **Explore and master the trials at the shooting range and whenever you feel ready call the chopper to go to the final track.**
 
+**This game was made as a project for the game development degree at Image Campus, during this subject I've learned and implemented different patterns such as:**
+
+- Factory
+- State Design pattern
+- Object Pooling
+- Strategy
+
+**In addition to that, I have explored:**
+- Post Processing
+- Finite State Machine
+- Audio
+
+
 [Itch Page](https://nico-drake.itch.io/desert-storm)
 
 
