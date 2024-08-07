@@ -937,7 +937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3855234139631656680, guid: b5aac06e68c0237458c48a608b9b21ac, type: 3}
       propertyPath: m_Name
-      value: UI (1)
+      value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 4559083400811148269, guid: b5aac06e68c0237458c48a608b9b21ac, type: 3}
       propertyPath: m_fontSize
