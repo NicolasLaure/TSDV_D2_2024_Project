@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New WeaponSO", menuName = "ScriptableObjects/Weapons/Weapon", order = 0)]
 public class WeaponSO : ScriptableObject
 {
-    [SerializeField] public string weaponName { get { return weaponName; } private set { } }
+    [SerializeField] public string weaponName { get; private set; }
 
     [SerializeField] private MagazineSO defaultMagazine;
     [Tooltip("Time in seconds for the weapon to be fired again")]
