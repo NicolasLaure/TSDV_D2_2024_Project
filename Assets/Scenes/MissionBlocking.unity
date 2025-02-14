@@ -1888,6 +1888,14 @@ PrefabInstance:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+      propertyPath: speed
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+      propertyPath: sprintSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.85
