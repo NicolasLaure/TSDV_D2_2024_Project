@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
-timeCreated: 1536112279
+guid: ef228bdd216b67546b80529f731b1b2f
+timeCreated: 1536626385
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    4300000: SM_Prop_C4_02
     9500000: //RootNode
   materials:
     importMaterials: 0

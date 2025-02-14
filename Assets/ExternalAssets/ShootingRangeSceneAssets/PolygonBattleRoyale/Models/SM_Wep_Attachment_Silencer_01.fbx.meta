@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
+guid: b8fc134665877924d9b5dacfbad7681a
 timeCreated: 1536112279
 licenseType: Store
 ModelImporter:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    4300000: SM_Wep_Attachment_Silencer_01
     9500000: //RootNode
   materials:
     importMaterials: 0

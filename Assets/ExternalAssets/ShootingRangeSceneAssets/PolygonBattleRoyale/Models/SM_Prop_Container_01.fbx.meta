@@ -1,15 +1,35 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
-timeCreated: 1536112279
+guid: 9364ecb2970303449bdca4151ff2e916
+timeCreated: 1536626383
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: SM_Prop_Container_Door_01
+    100004: SM_Prop_Container_Door_02
+    100006: SM_Prop_Container_Door_03
+    100008: SM_Prop_Container_Door_04
     400000: //RootNode
+    400002: SM_Prop_Container_Door_01
+    400004: SM_Prop_Container_Door_02
+    400006: SM_Prop_Container_Door_03
+    400008: SM_Prop_Container_Door_04
     2300000: //RootNode
+    2300002: SM_Prop_Container_Door_01
+    2300004: SM_Prop_Container_Door_02
+    2300006: SM_Prop_Container_Door_03
+    2300008: SM_Prop_Container_Door_04
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    3300002: SM_Prop_Container_Door_01
+    3300004: SM_Prop_Container_Door_02
+    3300006: SM_Prop_Container_Door_03
+    3300008: SM_Prop_Container_Door_04
+    4300000: SM_Prop_Container_01
+    4300002: SM_Prop_Container_Door_01
+    4300004: SM_Prop_Container_Door_02
+    4300006: SM_Prop_Container_Door_03
+    4300008: SM_Prop_Container_Door_04
     9500000: //RootNode
   materials:
     importMaterials: 0

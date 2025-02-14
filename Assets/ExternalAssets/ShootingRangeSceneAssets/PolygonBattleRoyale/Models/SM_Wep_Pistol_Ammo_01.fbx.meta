@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
-timeCreated: 1536112279
+guid: 5c8cb43d7d087134f8cbdd3aa1b1ee8e
+timeCreated: 1536802444
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    4300000: SM_Wep_Pistol_Ammo_01
     9500000: //RootNode
   materials:
     importMaterials: 0

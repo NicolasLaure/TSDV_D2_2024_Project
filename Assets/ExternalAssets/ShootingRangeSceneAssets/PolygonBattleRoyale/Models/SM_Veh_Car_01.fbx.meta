@@ -1,15 +1,45 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
-timeCreated: 1536112279
+guid: 74fb4d2cb5877d7488b5b45e275e081a
+timeCreated: 1536119612
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: SM_Veh_Car_01_Glass
+    100004: SM_Veh_Car_01_SteeringW
+    100006: SM_Veh_Car_01_Wheel_fl
+    100008: SM_Veh_Car_01_Wheel_fr
+    100010: SM_Veh_Car_01_Wheel_rl
+    100012: SM_Veh_Car_01_Wheel_rr
     400000: //RootNode
+    400002: SM_Veh_Car_01_Glass
+    400004: SM_Veh_Car_01_SteeringW
+    400006: SM_Veh_Car_01_Wheel_fl
+    400008: SM_Veh_Car_01_Wheel_fr
+    400010: SM_Veh_Car_01_Wheel_rl
+    400012: SM_Veh_Car_01_Wheel_rr
     2300000: //RootNode
+    2300002: SM_Veh_Car_01_Glass
+    2300004: SM_Veh_Car_01_SteeringW
+    2300006: SM_Veh_Car_01_Wheel_fl
+    2300008: SM_Veh_Car_01_Wheel_fr
+    2300010: SM_Veh_Car_01_Wheel_rl
+    2300012: SM_Veh_Car_01_Wheel_rr
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    3300002: SM_Veh_Car_01_Glass
+    3300004: SM_Veh_Car_01_SteeringW
+    3300006: SM_Veh_Car_01_Wheel_fl
+    3300008: SM_Veh_Car_01_Wheel_fr
+    3300010: SM_Veh_Car_01_Wheel_rl
+    3300012: SM_Veh_Car_01_Wheel_rr
+    4300000: SM_Veh_Car_01
+    4300002: SM_Veh_Car_01_Wheel_rr
+    4300004: SM_Veh_Car_01_Glass
+    4300006: SM_Veh_Car_01_SteeringW
+    4300008: SM_Veh_Car_01_Wheel_fl
+    4300010: SM_Veh_Car_01_Wheel_rl
+    4300012: SM_Veh_Car_01_Wheel_fr
     9500000: //RootNode
   materials:
     importMaterials: 0

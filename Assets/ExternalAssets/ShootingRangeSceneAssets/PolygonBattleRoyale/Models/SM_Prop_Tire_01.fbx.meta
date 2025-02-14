@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
-timeCreated: 1536112279
+guid: 9e3991007a877d74a901aac20e9c75c4
+timeCreated: 1536626383
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    4300000: SM_Prop_Tire_01
     9500000: //RootNode
   materials:
     importMaterials: 0
@@ -53,7 +53,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 5
+    normalSmoothAngle: 0
     normalImportMode: 1
     tangentImportMode: 3
   importAnimation: 0

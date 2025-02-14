@@ -1,15 +1,40 @@
 fileFormatVersion: 2
-guid: e2462e9d8992c7540a2cc5e821d147fc
-timeCreated: 1536112279
+guid: 49a29c6e3aadff54691ab084ad47989b
+timeCreated: 1536112278
 licenseType: Store
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: SM_Wep_Rifle_Assault_Flash_02
+    100004: SM_Wep_Rifle_Assault_Lever_02
+    100006: SM_Wep_Rifle_Assault_Mag_02
+    100008: SM_Wep_Rifle_Assault_Slide_02
+    100010: SM_Wep_Rifle_Assault_Trigger_02
     400000: //RootNode
+    400002: SM_Wep_Rifle_Assault_Flash_02
+    400004: SM_Wep_Rifle_Assault_Lever_02
+    400006: SM_Wep_Rifle_Assault_Mag_02
+    400008: SM_Wep_Rifle_Assault_Slide_02
+    400010: SM_Wep_Rifle_Assault_Trigger_02
     2300000: //RootNode
+    2300002: SM_Wep_Rifle_Assault_Flash_02
+    2300004: SM_Wep_Rifle_Assault_Lever_02
+    2300006: SM_Wep_Rifle_Assault_Mag_02
+    2300008: SM_Wep_Rifle_Assault_Slide_02
+    2300010: SM_Wep_Rifle_Assault_Trigger_02
     3300000: //RootNode
-    4300000: SM_Wep_Attachment_Redot_01
+    3300002: SM_Wep_Rifle_Assault_Flash_02
+    3300004: SM_Wep_Rifle_Assault_Lever_02
+    3300006: SM_Wep_Rifle_Assault_Mag_02
+    3300008: SM_Wep_Rifle_Assault_Slide_02
+    3300010: SM_Wep_Rifle_Assault_Trigger_02
+    4300000: SM_Wep_Rifle_Assault_02
+    4300002: SM_Wep_Rifle_Assault_Flash_02
+    4300004: SM_Wep_Rifle_Assault_Mag_02
+    4300006: SM_Wep_Rifle_Assault_Trigger_02
+    4300008: SM_Wep_Rifle_Assault_Lever_02
+    4300010: SM_Wep_Rifle_Assault_Slide_02
     9500000: //RootNode
   materials:
     importMaterials: 0
