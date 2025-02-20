@@ -16,6 +16,11 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private float rumbleLowIntensity;
     [SerializeField] private float rumbleHighIntensity;
 
+    [Header("Recoil")]
+    [Tooltip("Horizontal Displacement is shown on the Y axis of the curve")]
+    [SerializeField] private AnimationCurve horizontalDisplacement; 
+    [SerializeField] private AnimationCurve verticalDisplacement; 
+    
     private MagazineSO currentMagazine;
     public event Action onMagChanged;
     public int MagazineSize { get { return currentMagazine.Size; } }
@@ -34,6 +39,9 @@ public class WeaponSO : ScriptableObject
     public float RumbleDuration { get { return rumbleDuration; } }
     public float RumbleLowIntensity { get { return rumbleLowIntensity; } }
     public float RumbleHighIntensity { get { return rumbleHighIntensity; } }
+
+    public AnimationCurve HorizontalDisplacement { get {return horizontalDisplacement; } }
+    public AnimationCurve VerticalDisplacement { get {return verticalDisplacement; } }
 
     public void SetDefault()
     {

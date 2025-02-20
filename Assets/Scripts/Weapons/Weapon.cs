@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Events;
+
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected FireMode fireMode;
@@ -10,11 +12,16 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private GameObject environmentWeaponPrefab;
     [SerializeField] private Animator weaponAnimator;
+    [Header("Recoil")]
+    [SerializeField] private float recoilRecoverTime;
+    [SerializeField] private Vector3EventChannelSO recoilAngleEventChannel;
+    [SerializeField] private VoidEventChannelSO resetRecoil;
+    // To rotate the camera I could calculate the new camera forward
+    // based on that I could get camera new rotation based on the quaternion that has this new result as forward
 
     [SerializeField] public UnityEvent onShoot;
     [SerializeField] public UnityEvent onReload;
     [SerializeField] public UnityEvent onReloadFinished;
-
     [Header("Visuals")]
     [SerializeField] protected DecalsHandler decals;
 
@@ -24,10 +31,25 @@ public abstract class Weapon : MonoBehaviour
     private bool isFiring = false;
     private Coroutine fullAutoCoroutine;
 
+    private float originXAngle;
+    private float originYAngle;
+
     public float LastShotTime { get; set; }
-    public int CurrentAmmo { get { return currentMagazine; } }
-    public WeaponSO WeaponSO { get { return weaponSO; } }
-    public GameObject EnvironmentWeaponPrefab { get { return environmentWeaponPrefab; } }
+
+    public int CurrentAmmo
+    {
+        get { return currentMagazine; }
+    }
+
+    public WeaponSO WeaponSO
+    {
+        get { return weaponSO; }
+    }
+
+    public GameObject EnvironmentWeaponPrefab
+    {
+        get { return environmentWeaponPrefab; }
+    }
 
     protected void Awake()
     {
@@ -35,15 +57,18 @@ public abstract class Weapon : MonoBehaviour
         decals = GameObject.FindObjectOfType<DecalsHandler>();
         weaponSO.onMagChanged += OnMagazineChanged;
     }
+
     private void OnEnable()
     {
         isReloading = false;
         isFiring = false;
     }
+
     private void OnDestroy()
     {
         weaponSO.onMagChanged -= OnMagazineChanged;
     }
+
     public void Shoot()
     {
         if (!CanShoot())
@@ -59,6 +84,7 @@ public abstract class Weapon : MonoBehaviour
             fireCoroutine = StartCoroutine(fireMode.Fire(this));
         }
     }
+
     public void StopShooting()
     {
         if (fireCoroutine != null)
@@ -66,27 +92,33 @@ public abstract class Weapon : MonoBehaviour
             isFiring = false;
             StopCoroutine(fireCoroutine);
             fireCoroutine = null;
+            ResetRecoil();
         }
     }
+
     public void Reload()
     {
         if (!isReloading)
             StartCoroutine(ReloadCoroutine());
     }
+
     public virtual void FireWeapon()
     {
         LastShotTime = Time.time;
         currentMagazine--;
         onShoot?.Invoke();
     }
+
     public bool CanShoot()
     {
         return HasBullets() && !(isReloading) && !OnCoolDown();
     }
+
     public bool HasBullets()
     {
         return currentMagazine > 0;
     }
+
     private IEnumerator ReloadCoroutine()
     {
         onReload?.Invoke();
@@ -106,6 +138,7 @@ public abstract class Weapon : MonoBehaviour
             StartCoroutine(ReloadCoroutine());
         }
     }
+
     public void OnMovementChange(Vector2 dir)
     {
         if (dir != Vector2.zero)
@@ -118,6 +151,7 @@ public abstract class Weapon : MonoBehaviour
     {
         weaponAnimator.SetBool("isSprinting", value);
     }
+
     //private IEnumerator BurstAuto()
     //{
     //    isFiring = true;
@@ -131,9 +165,38 @@ public abstract class Weapon : MonoBehaviour
     {
         return LastShotTime + weaponSO.ShootingCoolDown > Time.time;
     }
+
     public IEnumerator ShootCoolDown()
     {
         yield return new WaitForSeconds(weaponSO.ShootingCoolDown);
     }
 
+    public void RecoilCameraDisplacement(float progress)
+    {
+        if (progress == 0)
+        {
+            originXAngle = transform.rotation.eulerAngles.x;
+            originXAngle = originXAngle > 180 ? originXAngle - 360 : originXAngle;
+
+            originYAngle = transform.rotation.eulerAngles.y;
+            originYAngle = originYAngle > 180 ? originYAngle - 360 : originYAngle;
+            recoilAngleEventChannel.RaiseEvent(new Vector3(originXAngle, originYAngle, 0));
+            return;
+        }
+
+        float newXAxisAngle = -weaponSO.VerticalDisplacement.Evaluate(progress);
+        float newYAxisAngle = -weaponSO.HorizontalDisplacement.Evaluate(progress);
+
+        recoilAngleEventChannel.RaiseEvent(new Vector3(newXAxisAngle, newYAxisAngle, progress));
+        transform.localRotation = Quaternion.Euler(originXAngle + newXAxisAngle, originYAngle + newYAxisAngle, 0);
+    }
+
+    public void ResetRecoil()
+    {
+        Vector3 cameraRotationEulers = Camera.main.transform.rotation.eulerAngles;
+        transform.rotation = Quaternion.Euler(cameraRotationEulers.x, cameraRotationEulers.y, transform.rotation.eulerAngles.z);
+        resetRecoil.RaiseEvent();
+        // Camera.main.transform.rotation = Quaternion.Euler(originXAngle, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
+        // Camera.main.transform.parent.rotation = Quaternion.Euler(0, originYAngle, 0);
+    }
 }

@@ -13,8 +13,83 @@ MonoBehaviour:
   m_Name: Ak47
   m_EditorClassIdentifier: 
   defaultMagazine: {fileID: 11400000, guid: bb29fd2e7e6a66648afeeee548827029, type: 2}
-  shootingCoolDown: 0.325
+  shootingCoolDown: 0.1
   reloadingDuration: 1.66
   rumbleDuration: 0
   rumbleLowIntensity: 0
   rumbleHighIntensity: 0
+  horizontalDisplacement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.008069194
+      outSlope: -0.008069194
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.25240663
+    - serializedVersion: 3
+      time: 0.70888734
+      value: -2.7400987
+      inSlope: -0.3040819
+      outSlope: -0.3040819
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.8774535
+      value: 2.1832523
+      inSlope: -97.282074
+      outSlope: -97.282074
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07728096
+      outWeight: 0.09447605
+    - serializedVersion: 3
+      time: 1
+      value: 5
+      inSlope: 113.29441
+      outSlope: 113.29441
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.064706735
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalDisplacement:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.008069194
+      outSlope: -0.008069194
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.25240663
+    - serializedVersion: 3
+      time: 0.53553826
+      value: 5.8083296
+      inSlope: 0.7128984
+      outSlope: 0.7128984
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.20586482
+      outWeight: 0.40791684
+    - serializedVersion: 3
+      time: 1
+      value: 12
+      inSlope: 13.330852
+      outSlope: 13.330852
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -52,6 +52,9 @@ MonoBehaviour:
   weaponSO: {fileID: 11400000, guid: a41f6c2fd6da248418014c515ab4cf5b, type: 2}
   environmentWeaponPrefab: {fileID: 1825974491304841579, guid: 61dc36fcf990c2a428675394038f1bb2, type: 3}
   weaponAnimator: {fileID: 8269224941448359971}
+  recoilRecoverTime: 1
+  recoilAngleEventChannel: {fileID: 11400000, guid: 8b77ec763b5353f43a13a725442a72e9, type: 2}
+  resetRecoil: {fileID: 11400000, guid: 572d2644cb8932d48bdb9e6c3827812b, type: 2}
   onShoot:
     m_PersistentCalls:
       m_Calls:
