@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.nicodrake.event-channels": "1.0.0",
+    "com.nicodrake.event-channels": "1.0.2",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.7.0",
