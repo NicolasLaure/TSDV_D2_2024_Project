@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.nicodrake.event-channels": "1.0.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.inputsystem": "1.7.0",
@@ -18,5 +19,14 @@
     "com.unity.modules.ui": "1.0.0",
     "com.unity.modules.uielements": "1.0.0",
     "com.unity.modules.umbra": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.nicodrake.event-channels"
+      ]
+    }
+  ]
 }
