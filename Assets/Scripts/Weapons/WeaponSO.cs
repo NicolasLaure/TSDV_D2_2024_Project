@@ -19,7 +19,8 @@ public class WeaponSO : ScriptableObject
     [Header("Recoil")]
     [Tooltip("Horizontal Displacement is shown on the Y axis of the curve")]
     [SerializeField] private AnimationCurve horizontalDisplacement; 
-    [SerializeField] private AnimationCurve verticalDisplacement; 
+    [SerializeField] private AnimationCurve verticalDisplacement;
+    [SerializeField] private float recoilDecay;
     
     private MagazineSO currentMagazine;
     public event Action onMagChanged;
@@ -42,6 +43,8 @@ public class WeaponSO : ScriptableObject
 
     public AnimationCurve HorizontalDisplacement { get {return horizontalDisplacement; } }
     public AnimationCurve VerticalDisplacement { get {return verticalDisplacement; } }
+
+    public float RecoilDecay { get { return recoilDecay; } }
 
     public void SetDefault()
     {

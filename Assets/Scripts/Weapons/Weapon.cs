@@ -15,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
     [Header("Recoil")]
     [SerializeField] private float recoilRecoverTime;
     [SerializeField] private Vector3EventChannelSO recoilAngleEventChannel;
-    [SerializeField] private VoidEventChannelSO resetRecoil;
+    [SerializeField] private FloatChannelEvent resetRecoil;
     // To rotate the camera I could calculate the new camera forward
     // based on that I could get camera new rotation based on the quaternion that has this new result as forward
 
@@ -33,7 +33,7 @@ public abstract class Weapon : MonoBehaviour
 
     private float originXAngle;
     private float originYAngle;
-
+    private Coroutine recoilDecayCoroutine;
     public float LastShotTime { get; set; }
 
     public int CurrentAmmo
@@ -80,6 +80,12 @@ public abstract class Weapon : MonoBehaviour
 
         if (fireCoroutine == null)
         {
+            if (recoilDecayCoroutine != null)
+            {
+                StopCoroutine(recoilDecayCoroutine);
+                recoilDecayCoroutine = null;
+            }
+
             isFiring = true;
             fireCoroutine = StartCoroutine(fireMode.Fire(this));
         }
@@ -92,7 +98,7 @@ public abstract class Weapon : MonoBehaviour
             isFiring = false;
             StopCoroutine(fireCoroutine);
             fireCoroutine = null;
-            ResetRecoil();
+            recoilDecayCoroutine = StartCoroutine(ResetRecoil());
         }
     }
 
@@ -176,10 +182,10 @@ public abstract class Weapon : MonoBehaviour
         if (progress == 0)
         {
             originXAngle = transform.rotation.eulerAngles.x;
-            originXAngle = originXAngle > 180 ? originXAngle - 360 : originXAngle;
+            //originXAngle = originXAngle > 180 ? originXAngle - 360 : originXAngle;
 
             originYAngle = transform.rotation.eulerAngles.y;
-            originYAngle = originYAngle > 180 ? originYAngle - 360 : originYAngle;
+            //originYAngle = originYAngle > 180 ? originYAngle - 360 : originYAngle;
             recoilAngleEventChannel.RaiseEvent(new Vector3(originXAngle, originYAngle, 0));
             return;
         }
@@ -191,12 +197,17 @@ public abstract class Weapon : MonoBehaviour
         transform.localRotation = Quaternion.Euler(originXAngle + newXAxisAngle, originYAngle + newYAxisAngle, 0);
     }
 
-    public void ResetRecoil()
+    public IEnumerator ResetRecoil()
     {
-        Vector3 cameraRotationEulers = Camera.main.transform.rotation.eulerAngles;
-        transform.rotation = Quaternion.Euler(cameraRotationEulers.x, cameraRotationEulers.y, transform.rotation.eulerAngles.z);
-        resetRecoil.RaiseEvent();
-        // Camera.main.transform.rotation = Quaternion.Euler(originXAngle, Camera.main.transform.rotation.eulerAngles.y, Camera.main.transform.rotation.eulerAngles.z);
-        // Camera.main.transform.parent.rotation = Quaternion.Euler(0, originYAngle, 0);
+        float timer = 0;
+        float startTime = Time.time;
+        while (timer < weaponSO.RecoilDecay)
+        {
+            timer = Time.time - startTime;
+            resetRecoil.RaiseEvent(timer / weaponSO.RecoilDecay);
+            Vector3 cameraRotationEulers = Camera.main.transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(cameraRotationEulers.x, cameraRotationEulers.y, transform.rotation.eulerAngles.z);
+            yield return null;
+        }
     }
 }
