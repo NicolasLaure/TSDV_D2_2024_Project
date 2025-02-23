@@ -12,6 +12,7 @@ public class InputReader : MonoBehaviour
     private FirstPersonLook playerLook;
     private WeaponHandler weaponHandler;
     [SerializeField] private GameObject pausePanel;
+
     void Start()
     {
         playerMovement = GetComponent<CharacterMovement>();
@@ -20,6 +21,7 @@ public class InputReader : MonoBehaviour
 
         StartCoroutine(InitializeInput());
     }
+
     private void OnDestroy()
     {
         if (input != null)
@@ -28,6 +30,7 @@ public class InputReader : MonoBehaviour
             input.Dispose();
         }
     }
+
     private IEnumerator InitializeInput()
     {
         yield return null;
@@ -65,55 +68,61 @@ public class InputReader : MonoBehaviour
         input.Player.ChangeWeapon.started -= OnWeaponChange;
         input.Player.Drop.performed -= OnWeaponDrop;
         input.Game.Pause.performed -= OnPause;
-
     }
+
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
         playerMovement.SetDir(dir);
     }
+
     private void OnMovementCanceled(InputAction.CallbackContext context)
     {
         playerMovement.SetDir(Vector2.zero);
     }
+
     private void OnSprintPerformed(InputAction.CallbackContext context)
     {
         playerMovement.SetSprint(true);
     }
+
     private void OnSprintCanceled(InputAction.CallbackContext context)
     {
         playerMovement.SetSprint(false);
     }
+
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
-        if (context.control.device is Mouse)
-            playerLook.RotateTowards(context.ReadValue<Vector2>());
-        else
-            playerLook.SetRotation(context.ReadValue<Vector2>());
+        playerLook.SetRotation(context.ReadValue<Vector2>());
     }
+
     private void OnLookCanceled(InputAction.CallbackContext context)
     {
-        if (context.control.device is Gamepad)
-            playerLook.SetRotation(context.ReadValue<Vector2>());
+        playerLook.SetRotation(context.ReadValue<Vector2>());
     }
+
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
         weaponHandler.ShootWeapon();
         weaponHandler.SetWeaponRumbler(context.control.device is Gamepad);
     }
+
     private void OnShootCanceled(InputAction.CallbackContext context)
     {
         weaponHandler.CancelShoot();
     }
+
     private void OnReloadStarted(InputAction.CallbackContext context)
     {
         weaponHandler.ReloadWeapon();
     }
+
     private void OnWeaponChange(InputAction.CallbackContext context)
     {
         int axisValue = (int)Mathf.Ceil(context.ReadValue<float>());
         weaponHandler.ScrollThroughHeldWeapons(axisValue);
     }
+
     private void OnWeaponDrop(InputAction.CallbackContext context)
     {
         weaponHandler.TryDropWeapon();

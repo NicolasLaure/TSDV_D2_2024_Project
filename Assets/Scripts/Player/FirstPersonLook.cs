@@ -45,33 +45,10 @@ public class FirstPersonLook : MonoBehaviour
 
     private void Update()
     {
-        // if (rotationDir == Vector2.zero)
-        //     return;
-        //
-        // transform.Rotate(Vector3.up, rotationDir.x * mouseSensitivity);
-        // XAxisAngle += rotationDir.y * mouseSensitivity;
-        // XAxisAngle = Mathf.Clamp(XAxisAngle, -maxVerticalRotation, maxVerticalRotation);
-        // Camera.main.transform.localRotation = Quaternion.Euler(-XAxisAngle, 0, 0);
-    }
-
-    public void RotateTowards(Vector2 dir)
-    {
-        if (dir == Vector2.zero)
-        {
-            crossHairDisplace = Vector2.zero;
-            return;
-        }
-
-        crossHairDisplace = new Vector2(dir.x * mouseSensitivity, dir.y * mouseSensitivity);
-
-        if (!isRecoiling)
-        {
-            YAxisAngle += crossHairDisplace.x;
-            XAxisAngle += crossHairDisplace.y;
-            XAxisAngle = Mathf.Clamp(XAxisAngle, -maxVerticalRotation, maxVerticalRotation);
-            Camera.main.transform.localRotation = Quaternion.Euler(-XAxisAngle, 0, 0);
-            transform.rotation = Quaternion.Euler(0, YAxisAngle, 0);
-        }
+        transform.Rotate(Vector3.up, rotationDir.x * mouseSensitivity);
+        XAxisAngle += rotationDir.y * mouseSensitivity;
+        XAxisAngle = Mathf.Clamp(XAxisAngle, -maxVerticalRotation, maxVerticalRotation);
+        Camera.main.transform.localRotation = Quaternion.Euler(-XAxisAngle, 0, 0);
     }
 
     public void SetRotation(Vector2 dir)
@@ -102,14 +79,14 @@ public class FirstPersonLook : MonoBehaviour
             originAxisAngles.y = YAxisAngle;
             Debug.Log($"origin Y axis angle: {originAxisAngles.y}");
         }
-        
+
         originAxisAngles.x -= crossHairDisplace.y;
         originAxisAngles.y += crossHairDisplace.x;
-        XAxisAngle = originAxisAngles.x + newAngle.x;
-        YAxisAngle = originAxisAngles.y - newAngle.y;
-        
+        XAxisAngle = originAxisAngles.x - newAngle.x;
+        YAxisAngle = originAxisAngles.y + newAngle.y;
+
         transform.rotation = Quaternion.Euler(0, YAxisAngle, 0);
-        Camera.main.transform.localRotation = Quaternion.Euler(XAxisAngle, 0, 0);
+        Camera.main.transform.localRotation = Quaternion.Euler(-XAxisAngle, 0, 0);
     }
 
     private void ResetRecoil(float progress)
@@ -118,7 +95,7 @@ public class FirstPersonLook : MonoBehaviour
         Quaternion targetPlayerRotation = Quaternion.Euler(0, originAxisAngles.y, 0);
         Camera.main.transform.localRotation = Quaternion.Lerp(Camera.main.transform.localRotation, targetCameraRotation, progress);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetPlayerRotation, progress);
-        
+
         if (progress >= 1)
             isRecoiling = false;
     }

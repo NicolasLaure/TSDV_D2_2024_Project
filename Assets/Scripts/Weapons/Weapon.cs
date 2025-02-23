@@ -182,10 +182,8 @@ public abstract class Weapon : MonoBehaviour
         if (progress == 0)
         {
             originXAngle = transform.rotation.eulerAngles.x;
-            //originXAngle = originXAngle > 180 ? originXAngle - 360 : originXAngle;
 
             originYAngle = transform.rotation.eulerAngles.y;
-            //originYAngle = originYAngle > 180 ? originYAngle - 360 : originYAngle;
             recoilAngleEventChannel.RaiseEvent(new Vector3(originXAngle, originYAngle, 0));
             return;
         }
