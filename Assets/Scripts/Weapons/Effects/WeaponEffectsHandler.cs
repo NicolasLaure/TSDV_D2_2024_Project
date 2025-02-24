@@ -16,7 +16,6 @@ public class WeaponEffectsHandler : MonoBehaviour
     }
     IEnumerator InvokeCoroutine(WeaponEffectConfigSO effectConfig)
     {
-        Debug.Log(audioSource.clip.name);
         float startTime = Time.time;
         float timer = 0;
         while (timer < effectConfig.delay)

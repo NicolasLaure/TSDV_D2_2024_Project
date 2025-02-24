@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed32acdaa8cb1b44d9fde304bbbf83ad, type: 3}
   m_Name: PMM
   m_EditorClassIdentifier: 
+  bulletDamage: 15
   defaultMagazine: {fileID: 11400000, guid: e376ad804abbb81468a5e311e6bd592a, type: 2}
   shootingCoolDown: 0.2
   reloadingDuration: 2
   rumbleDuration: 0
   rumbleLowIntensity: 0
   rumbleHighIntensity: 0
+  horizontalDisplacement:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalDisplacement:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilDecay: 0

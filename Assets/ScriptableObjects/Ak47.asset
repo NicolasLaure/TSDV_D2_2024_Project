@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed32acdaa8cb1b44d9fde304bbbf83ad, type: 3}
   m_Name: Ak47
   m_EditorClassIdentifier: 
+  bulletDamage: 25
   defaultMagazine: {fileID: 11400000, guid: bb29fd2e7e6a66648afeeee548827029, type: 2}
   shootingCoolDown: 0.1
   reloadingDuration: 1.66

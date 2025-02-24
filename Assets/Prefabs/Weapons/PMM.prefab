@@ -52,6 +52,9 @@ MonoBehaviour:
   weaponSO: {fileID: 11400000, guid: a99100bb53d1e8245b6d9674434bfadf, type: 2}
   environmentWeaponPrefab: {fileID: 8472990650184265077, guid: 84c36840f8365e84e91ef97c153974b2, type: 3}
   weaponAnimator: {fileID: 4491145466483289987}
+  recoilRecoverTime: 0
+  recoilAngleEventChannel: {fileID: 0}
+  resetRecoil: {fileID: 0}
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -112,7 +115,7 @@ MonoBehaviour:
   decals: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 10241
+    m_Bits: 141313
   maxHitDistance: 100
 --- !u!114 &-9021182662088492187
 MonoBehaviour:

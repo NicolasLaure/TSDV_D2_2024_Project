@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed32acdaa8cb1b44d9fde304bbbf83ad, type: 3}
   m_Name: SLR
   m_EditorClassIdentifier: 
+  bulletDamage: 50
   defaultMagazine: {fileID: 11400000, guid: b9304268511c86b49bb6a6cf5166650d, type: 2}
   shootingCoolDown: 0.3
   reloadingDuration: 2
   rumbleDuration: 0.2
   rumbleLowIntensity: 0.7
   rumbleHighIntensity: 0.2
+  horizontalDisplacement:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalDisplacement:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  recoilDecay: 0

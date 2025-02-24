@@ -54,7 +54,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 8269224941448359971}
   recoilRecoverTime: 1
   recoilAngleEventChannel: {fileID: 11400000, guid: 8b77ec763b5353f43a13a725442a72e9, type: 2}
-  resetRecoil: {fileID: 11400000, guid: 572d2644cb8932d48bdb9e6c3827812b, type: 2}
+  resetRecoil: {fileID: 0}
   onShoot:
     m_PersistentCalls:
       m_Calls:
@@ -115,7 +115,7 @@ MonoBehaviour:
   decals: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 10241
+    m_Bits: 141313
   maxHitDistance: 100
 --- !u!114 &-676904428537887642
 MonoBehaviour:
