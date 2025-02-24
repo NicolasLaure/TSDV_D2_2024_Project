@@ -6,6 +6,7 @@ public class WeaponSO : ScriptableObject
 {
     [SerializeField] public string weaponName { get; private set; }
 
+    [SerializeField] private int bulletDamage;
     [SerializeField] private MagazineSO defaultMagazine;
     [Tooltip("Time in seconds for the weapon to be fired again")]
     [SerializeField] private float shootingCoolDown;
@@ -18,13 +19,23 @@ public class WeaponSO : ScriptableObject
 
     [Header("Recoil")]
     [Tooltip("Horizontal Displacement is shown on the Y axis of the curve")]
-    [SerializeField] private AnimationCurve horizontalDisplacement; 
+    [SerializeField] private AnimationCurve horizontalDisplacement;
     [SerializeField] private AnimationCurve verticalDisplacement;
     [SerializeField] private float recoilDecay;
-    
+
     private MagazineSO currentMagazine;
     public event Action onMagChanged;
-    public int MagazineSize { get { return currentMagazine.Size; } }
+
+    public int BulletDamage
+    {
+        get { return bulletDamage; }
+    }
+
+    public int MagazineSize
+    {
+        get { return currentMagazine.Size; }
+    }
+
     public MagazineSO CurrentMagazine
     {
         get { return currentMagazine; }
@@ -34,17 +45,46 @@ public class WeaponSO : ScriptableObject
             currentMagazine = value;
         }
     }
-    public float ShootingCoolDown { get { return shootingCoolDown; } }
-    public float ReloadingDuration { get { return reloadingDuration; } }
 
-    public float RumbleDuration { get { return rumbleDuration; } }
-    public float RumbleLowIntensity { get { return rumbleLowIntensity; } }
-    public float RumbleHighIntensity { get { return rumbleHighIntensity; } }
+    public float ShootingCoolDown
+    {
+        get { return shootingCoolDown; }
+    }
 
-    public AnimationCurve HorizontalDisplacement { get {return horizontalDisplacement; } }
-    public AnimationCurve VerticalDisplacement { get {return verticalDisplacement; } }
+    public float ReloadingDuration
+    {
+        get { return reloadingDuration; }
+    }
 
-    public float RecoilDecay { get { return recoilDecay; } }
+    public float RumbleDuration
+    {
+        get { return rumbleDuration; }
+    }
+
+    public float RumbleLowIntensity
+    {
+        get { return rumbleLowIntensity; }
+    }
+
+    public float RumbleHighIntensity
+    {
+        get { return rumbleHighIntensity; }
+    }
+
+    public AnimationCurve HorizontalDisplacement
+    {
+        get { return horizontalDisplacement; }
+    }
+
+    public AnimationCurve VerticalDisplacement
+    {
+        get { return verticalDisplacement; }
+    }
+
+    public float RecoilDecay
+    {
+        get { return recoilDecay; }
+    }
 
     public void SetDefault()
     {

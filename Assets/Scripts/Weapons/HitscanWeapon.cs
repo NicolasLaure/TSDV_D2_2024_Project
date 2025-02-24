@@ -33,6 +33,11 @@ public class HitscanWeapon : Weapon
             {
                 hittedTarget.shotReceived?.Invoke();
             }
+
+            if (hit.collider.TryGetComponent<IHittable>(out IHittable collider))
+            {
+                collider.GetHit(WeaponSO.BulletDamage);
+            }
         }
     }
 }
