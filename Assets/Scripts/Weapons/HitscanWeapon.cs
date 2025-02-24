@@ -29,10 +29,8 @@ public class HitscanWeapon : Weapon
 
             hitPositions.Add(hit.point);
 
-            Target hittedTarget = hit.collider.transform.GetComponentInParent<Target>();
-            if (hittedTarget != null)
+            if (hit.collider.transform.parent.TryGetComponent(out Target hittedTarget))
             {
-                Debug.Log("Shot received");
                 hittedTarget.shotReceived?.Invoke();
             }
         }
