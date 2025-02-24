@@ -2,42 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FSM : MonoBehaviour
+namespace FSM
 {
-    [SerializeField] private List<State> states = new List<State>();
-
-    private State currentState;
-
-    private void Start()
+    public class FSM
     {
-        if (states.Count > 0)
-            ChangeState(states[0]);
-    }
+        [SerializeField] private List<State> states = new List<State>();
 
-    private void Update()
-    {
-        currentState.Update();
-    }
+        private State _currentState;
+        private bool _isDisabled;
 
-    private void FixedUpdate()
-    {
-        currentState.FixedUpdate();
-    }
-
-    private void LateUpdate()
-    {
-        currentState.LateUpdate();
-    }
-
-    public void ChangeState<T>(T newState) where T : State
-    {
-        if (currentState != null)
-            currentState.Exit();
-
-        if (states.Contains(newState))
+        public FSM(List<State> states)
         {
-            currentState = newState;
-            currentState.Enter(gameObject);
+            this.states = states;
+            _isDisabled = false;
+            _currentState = states[0];
+            _currentState.Enter();
+        }
+
+        public void Update()
+        {
+            _currentState.Update();
+        }
+
+        public void FixedUpdate()
+        {
+            _currentState.FixedUpdate();
+        }
+        public void ChangeState<T>(T newState) where T : State
+        {
+            if (_isDisabled)
+                return;
+
+            if (_currentState == newState)
+            {
+                _currentState.Exit();
+                _currentState.Enter();
+            }
+            else if (states.Contains(newState))
+            {
+                _currentState = newState;
+                _currentState.Enter();
+            }
+        }
+
+        public void Enable()
+        {
+            _isDisabled = false;
+        }
+
+        public void Disable()
+        {
+            _isDisabled = true;
+        }
+
+        public State GetCurrentState()
+        {
+            return _currentState;
         }
     }
 }

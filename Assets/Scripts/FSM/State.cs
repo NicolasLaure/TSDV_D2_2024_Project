@@ -1,27 +1,55 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State
+namespace FSM
 {
-    protected GameObject characterGameObject;
-    public virtual void Enter(GameObject characterGameObject)
+    public class State
     {
-        this.characterGameObject = characterGameObject;
-    }
-    public virtual void Update()
-    {
+        private List<Transition> _transitions;
+        public event Action EnterAction;
+        public event Action UpdateAction;
+        public event Action FixedUpdateAction;
+        public event Action ExitAction;
 
-    }
-    public virtual void FixedUpdate()
-    {
+        public virtual void Enter()
+        {
+            EnterAction?.Invoke();
+        }
 
-    }
-    public virtual void LateUpdate()
-    {
+        public virtual void Update()
+        {
+            UpdateAction?.Invoke();
+        }
 
-    }
-    public virtual void Exit()
-    {
+        public virtual void FixedUpdate()
+        {
+            FixedUpdateAction?.Invoke();
+        }
 
+        public virtual void Exit()
+        {
+            ExitAction?.Invoke();
+        }
+
+        public void AddTransition(Transition transition)
+        {
+            _transitions.Add(transition);
+        }
+
+        public bool TryGetTransition(State to, out Transition transition)
+        {
+            foreach (Transition _transition in _transitions)
+            {
+                if (_transition.To == to)
+                {
+                    transition = _transition;
+                    return true;
+                }
+            }
+
+            transition = null;
+            return false;
+        }
     }
 }
