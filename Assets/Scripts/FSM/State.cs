@@ -6,7 +6,7 @@ namespace FSM
 {
     public class State
     {
-        private List<Transition> _transitions;
+        private List<Transition> _transitions = new List<Transition>();
         public event Action EnterAction;
         public event Action UpdateAction;
         public event Action FixedUpdateAction;
