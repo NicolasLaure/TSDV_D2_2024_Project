@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCollider : MonoBehaviour, IHittable
+public class EntityCollider : MonoBehaviour, IHittable
 {
     [Tooltip("Base Value is One, thus 0 means normal damage, 0.5 is 50% more damage and so on")]
     [SerializeField] private float damageMultiplier;

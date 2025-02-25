@@ -143,7 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 2938696757644597969}
   walk: {fileID: 8300000, guid: d34dc405a253cf843883e624f19048d5, type: 3}
-  sprint: {fileID: 8300000, guid: 2129a9cd054b44b4d997fb710a08058d, type: 3}
 --- !u!1 &346430011941183920
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +160,8 @@ GameObject:
   - component: {fileID: 2938696757644597969}
   - component: {fileID: 8329208274767159832}
   - component: {fileID: 6293470276278998262}
+  - component: {fileID: 4849990696972792788}
+  - component: {fileID: 8266133690223653095}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -325,6 +326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: c21c86be3ca54f14389472e3cadf321a, type: 2}
   maxVerticalRotation: 50
+  recoilAngleEvent: {fileID: 0}
+  resetRecoilEvent: {fileID: 0}
 --- !u!114 &6293470276278998262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +348,39 @@ MonoBehaviour:
   - {fileID: 4335228271852131389, guid: 8179bd4920804094183b70f2fd57f956, type: 3}
   - {fileID: 4335228271852131389, guid: 7b9e7492b55c6b041a91a7781a9e4e93, type: 3}
   - {fileID: 295500145176690527, guid: 60e9f5742bcd3fc41922811429611be3, type: 3}
+--- !u!114 &4849990696972792788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346430011941183920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ca142e2ae55864cb52d42b560482ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  onDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onTakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8266133690223653095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346430011941183920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d831cb4e55afa542aab2585738c19cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 0
+  healthPoints: {fileID: 4849990696972792788}
 --- !u!1 &2000676563451461925
 GameObject:
   m_ObjectHideFlags: 0
