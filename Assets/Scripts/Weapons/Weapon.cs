@@ -12,6 +12,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private GameObject environmentWeaponPrefab;
     [SerializeField] private Animator weaponAnimator;
+
     [Header("Recoil")]
     [SerializeField] private float recoilRecoverTime;
     [SerializeField] private Vector3EventChannelSO recoilAngleEventChannel;
@@ -24,6 +25,8 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] public UnityEvent onReloadFinished;
     [Header("Visuals")]
     [SerializeField] protected DecalsHandler decals;
+
+    [SerializeField] public Transform pivot;
 
     private bool isReloading = false;
     private int currentMagazine;
@@ -179,6 +182,9 @@ public abstract class Weapon : MonoBehaviour
 
     public void RecoilCameraDisplacement(float progress)
     {
+        if (recoilAngleEventChannel == null)
+            return;
+
         if (progress == 0)
         {
             originXAngle = transform.rotation.eulerAngles.x;
@@ -197,6 +203,9 @@ public abstract class Weapon : MonoBehaviour
 
     public IEnumerator ResetRecoil()
     {
+        if (resetRecoil == null)
+            yield break;
+
         float timer = 0;
         float startTime = Time.time;
         while (timer < weaponSO.RecoilDecay)

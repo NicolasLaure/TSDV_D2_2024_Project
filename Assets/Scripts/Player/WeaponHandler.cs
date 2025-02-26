@@ -46,6 +46,7 @@ public class WeaponHandler : MonoBehaviour
         foreach (GameObject weapon in weaponPrefabs)
         {
             GameObject instance = Instantiate(weapon, holdingPoint);
+            instance.GetComponent<Weapon>().pivot = Camera.main.transform;
             weapons.Add(instance);
             instance.SetActive(false);
         }

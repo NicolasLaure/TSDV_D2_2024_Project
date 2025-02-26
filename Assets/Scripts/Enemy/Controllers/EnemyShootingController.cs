@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class EnemyShootingController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Weapon weapon;
+    [SerializeField] private float shootingCoolDown;
+
+
+    private float _lastShotTime;
+
+    public void TryToShoot()
     {
-        
+        if (!CanShoot())
+            return;
+
+        _lastShotTime = Time.time;
+        weapon.Shoot();
+        weapon.StopShooting();
     }
 
-    // Update is called once per frame
-    void Update()
+    private bool CanShoot()
     {
-        
+        return Time.time - _lastShotTime > shootingCoolDown;
     }
 }
