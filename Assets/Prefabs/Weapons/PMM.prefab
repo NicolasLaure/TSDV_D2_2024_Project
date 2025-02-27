@@ -113,6 +113,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   decals: {fileID: 0}
+  pivot: {fileID: 0}
+  hasSpread: 1
   layer:
     serializedVersion: 2
     m_Bits: 141313

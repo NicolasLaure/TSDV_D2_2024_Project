@@ -53,7 +53,7 @@ MonoBehaviour:
   environmentWeaponPrefab: {fileID: 1825974491304841579, guid: 61dc36fcf990c2a428675394038f1bb2, type: 3}
   weaponAnimator: {fileID: 8269224941448359971}
   recoilRecoverTime: 1
-  recoilAngleEventChannel: {fileID: 11400000, guid: 8b77ec763b5353f43a13a725442a72e9, type: 2}
+  recoilAngleEventChannel: {fileID: 0}
   resetRecoil: {fileID: 0}
   onShoot:
     m_PersistentCalls:
@@ -113,6 +113,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   decals: {fileID: 0}
+  pivot: {fileID: 0}
+  hasSpread: 1
   layer:
     serializedVersion: 2
     m_Bits: 141313

@@ -23,6 +23,12 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private AnimationCurve verticalDisplacement;
     [SerializeField] private float recoilDecay;
 
+    [Header("Spread")]
+    [SerializeField] private float maxHorizontalSpread;
+    [SerializeField] private float maxVerticalSpread;
+    [SerializeField] private AnimationCurve spreadCurve;
+    [SerializeField] private float spreadGrowth;
+
     private MagazineSO currentMagazine;
     public event Action onMagChanged;
 
@@ -86,6 +92,23 @@ public class WeaponSO : ScriptableObject
         get { return recoilDecay; }
     }
 
+    public float MaxHorizontalSpread
+    {
+        get { return maxHorizontalSpread; }
+    }
+
+    public float MaxVerticalSpread
+    {
+        get { return maxVerticalSpread; }
+    }
+    public AnimationCurve SpreadCurve
+    {
+        get { return spreadCurve; }
+    }
+    public float SpreadGrowth
+    {
+        get { return spreadGrowth; }
+    }
     public void SetDefault()
     {
         onMagChanged?.Invoke();

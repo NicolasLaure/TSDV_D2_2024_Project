@@ -37,6 +37,9 @@ public abstract class Weapon : MonoBehaviour
     private float originXAngle;
     private float originYAngle;
     private Coroutine recoilDecayCoroutine;
+
+    [SerializeField] private bool hasSpread;
+    protected int consecutiveShots = 0;
     public float LastShotTime { get; set; }
 
     public int CurrentAmmo
@@ -59,6 +62,9 @@ public abstract class Weapon : MonoBehaviour
         currentMagazine = weaponSO.MagazineSize;
         decals = GameObject.FindObjectOfType<DecalsHandler>();
         weaponSO.onMagChanged += OnMagazineChanged;
+
+        if (pivot == null)
+            pivot = Camera.main.transform;
     }
 
     private void OnEnable()
@@ -113,6 +119,11 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void FireWeapon()
     {
+        if (Time.time - LastShotTime < weaponSO.RecoilDecay)
+            consecutiveShots++;
+        else
+            consecutiveShots = 0;
+
         LastShotTime = Time.time;
         currentMagazine--;
         onShoot?.Invoke();
@@ -178,6 +189,23 @@ public abstract class Weapon : MonoBehaviour
     public IEnumerator ShootCoolDown()
     {
         yield return new WaitForSeconds(weaponSO.ShootingCoolDown);
+    }
+
+    public Vector3 BulletSpread(float shotCount)
+    {
+        if (!hasSpread)
+            return pivot.forward;
+
+        float spreadAmount = weaponSO.SpreadCurve.Evaluate(shotCount * weaponSO.SpreadGrowth);
+        float horizontalSpread = weaponSO.MaxHorizontalSpread * spreadAmount;
+        float verticalSpread = weaponSO.MaxVerticalSpread * spreadAmount;
+
+        float randomXAngle = Random.Range(-verticalSpread, verticalSpread);
+        float randomYAngle = Random.Range(-horizontalSpread, horizontalSpread);
+
+        Quaternion rotation = Quaternion.Euler(randomXAngle, randomYAngle, 0);
+
+        return rotation * pivot.forward;
     }
 
     public void RecoilCameraDisplacement(float progress)

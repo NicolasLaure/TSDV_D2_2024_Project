@@ -22,10 +22,8 @@ public class HitscanWeapon : Weapon
     public override void FireWeapon()
     {
         base.FireWeapon();
-        if (Physics.Raycast(pivot.position, pivot.forward, out hit, maxHitDistance, layer))
+        if (Physics.Raycast(pivot.position, BulletSpread(consecutiveShots), out hit, maxHitDistance, layer))
         {
-            Debug.Log($"Hit: {hit.transform.name}");
-
             if (decals != null)
                 decals.SpawnBulletHole(hit.transform, hit.point, hit.normal);
 
