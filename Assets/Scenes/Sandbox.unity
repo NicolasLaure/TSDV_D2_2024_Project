@@ -5208,7 +5208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ca142e2ae55864cb52d42b560482ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 0
   onDeathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -6927,6 +6927,7 @@ GameObject:
   - component: {fileID: 999230223}
   - component: {fileID: 999230222}
   - component: {fileID: 999230224}
+  - component: {fileID: 999230225}
   m_Layer: 0
   m_Name: BombEnemy
   m_TagString: Untagged
@@ -6946,7 +6947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ca142e2ae55864cb52d42b560482ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 0
   onDeathEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -7015,7 +7016,19 @@ MonoBehaviour:
   chaseEvents:
     onEnter:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 999230222}
+          m_TargetAssemblyTypeName: WalkController, Assembly-CSharp
+          m_MethodName: SetChaseSpeed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onUpdate:
       m_PersistentCalls:
         m_Calls:
@@ -7048,7 +7061,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 999230222}
           m_TargetAssemblyTypeName: WalkController, Assembly-CSharp
-          m_MethodName: SetPreviousWaypoint
+          m_MethodName: SetRoamingSpeed
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7058,6 +7071,40 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+  detonateEvents:
+    onEnter:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 999230222}
+          m_TargetAssemblyTypeName: WalkController, Assembly-CSharp
+          m_MethodName: Stop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 999230225}
+          m_TargetAssemblyTypeName: BombController, Assembly-CSharp
+          m_MethodName: Detonate
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+    onUpdate:
+      m_PersistentCalls:
+        m_Calls: []
+    onExit:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!4 &999230221
 Transform:
   m_ObjectHideFlags: 0
@@ -7073,6 +7120,7 @@ Transform:
   m_Children:
   - {fileID: 1473240702}
   - {fileID: 1676483537}
+  - {fileID: 1093472844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &999230222
@@ -7087,11 +7135,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dc59b55f6cfee54687793079dcf099a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSpeed: 2.5
+  chaseSpeed: 5
   waypoints:
   - {fileID: 33762030}
   - {fileID: 519061122}
   navMeshAgent: {fileID: 999230223}
   distanceTreshold: 0.2
+  distanceToDetonate: 3.5
+  onDetonate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 999230220}
+        m_TargetAssemblyTypeName: Enemies.BombEnemy.BombEnemyAgent, Assembly-CSharp
+        m_MethodName: ChangeStateToDetonate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   target: {fileID: 1282332358}
 --- !u!195 &999230223
 NavMeshAgent:
@@ -7159,6 +7225,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &999230225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999230218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8acb3efdebe9714f8b5e110ad281ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuseTime: 0.25
+  bombObject: {fileID: 1093472841}
 --- !u!1 &1000973897
 GameObject:
   m_ObjectHideFlags: 0
@@ -7524,6 +7604,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4588619470369974, guid: 2252526341f17ff40b51a7eac1c47b29, type: 3}
   m_PrefabInstance: {fileID: 1080747195}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1093472841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093472844}
+  - component: {fileID: 1093472843}
+  - component: {fileID: 1093472842}
+  m_Layer: 18
+  m_Name: BombRadius
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1093472842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093472841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f567b7efb5330ef4088b8e0ea4946fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1093472843
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093472841}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1093472844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093472841}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 999230221}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1109045082
 PrefabInstance:
   m_ObjectHideFlags: 0

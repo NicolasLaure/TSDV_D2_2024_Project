@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using FSM;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Enemy
 {
@@ -16,12 +17,20 @@ namespace Enemy
 
         public void ChangeStateToIdle()
         {
-            Fsm.ChangeState(_idleState);
+            if (Fsm.GetCurrentState().TryGetTransition(_idleState, out Transition transition))
+            {
+                transition.Do();
+                Fsm.ChangeState(_idleState);
+            }
         }
 
         public void ChangeStateToCombat()
         {
-            Fsm.ChangeState(_combatState);
+            if (Fsm.GetCurrentState().TryGetTransition(_combatState, out Transition transition))
+            {
+                transition.Do();
+                Fsm.ChangeState(_combatState);
+            }
         }
 
         protected override List<State> GetStates()

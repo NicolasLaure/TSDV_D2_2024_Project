@@ -3,18 +3,18 @@ using UnityEngine.Events;
 
 public class HealthPoints : MonoBehaviour, ITakeDamage
 {
-    [SerializeField] private float maxHealth;
+    [SerializeField] private int maxHealth;
     [SerializeField] private UnityEvent onDeathEvent;
     [SerializeField] private UnityEvent onTakeDamageEvent;
 
     private bool hasBeenDead = false;
 
-    public float MaxHealth
+    public int MaxHealth
     {
         get => maxHealth;
     }
 
-    public float CurrentHealth { get; private set; }
+    public int CurrentHealth { get; private set; }
 
     private void Start()
     {

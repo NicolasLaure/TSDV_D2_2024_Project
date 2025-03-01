@@ -27,20 +27,15 @@ namespace FSM
         {
             _currentState.FixedUpdate();
         }
+
         public void ChangeState<T>(T newState) where T : State
         {
             if (_isDisabled)
                 return;
 
-            if (_currentState == newState)
-            {
-                _currentState.Exit();
-                _currentState.Enter();
-            }
-            else if (states.Contains(newState))
+            if (states.Contains(newState))
             {
                 _currentState = newState;
-                _currentState.Enter();
             }
         }
 
