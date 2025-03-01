@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BombController : MonoBehaviour
 {
     [SerializeField] private float fuseTime;
     [SerializeField] private GameObject bombObject;
+
+    [SerializeField] private UnityEvent onExplosion;
 
     private Coroutine _explosionCoroutine;
 
@@ -17,6 +20,6 @@ public class BombController : MonoBehaviour
     private IEnumerator Explosion()
     {
         yield return new WaitForSeconds(fuseTime);
-        bombObject.SetActive(true);
+        onExplosion?.Invoke();
     }
 }
