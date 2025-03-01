@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemies.BombEnemy;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +10,7 @@ public class WalkController : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private float distanceTreshold;
 
+    [SerializeField] private Transform target;
     private int currentWaypointIndex = 0;
 
     public void StartRoam()
@@ -22,6 +24,16 @@ public class WalkController : MonoBehaviour
 
         currentWaypointIndex = currentWaypointIndex + 1 < waypoints.Count ? currentWaypointIndex + 1 : 0;
         Debug.Log($"Change waypoint  {currentWaypointIndex}");
+        navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
+    }
+
+    public void UpdateTargetPosition()
+    {
+        navMeshAgent.SetDestination(target.position);
+    }
+
+    public void SetPreviousWaypoint()
+    {
         navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 }

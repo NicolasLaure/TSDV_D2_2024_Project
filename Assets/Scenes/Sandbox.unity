@@ -5195,7 +5195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &877197932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5351,7 +5351,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1282332358}
   frustum: {fileID: 1905382661}
-  agent: {fileID: 877197934}
+  onSight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 877197934}
+        m_TargetAssemblyTypeName: Enemy.EnemyAgent, Assembly-CSharp
+        m_MethodName: ChangeStateToCombat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onOffSight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 877197934}
+        m_TargetAssemblyTypeName: Enemy.EnemyAgent, Assembly-CSharp
+        m_MethodName: ChangeStateToIdle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &877197936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6897,6 +6926,7 @@ GameObject:
   - component: {fileID: 999230219}
   - component: {fileID: 999230223}
   - component: {fileID: 999230222}
+  - component: {fileID: 999230224}
   m_Layer: 0
   m_Name: BombEnemy
   m_TagString: Untagged
@@ -6967,6 +6997,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 999230224}
+          m_TargetAssemblyTypeName: SightController, Assembly-CSharp
+          m_MethodName: CheckInSight
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
     onExit:
       m_PersistentCalls:
         m_Calls: []
@@ -6976,10 +7018,46 @@ MonoBehaviour:
         m_Calls: []
     onUpdate:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 999230222}
+          m_TargetAssemblyTypeName: WalkController, Assembly-CSharp
+          m_MethodName: UpdateTargetPosition
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 999230224}
+          m_TargetAssemblyTypeName: SightController, Assembly-CSharp
+          m_MethodName: CheckInSight
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onExit:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 999230222}
+          m_TargetAssemblyTypeName: WalkController, Assembly-CSharp
+          m_MethodName: SetPreviousWaypoint
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!4 &999230221
 Transform:
   m_ObjectHideFlags: 0
@@ -6994,6 +7072,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1473240702}
+  - {fileID: 1676483537}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &999230222
@@ -7013,6 +7092,7 @@ MonoBehaviour:
   - {fileID: 519061122}
   navMeshAgent: {fileID: 999230223}
   distanceTreshold: 0.2
+  target: {fileID: 1282332358}
 --- !u!195 &999230223
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7035,6 +7115,50 @@ NavMeshAgent:
   m_BaseOffset: 0.908
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &999230224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999230218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097b583ee815f85428c99d28df0891f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1282332358}
+  frustum: {fileID: 1676483536}
+  onSight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 999230220}
+        m_TargetAssemblyTypeName: Enemies.BombEnemy.BombEnemyAgent, Assembly-CSharp
+        m_MethodName: ChangeStateToChase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onOffSight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 999230220}
+        m_TargetAssemblyTypeName: Enemies.BombEnemy.BombEnemyAgent, Assembly-CSharp
+        m_MethodName: ChangeStateToRoaming
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1000973897
 GameObject:
   m_ObjectHideFlags: 0
@@ -10053,6 +10177,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4558127688922482, guid: a60aed3109aac2e4e8b4fbd8e35506ec, type: 3}
   m_PrefabInstance: {fileID: 1604727752}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1676483535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676483537}
+  - component: {fileID: 1676483536}
+  m_Layer: 17
+  m_Name: FrustumPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1676483536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676483535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5083a38359e34fb4886a1578703b43f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 0
+  height: 0
+  fieldOfViewAngle: 65
+  verticalfieldOfViewAngle: 30
+  renderingDistance: 20
+  vertices: []
+--- !u!4 &1676483537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676483535}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 999230221}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1716257154
 PrefabInstance:
   m_ObjectHideFlags: 0
