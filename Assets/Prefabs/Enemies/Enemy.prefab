@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ca142e2ae55864cb52d42b560482ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   onDeathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -772,7 +772,8 @@ PrefabInstance:
       propertyPath: recoilAngleEventChannel
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -676904428537887642, guid: 60e9f5742bcd3fc41922811429611be3, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4657614813013695898, guid: 60e9f5742bcd3fc41922811429611be3, type: 3}
     m_AddedGameObjects: []

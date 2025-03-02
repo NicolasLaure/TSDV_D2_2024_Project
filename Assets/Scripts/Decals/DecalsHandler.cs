@@ -5,9 +5,15 @@ using UnityEngine;
 public class DecalsHandler : MonoBehaviour
 {
     [SerializeField] private GameObject bulletHole;
+    [SerializeField] private LayerMask ignoredLayers;
+
     private List<GameObject> decals = new List<GameObject>();
+
     public void SpawnBulletHole(Transform collider, Vector3 position, Vector3 hitNormal)
     {
+        if ((ignoredLayers & 1 << collider.gameObject.layer) != 0)
+            return;
+
         GameObject decal = Instantiate(bulletHole, position, Quaternion.identity);
         decal.transform.parent = collider;
         decal.transform.forward = hitNormal;

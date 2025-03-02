@@ -203,13 +203,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ca142e2ae55864cb52d42b560482ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   onDeathEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 754679941560234880}
+        m_TargetAssemblyTypeName: EnemyAnimHandler, Assembly-CSharp
+        m_MethodName: PlayDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4980406459175718403}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7625612364994730388}
+        m_TargetAssemblyTypeName: WalkController, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTakeDamageEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 754679941560234880}
+        m_TargetAssemblyTypeName: EnemyAnimHandler, Assembly-CSharp
+        m_MethodName: PlayTakeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!195 &946462026571583299
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -420,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 4
-  healthPoints: {fileID: 0}
+  healthPoints: {fileID: 8860978476786617377}
 --- !u!1 &1837445953782573129
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0
-  healthPoints: {fileID: 0}
+  healthPoints: {fileID: 8860978476786617377}
 --- !u!1 &3285566261293909620
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0
-  healthPoints: {fileID: 0}
+  healthPoints: {fileID: 8860978476786617377}
 --- !u!1 &4543196070669869296
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 0
-  healthPoints: {fileID: 0}
+  healthPoints: {fileID: 8860978476786617377}
 --- !u!1 &5502170646021535062
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: -0.25
-  healthPoints: {fileID: 0}
+  healthPoints: {fileID: 8860978476786617377}
 --- !u!1 &5907661236331149806
 GameObject:
   m_ObjectHideFlags: 0

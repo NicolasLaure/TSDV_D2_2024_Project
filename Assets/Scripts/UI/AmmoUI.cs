@@ -9,9 +9,7 @@ public class AmmoUI : MonoBehaviour
     private string magazineSize;
     private Weapon currentWeapon = null;
 
-
     [SerializeField] private TMPro.TextMeshProUGUI ammoText;
-    [SerializeField] private Slider ammoSlider;
 
     private void Start()
     {
@@ -20,10 +18,12 @@ public class AmmoUI : MonoBehaviour
 
         playerWeaponHandler.onWeaponChange += OnWeaponChange;
     }
+
     private void OnDestroy()
     {
         playerWeaponHandler.onWeaponChange -= OnWeaponChange;
     }
+
     void OnWeaponChange<T>(T weapon) where T : Weapon
     {
         if (currentWeapon != null)
@@ -36,7 +36,6 @@ public class AmmoUI : MonoBehaviour
         WeaponSO weaponData = weapon.WeaponSO;
         currentAmmo = weapon.CurrentAmmo.ToString();
         magazineSize = "/" + weaponData.MagazineSize;
-        ammoSlider.maxValue = weaponData.MagazineSize;
         SetUiElements();
 
         currentWeapon.onShoot.AddListener(OnAmmoModified);
@@ -53,6 +52,5 @@ public class AmmoUI : MonoBehaviour
     {
         magazineSize = "/" + currentWeapon.WeaponSO.MagazineSize;
         ammoText.text = currentAmmo + magazineSize;
-        ammoSlider.value = currentWeapon.CurrentAmmo;
     }
 }
