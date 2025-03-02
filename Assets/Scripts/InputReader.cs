@@ -22,7 +22,7 @@ public class InputReader : MonoBehaviour
         StartCoroutine(InitializeInput());
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (input != null)
         {

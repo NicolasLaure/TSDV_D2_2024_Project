@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TrainingTrack.unity
     guid: 17fe7be4ae25d9849a80198a23a7e6e9
+  - enabled: 1
+    path: Assets/Scenes/Sandbox.unity
+    guid: a95d50b4210693741a7f86d9eb35ceac
   m_configObjects: {}

@@ -7,6 +7,7 @@ public class Pause : MonoBehaviour
 {
     public Action<bool> onPausePanelStateChange;
     bool shouldUnpause = true;
+
     private void OnEnable()
     {
         shouldUnpause = true;
@@ -14,6 +15,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0;
         onPausePanelStateChange?.Invoke(true);
     }
+
     private void OnDisable()
     {
         if (shouldUnpause)
@@ -31,5 +33,13 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
 
         Loader.ChangeScene("MainMenuEnvironment");
+    }
+
+    public void ReloadScene()
+    {
+        shouldUnpause = false;
+        Time.timeScale = 1;
+
+        Loader.ReloadScene();
     }
 }
