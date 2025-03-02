@@ -3259,6 +3259,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 822582203013901308, guid: b5aac06e68c0237458c48a608b9b21ac, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 822582203013901308, guid: b5aac06e68c0237458c48a608b9b21ac, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1909890796995665613, guid: b5aac06e68c0237458c48a608b9b21ac, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4627,6 +4635,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4025381219920098, guid: 2519fcdc1183c2e46be8eb01405a2ac3, type: 3}
   m_PrefabInstance: {fileID: 795041212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &802027049 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3048523854623816453, guid: b5aac06e68c0237458c48a608b9b21ac, type: 3}
+  m_PrefabInstance: {fileID: 535480821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc29b5d26bd8db48b25277574d9fcc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &804733118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10490,6 +10509,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 802027049}
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EnemiesLeft, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 588376523124744243, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
+      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 864855204815459921, guid: 557b8fb1dfb31f6498386c50451b9401, type: 3}
       propertyPath: decals
       value: 
