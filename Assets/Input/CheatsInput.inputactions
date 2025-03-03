@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Nuke",
+                    "type": "Button",
+                    "id": "05390797-6d90-421c-8747-5dfa7b30a1ef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -64,6 +73,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PrevLevel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "031c16a2-8599-465a-8600-3d40f68bb7f4",
+                    "path": "<Keyboard>/f12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Nuke",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

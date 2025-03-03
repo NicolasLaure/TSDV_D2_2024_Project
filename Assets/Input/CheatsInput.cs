@@ -53,6 +53,15 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Nuke"",
+                    ""type"": ""Button"",
+                    ""id"": ""05390797-6d90-421c-8747-5dfa7b30a1ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,17 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                     ""action"": ""PrevLevel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""031c16a2-8599-465a-8600-3d40f68bb7f4"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Nuke"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -99,6 +119,7 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         m_Cheats_MaxAmmo = m_Cheats.FindAction("MaxAmmo", throwIfNotFound: true);
         m_Cheats_NextLevel = m_Cheats.FindAction("NextLevel", throwIfNotFound: true);
         m_Cheats_PrevLevel = m_Cheats.FindAction("PrevLevel", throwIfNotFound: true);
+        m_Cheats_Nuke = m_Cheats.FindAction("Nuke", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -163,6 +184,7 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Cheats_MaxAmmo;
     private readonly InputAction m_Cheats_NextLevel;
     private readonly InputAction m_Cheats_PrevLevel;
+    private readonly InputAction m_Cheats_Nuke;
     public struct CheatsActions
     {
         private @CheatsInput m_Wrapper;
@@ -170,6 +192,7 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         public InputAction @MaxAmmo => m_Wrapper.m_Cheats_MaxAmmo;
         public InputAction @NextLevel => m_Wrapper.m_Cheats_NextLevel;
         public InputAction @PrevLevel => m_Wrapper.m_Cheats_PrevLevel;
+        public InputAction @Nuke => m_Wrapper.m_Cheats_Nuke;
         public InputActionMap Get() { return m_Wrapper.m_Cheats; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +211,9 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
             @PrevLevel.started += instance.OnPrevLevel;
             @PrevLevel.performed += instance.OnPrevLevel;
             @PrevLevel.canceled += instance.OnPrevLevel;
+            @Nuke.started += instance.OnNuke;
+            @Nuke.performed += instance.OnNuke;
+            @Nuke.canceled += instance.OnNuke;
         }
 
         private void UnregisterCallbacks(ICheatsActions instance)
@@ -201,6 +227,9 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
             @PrevLevel.started -= instance.OnPrevLevel;
             @PrevLevel.performed -= instance.OnPrevLevel;
             @PrevLevel.canceled -= instance.OnPrevLevel;
+            @Nuke.started -= instance.OnNuke;
+            @Nuke.performed -= instance.OnNuke;
+            @Nuke.canceled -= instance.OnNuke;
         }
 
         public void RemoveCallbacks(ICheatsActions instance)
@@ -223,5 +252,6 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         void OnMaxAmmo(InputAction.CallbackContext context);
         void OnNextLevel(InputAction.CallbackContext context);
         void OnPrevLevel(InputAction.CallbackContext context);
+        void OnNuke(InputAction.CallbackContext context);
     }
 }

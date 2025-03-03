@@ -43,4 +43,9 @@ public class HealthPoints : MonoBehaviour, ITakeDamage
     {
         return CurrentHealth <= 0;
     }
+
+    public void Kill()
+    {
+        TakeDamage(maxHealth);
+    }
 }
