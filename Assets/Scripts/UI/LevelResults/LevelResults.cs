@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class LevelResults : MonoBehaviour
 {
     [SerializeField] private List<GameObject> tierObjects = new List<GameObject>();
+    [SerializeField] private bool shouldAutomaticallyDisable;
     [SerializeField] private float panelDuration;
     [SerializeField] private float timeBetweenMedals;
-
     [SerializeField] protected TierRequirementTextHandler tierTexts;
     [SerializeField] protected TextMeshProUGUI resultText;
     [SerializeField] protected TextMeshProUGUI bestResultText;
@@ -15,11 +16,14 @@ public class LevelResults : MonoBehaviour
     [HideInInspector] protected float levelScore;
     [HideInInspector] protected float bestScore;
     [HideInInspector] public int tiersAchieved = 0;
+
     protected virtual void OnEnable()
     {
         StartCoroutine(ShowMedals());
-        StartCoroutine(TurnOffPanel());
+        if (shouldAutomaticallyDisable)
+            StartCoroutine(TurnOffPanel());
     }
+
     private IEnumerator ShowMedals()
     {
         for (int i = 0; i < tiersAchieved; i++)
@@ -28,6 +32,7 @@ public class LevelResults : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenMedals);
         }
     }
+
     private IEnumerator TurnOffPanel()
     {
         float startTime = Time.time;
@@ -37,6 +42,7 @@ public class LevelResults : MonoBehaviour
             timer = Time.time - startTime;
             yield return null;
         }
+
         gameObject.SetActive(false);
     }
 
@@ -46,5 +52,4 @@ public class LevelResults : MonoBehaviour
         this.levelScore = currentScore;
         this.bestScore = bestScore;
     }
-
 }

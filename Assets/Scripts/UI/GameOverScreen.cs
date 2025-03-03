@@ -1,4 +1,5 @@
 using System;
+using UnityEditor;
 using UnityEngine;
 
 public class GameOverScreen : MonoBehaviour
@@ -16,5 +17,10 @@ public class GameOverScreen : MonoBehaviour
     public void ReloadScene()
     {
         Loader.ReloadScene();
+    }
+
+    public void NextLevel()
+    {
+        Debug.Log("NextLevel");
     }
 }

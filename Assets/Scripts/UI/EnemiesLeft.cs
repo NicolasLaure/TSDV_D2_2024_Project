@@ -1,11 +1,12 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemiesLeft : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-
+    [SerializeField] private UnityEvent onWin;
     private int _enemiesLeft;
 
     private void Awake()
@@ -17,6 +18,9 @@ public class EnemiesLeft : MonoBehaviour
     public void UpdateCount()
     {
         _enemiesLeft--;
+        if (_enemiesLeft <= 0)
+            onWin?.Invoke();
+
         UpdateText();
     }
 

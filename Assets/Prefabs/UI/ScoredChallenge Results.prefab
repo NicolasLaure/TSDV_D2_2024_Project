@@ -954,6 +954,7 @@ MonoBehaviour:
   - {fileID: 6177887614156504368}
   - {fileID: 3355319360069432072}
   - {fileID: 2497410225649399384}
+  shouldAutomaticallyDisable: 1
   panelDuration: 3
   timeBetweenMedals: 0.2
   tierTexts: {fileID: 9047053551972350763}
