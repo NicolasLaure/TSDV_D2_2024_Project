@@ -63,14 +63,16 @@ public class Loader : MonoBehaviour
             if (currentSceneIndex != 0)
                 RemoveScene(currentSceneIndex);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Additive);
+            SceneManager.LoadScene(GetCurrentScene(), LoadSceneMode.Additive);
         }
         else
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+            SceneManager.LoadScene(GetCurrentScene(), LoadSceneMode.Single);
     }
 
     public static void ChangeToNextScene()
     {
+        currentSceneIndex = GetCurrentScene();
+        
         if (currentSceneIndex + 1 <= lastInteractableSceneIndex)
             ChangeScene(currentSceneIndex + 1);
     }
@@ -93,6 +95,10 @@ public class Loader : MonoBehaviour
         currentSceneIndex = SceneManager.GetSceneByName(name).buildIndex;
     }
 
+    private static int GetCurrentScene()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
+    }
     public static void LoadSceneAsync(string sceneName)
     {
         if (changeSceneAsync == null)

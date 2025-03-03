@@ -21,6 +21,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void NextLevel()
     {
-        Debug.Log("NextLevel");
+        Debug.Log("Next Scene");
+        Loader.ChangeToNextScene();
     }
 }
