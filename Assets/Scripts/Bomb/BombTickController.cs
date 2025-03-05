@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BombTickController : MonoBehaviour
 {
@@ -13,14 +10,19 @@ public class BombTickController : MonoBehaviour
     [SerializeField] private Light whiteLight;
     [SerializeField] private AnimationCurve intensityOverTime;
 
-    private float initialIntensity;
+    [SerializeField] private SoundManager soundManager;
+    [SerializeField] private Sound beepingSound;
+    [SerializeField] private Sound initializeSound;
+
+    private float maxIntensity;
     private float variationPerSecond;
     private bool isTurningOn;
 
     private void Start()
     {
-        initialIntensity = redLight.intensity;
-        variationPerSecond = initialIntensity / pingPongDuration;
+        maxIntensity = redLight.intensity;
+        variationPerSecond = maxIntensity / pingPongDuration;
+        redLight.intensity = Random.Range(0, maxIntensity);
     }
 
     private void Update()
@@ -30,11 +32,15 @@ public class BombTickController : MonoBehaviour
 
     private void UpdateLightIntensity()
     {
-        float currentIntensity = Mathf.Clamp(redLight.intensity + variationPerSecond * Time.deltaTime, 0, initialIntensity);
+        float currentIntensity = Mathf.Clamp(redLight.intensity + variationPerSecond * Time.deltaTime, 0, maxIntensity);
         redLight.intensity = currentIntensity;
 
-        if (currentIntensity == initialIntensity || currentIntensity == 0)
+        if (currentIntensity == maxIntensity || currentIntensity == 0)
+        {
             variationPerSecond *= -1;
+            if (currentIntensity == maxIntensity)
+                soundManager.PlayOnce(beepingSound.name);
+        }
     }
 
     public void StartFuse(float duration)
@@ -48,6 +54,7 @@ public class BombTickController : MonoBehaviour
     {
         float startTime = Time.time;
         float timer = 0;
+        soundManager.PlayOnce(initializeSound.name);
 
         while (timer <= duration)
         {
