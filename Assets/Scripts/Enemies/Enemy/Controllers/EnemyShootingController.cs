@@ -7,7 +7,6 @@ public class EnemyShootingController : MonoBehaviour
     [SerializeField] private Weapon weapon;
     [SerializeField] private float shootingCoolDown;
 
-
     private float _lastShotTime;
 
     public void TryToShoot()

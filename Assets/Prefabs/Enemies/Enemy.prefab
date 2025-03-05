@@ -448,9 +448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 0
   height: 0
-  fieldOfViewAngle: 65
-  verticalfieldOfViewAngle: 30
-  renderingDistance: 20
+  fieldOfViewAngle: 40
+  verticalfieldOfViewAngle: 15
+  renderingDistance: 10
   vertices: []
 --- !u!1 &4423473215094756323
 GameObject:

@@ -917,9 +917,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 0
   height: 0
-  fieldOfViewAngle: 65
-  verticalfieldOfViewAngle: 30
-  renderingDistance: 20
+  fieldOfViewAngle: 35
+  verticalfieldOfViewAngle: 10
+  renderingDistance: 10
   vertices: []
 --- !u!1001 &458785291684921634
 PrefabInstance:
@@ -1074,6 +1074,10 @@ PrefabInstance:
     - target: {fileID: 198146752706458318, guid: 5ed0a013702bd9f42847584f2fba7b21, type: 3}
       propertyPath: lengthInSec
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 198146752706458318, guid: 5ed0a013702bd9f42847584f2fba7b21, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

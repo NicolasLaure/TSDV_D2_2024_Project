@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TrainingTrack.unity
     guid: 17fe7be4ae25d9849a80198a23a7e6e9
   - enabled: 1
-    path: Assets/Scenes/MissionBlocking.unity
+    path: Assets/Scenes/Mission1.unity
     guid: 337d1c45c4f0720499a0644394ff5b82
   - enabled: 1
     path: Assets/Scenes/MainMenuEnvironment.unity

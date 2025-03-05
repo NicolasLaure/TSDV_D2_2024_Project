@@ -2,11 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BombTickController : MonoBehaviour
 {
-    [SerializeField] private Light light;
+    [SerializeField] private Light redLight;
     [SerializeField] private float pingPongDuration;
+
+    [Header("Fuse White Light")]
+    [SerializeField] private Light whiteLight;
+    [SerializeField] private AnimationCurve intensityOverTime;
 
     private float initialIntensity;
     private float variationPerSecond;
@@ -14,7 +19,7 @@ public class BombTickController : MonoBehaviour
 
     private void Start()
     {
-        initialIntensity = light.intensity;
+        initialIntensity = redLight.intensity;
         variationPerSecond = initialIntensity / pingPongDuration;
     }
 
@@ -25,10 +30,30 @@ public class BombTickController : MonoBehaviour
 
     private void UpdateLightIntensity()
     {
-        float currentIntensity = Mathf.Clamp(light.intensity + variationPerSecond * Time.deltaTime, 0, initialIntensity);
-        light.intensity = currentIntensity;
+        float currentIntensity = Mathf.Clamp(redLight.intensity + variationPerSecond * Time.deltaTime, 0, initialIntensity);
+        redLight.intensity = currentIntensity;
 
         if (currentIntensity == initialIntensity || currentIntensity == 0)
             variationPerSecond *= -1;
+    }
+
+    public void StartFuse(float duration)
+    {
+        redLight.enabled = false;
+        whiteLight.enabled = true;
+        StartCoroutine(WhiteLightCoroutine(duration));
+    }
+
+    private IEnumerator WhiteLightCoroutine(float duration)
+    {
+        float startTime = Time.time;
+        float timer = 0;
+
+        while (timer <= duration)
+        {
+            whiteLight.intensity = intensityOverTime.Evaluate(timer / duration);
+            timer = Time.time - startTime;
+            yield return null;
+        }
     }
 }
