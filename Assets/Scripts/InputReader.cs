@@ -11,6 +11,7 @@ public class InputReader : MonoBehaviour
     private CharacterMovement playerMovement;
     private FirstPersonLook playerLook;
     private WeaponHandler weaponHandler;
+    private FlashLightHandler flashLightHandler;
     [SerializeField] private GameObject pausePanel;
 
     void Start()
@@ -18,6 +19,7 @@ public class InputReader : MonoBehaviour
         playerMovement = GetComponent<CharacterMovement>();
         playerLook = GetComponent<FirstPersonLook>();
         weaponHandler = GetComponent<WeaponHandler>();
+        flashLightHandler = GetComponent<FlashLightHandler>();
 
         StartCoroutine(InitializeInput());
     }
@@ -48,6 +50,7 @@ public class InputReader : MonoBehaviour
         input.Player.Reload.started += OnReloadStarted;
         input.Player.ChangeWeapon.started += OnWeaponChange;
         input.Player.Drop.performed += OnWeaponDrop;
+        input.Player.FlashLight.performed += OnFlashLightOn;
 
         if (pausePanel)
         {
@@ -68,6 +71,7 @@ public class InputReader : MonoBehaviour
         input.Player.ChangeWeapon.started -= OnWeaponChange;
         input.Player.Drop.performed -= OnWeaponDrop;
         input.Game.Pause.performed -= OnPause;
+        input.Player.FlashLight.performed -= OnFlashLightOn;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
@@ -126,6 +130,11 @@ public class InputReader : MonoBehaviour
     private void OnWeaponDrop(InputAction.CallbackContext context)
     {
         weaponHandler.TryDropWeapon();
+    }
+
+    private void OnFlashLightOn(InputAction.CallbackContext context)
+    {
+        flashLightHandler.ToggleLight();
     }
 
     private void OnPause(InputAction.CallbackContext context)
