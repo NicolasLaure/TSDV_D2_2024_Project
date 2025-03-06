@@ -95,8 +95,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   recoilDecay: 1.25
-  maxHorizontalSpread: 15
-  maxVerticalSpread: 15
+  maxHorizontalSpread: 6
+  maxVerticalSpread: 6
   spreadCurve:
     serializedVersion: 2
     m_Curve:
