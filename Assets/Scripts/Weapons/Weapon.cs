@@ -154,7 +154,6 @@ public abstract class Weapon : MonoBehaviour
         currentMagazine = weaponSO.MagazineSize;
         if (this.isActiveAndEnabled)
         {
-            Debug.Log("MagChanged");
             StartCoroutine(ReloadCoroutine());
         }
     }

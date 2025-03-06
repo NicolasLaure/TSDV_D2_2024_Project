@@ -31,7 +31,6 @@ public class WalkController : MonoBehaviour
         if (navMeshAgent.remainingDistance > distanceTreshold) return;
 
         currentWaypointIndex = currentWaypointIndex + 1 < waypoints.Count ? currentWaypointIndex + 1 : 0;
-        Debug.Log($"Change waypoint  {currentWaypointIndex}");
         navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 
