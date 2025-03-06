@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private PlayerSpeedSO speedSO;
     [SerializeField] private float sprintSpeedMultiplier;
     private float currentMultiplier = 1;
     private CharacterController characterController;
@@ -13,14 +13,22 @@ public class CharacterMovement : MonoBehaviour
 
     public Action<Vector2> onCharacterMove;
     public Action<bool> onCharacterSprint;
+
+    public PlayerSpeedSO SpeedSo
+    {
+        get => speedSO;
+        set => speedSO = value;
+    }
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
     }
+
     void Update()
     {
         Move();
     }
+
     private void Move()
     {
         if (localMovementDir == Vector3.zero)
@@ -31,13 +39,15 @@ public class CharacterMovement : MonoBehaviour
 
         Vector3 movementDir = transform.right * localMovementDir.x + transform.forward * localMovementDir.z;
         Vector3 gravity = Physics.gravity;
-        characterController.Move(gravity + movementDir * speed * currentMultiplier * Time.deltaTime);
+        characterController.Move(gravity + movementDir * speedSO.speed * currentMultiplier * Time.deltaTime);
     }
+
     public void SetDir(Vector2 dir)
     {
         localMovementDir = new Vector3(dir.x, 0, dir.y);
         onCharacterMove?.Invoke(dir);
     }
+
     public void SetSprint(bool isSprinting)
     {
         if (isSprinting && localMovementDir != Vector3.zero)

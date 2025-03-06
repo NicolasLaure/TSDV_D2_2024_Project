@@ -9,6 +9,16 @@ public class Cheats : MonoBehaviour
 {
     [SerializeField] private List<WeaponSO> weaponSOs = new List<WeaponSO>();
     [SerializeField] private MagazineSO cheatMag;
+    [Header("God Mode")]
+    [SerializeField] private HealthPoints playerHealth;
+    [SerializeField] private GameObject godText;
+
+    [Header("Speed Cheat")]
+    [SerializeField] private CharacterMovement playerMovement;
+    [SerializeField] private PlayerSpeedSO defaultSpeed;
+    [SerializeField] private PlayerSpeedSO flashSpeed;
+
+
     private CheatsInput cheats;
 
     private void Awake()
@@ -20,6 +30,8 @@ public class Cheats : MonoBehaviour
         cheats.Cheats.NextLevel.performed += NextScene;
         cheats.Cheats.PrevLevel.performed += PrevScene;
         cheats.Cheats.Nuke.performed += Nuke;
+        cheats.Cheats.GodMode.performed += ToggleGod;
+        cheats.Cheats.Flash.performed += ToggleFlash;
     }
 
     private void OnDisable()
@@ -28,6 +40,8 @@ public class Cheats : MonoBehaviour
         cheats.Cheats.NextLevel.performed -= NextScene;
         cheats.Cheats.PrevLevel.performed -= PrevScene;
         cheats.Cheats.Nuke.performed -= Nuke;
+        cheats.Cheats.GodMode.performed -= ToggleGod;
+        cheats.Cheats.Flash.performed -= ToggleFlash;
     }
 
     private void InfiniteAmmo(InputAction.CallbackContext context)
@@ -57,5 +71,19 @@ public class Cheats : MonoBehaviour
         {
             enemy.GetComponent<HealthPoints>().Kill();
         }
+    }
+
+    private void ToggleGod(InputAction.CallbackContext context)
+    {
+        playerHealth.ToggleInvincibility();
+        godText.SetActive(!godText.activeInHierarchy);
+    }
+
+    private void ToggleFlash(InputAction.CallbackContext context)
+    {
+        if (playerMovement.SpeedSo == defaultSpeed)
+            playerMovement.SpeedSo = flashSpeed;
+        else
+            playerMovement.SpeedSo = defaultSpeed;
     }
 }

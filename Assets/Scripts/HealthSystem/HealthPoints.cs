@@ -8,6 +8,7 @@ public class HealthPoints : MonoBehaviour, ITakeDamage
     [SerializeField] public UnityEvent onTakeDamageEvent;
 
     private bool hasBeenDead = false;
+    private bool _canTakeDamage = true;
 
     public int MaxHealth
     {
@@ -23,7 +24,7 @@ public class HealthPoints : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(int damage)
     {
-        if (hasBeenDead)
+        if (hasBeenDead || !_canTakeDamage)
             return;
 
         CurrentHealth -= damage;
@@ -47,5 +48,10 @@ public class HealthPoints : MonoBehaviour, ITakeDamage
     public void Kill()
     {
         TakeDamage(maxHealth);
+    }
+
+    public void ToggleInvincibility()
+    {
+        _canTakeDamage = !_canTakeDamage;
     }
 }

@@ -49,3 +49,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b161fd09558d584aa642f0556173bdb, type: 2}
   - {fileID: 11400000, guid: a41f6c2fd6da248418014c515ab4cf5b, type: 2}
   cheatMag: {fileID: 11400000, guid: 7c15115a234d02a409eed400363621a4, type: 2}
+  playerHealth: {fileID: 0}
+  playerMovement: {fileID: 0}
+  defaultSpeed: {fileID: 11400000, guid: c78414f559cd1c74ebc56303426cc0c2, type: 2}
+  flashSpeed: {fileID: 11400000, guid: af54356ed92a2634dadf89d53e6965f2, type: 2}

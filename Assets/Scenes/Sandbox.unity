@@ -635,6 +635,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 535480822}
+    - target: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+      propertyPath: speedSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c78414f559cd1c74ebc56303426cc0c2, type: 2}
     - target: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6

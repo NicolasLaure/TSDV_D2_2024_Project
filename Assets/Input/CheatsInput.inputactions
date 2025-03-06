@@ -40,13 +40,31 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GodMode",
+                    "type": "Button",
+                    "id": "5ca685af-832a-4e46-a74c-47e0734aa867",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Flash",
+                    "type": "Button",
+                    "id": "f754a6ba-c262-4801-a997-dce3012d50b5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "db47c945-326d-414f-9218-9c31b6d154c6",
-                    "path": "<Keyboard>/f10",
+                    "path": "<Keyboard>/f8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -57,7 +75,7 @@
                 {
                     "name": "",
                     "id": "880567b5-55e9-4681-bc68-a9f66f87c739",
-                    "path": "<Keyboard>/f8",
+                    "path": "<Keyboard>/f9",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -84,6 +102,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Nuke",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cee5b893-5d05-49db-94ff-37643e05425f",
+                    "path": "<Keyboard>/f10",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GodMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2422bad-661d-4ed5-8b77-7aade21457f7",
+                    "path": "<Keyboard>/f11",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Flash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

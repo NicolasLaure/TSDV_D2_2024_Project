@@ -62,13 +62,31 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GodMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ca685af-832a-4e46-a74c-47e0734aa867"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flash"",
+                    ""type"": ""Button"",
+                    ""id"": ""f754a6ba-c262-4801-a997-dce3012d50b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""db47c945-326d-414f-9218-9c31b6d154c6"",
-                    ""path"": ""<Keyboard>/f10"",
+                    ""path"": ""<Keyboard>/f8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -79,7 +97,7 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""880567b5-55e9-4681-bc68-a9f66f87c739"",
-                    ""path"": ""<Keyboard>/f8"",
+                    ""path"": ""<Keyboard>/f9"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -108,6 +126,28 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
                     ""action"": ""Nuke"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cee5b893-5d05-49db-94ff-37643e05425f"",
+                    ""path"": ""<Keyboard>/f10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2422bad-661d-4ed5-8b77-7aade21457f7"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -120,6 +160,8 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         m_Cheats_NextLevel = m_Cheats.FindAction("NextLevel", throwIfNotFound: true);
         m_Cheats_PrevLevel = m_Cheats.FindAction("PrevLevel", throwIfNotFound: true);
         m_Cheats_Nuke = m_Cheats.FindAction("Nuke", throwIfNotFound: true);
+        m_Cheats_GodMode = m_Cheats.FindAction("GodMode", throwIfNotFound: true);
+        m_Cheats_Flash = m_Cheats.FindAction("Flash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,6 +227,8 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Cheats_NextLevel;
     private readonly InputAction m_Cheats_PrevLevel;
     private readonly InputAction m_Cheats_Nuke;
+    private readonly InputAction m_Cheats_GodMode;
+    private readonly InputAction m_Cheats_Flash;
     public struct CheatsActions
     {
         private @CheatsInput m_Wrapper;
@@ -193,6 +237,8 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         public InputAction @NextLevel => m_Wrapper.m_Cheats_NextLevel;
         public InputAction @PrevLevel => m_Wrapper.m_Cheats_PrevLevel;
         public InputAction @Nuke => m_Wrapper.m_Cheats_Nuke;
+        public InputAction @GodMode => m_Wrapper.m_Cheats_GodMode;
+        public InputAction @Flash => m_Wrapper.m_Cheats_Flash;
         public InputActionMap Get() { return m_Wrapper.m_Cheats; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -214,6 +260,12 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
             @Nuke.started += instance.OnNuke;
             @Nuke.performed += instance.OnNuke;
             @Nuke.canceled += instance.OnNuke;
+            @GodMode.started += instance.OnGodMode;
+            @GodMode.performed += instance.OnGodMode;
+            @GodMode.canceled += instance.OnGodMode;
+            @Flash.started += instance.OnFlash;
+            @Flash.performed += instance.OnFlash;
+            @Flash.canceled += instance.OnFlash;
         }
 
         private void UnregisterCallbacks(ICheatsActions instance)
@@ -230,6 +282,12 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
             @Nuke.started -= instance.OnNuke;
             @Nuke.performed -= instance.OnNuke;
             @Nuke.canceled -= instance.OnNuke;
+            @GodMode.started -= instance.OnGodMode;
+            @GodMode.performed -= instance.OnGodMode;
+            @GodMode.canceled -= instance.OnGodMode;
+            @Flash.started -= instance.OnFlash;
+            @Flash.performed -= instance.OnFlash;
+            @Flash.canceled -= instance.OnFlash;
         }
 
         public void RemoveCallbacks(ICheatsActions instance)
@@ -253,5 +311,7 @@ public partial class @CheatsInput: IInputActionCollection2, IDisposable
         void OnNextLevel(InputAction.CallbackContext context);
         void OnPrevLevel(InputAction.CallbackContext context);
         void OnNuke(InputAction.CallbackContext context);
+        void OnGodMode(InputAction.CallbackContext context);
+        void OnFlash(InputAction.CallbackContext context);
     }
 }
