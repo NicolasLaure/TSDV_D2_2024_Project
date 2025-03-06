@@ -1,13 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
 public class Loader : MonoBehaviour
 {
     [SerializeField] private List<string> scenesInBuildNames = new List<string>();
-    private static AsyncOperation changeSceneAsync = null;
     private static string asyncSceneName = null;
     private static int currentSceneIndex = 0;
     private static int firstInteractableSceneIndex = 0;
@@ -23,11 +21,6 @@ public class Loader : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        changeSceneAsync = null;
-    }
-
     public static void ChangeScene(int buildIndex)
     {
         if (SceneManager.loadedSceneCount > 1)
@@ -36,10 +29,11 @@ public class Loader : MonoBehaviour
                 RemoveScene(currentSceneIndex);
 
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
-            currentSceneIndex = buildIndex;
         }
         else
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
+
+        currentSceneIndex = buildIndex;
     }
 
     public static void ChangeScene(string name)
@@ -50,10 +44,11 @@ public class Loader : MonoBehaviour
                 RemoveScene(currentSceneIndex);
 
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
-            currentSceneIndex = SceneManager.GetSceneByName(name).buildIndex;
         }
         else
             SceneManager.LoadScene(name, LoadSceneMode.Single);
+
+        currentSceneIndex = SceneManager.GetSceneByName(name).buildIndex;
     }
 
     public static void ReloadScene()
@@ -63,7 +58,7 @@ public class Loader : MonoBehaviour
             if (currentSceneIndex != 0)
                 RemoveScene(currentSceneIndex);
 
-            SceneManager.LoadScene(GetCurrentScene(), LoadSceneMode.Additive);
+            SceneManager.LoadScene(currentSceneIndex, LoadSceneMode.Additive);
         }
         else
             SceneManager.LoadScene(GetCurrentScene(), LoadSceneMode.Single);
@@ -71,8 +66,6 @@ public class Loader : MonoBehaviour
 
     public static void ChangeToNextScene()
     {
-        currentSceneIndex = GetCurrentScene();
-        
         if (currentSceneIndex + 1 <= lastInteractableSceneIndex)
             ChangeScene(currentSceneIndex + 1);
     }
@@ -99,23 +92,6 @@ public class Loader : MonoBehaviour
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
-    public static void LoadSceneAsync(string sceneName)
-    {
-        if (changeSceneAsync == null)
-        {
-            asyncSceneName = sceneName;
-            changeSceneAsync = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            changeSceneAsync.allowSceneActivation = false;
-        }
-    }
-
-    public static void ChangeToAsyncLoadedScene()
-    {
-        RemoveScene(currentSceneIndex);
-        changeSceneAsync.allowSceneActivation = true;
-        currentSceneIndex = SceneManager.GetSceneByName(asyncSceneName).buildIndex;
-        changeSceneAsync = null;
-    }
 
     public static void RemoveScene(int buildIndex)
     {
@@ -133,7 +109,7 @@ public class Loader : MonoBehaviour
         scenesInBuildNames.Clear();
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
-            string name = System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i));
+            string name = Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(i));
             scenesInBuildNames.Add(name);
         }
     }

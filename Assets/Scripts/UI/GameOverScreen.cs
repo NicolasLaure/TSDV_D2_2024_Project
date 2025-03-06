@@ -9,6 +9,11 @@ public class GameOverScreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    private void OnDisable()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     public void LoadMainMenu()
     {
         Loader.ChangeScene("MainMenuEnvironment");

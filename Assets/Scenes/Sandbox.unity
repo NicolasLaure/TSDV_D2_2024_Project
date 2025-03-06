@@ -6965,6 +6965,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
   m_PrefabInstance: {fileID: 76261441}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1282332363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
+  m_PrefabInstance: {fileID: 76261441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257cff5095cb9d74e8c5a9f7c5120143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1307651651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7523,6 +7534,10 @@ PrefabInstance:
       propertyPath: defaultSpeed
       value: 
       objectReference: {fileID: 11400000, guid: 8da575b5fdf7c394f9154ce39dde3b7a, type: 2}
+    - target: {fileID: 5962362449371240758, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1282332363}
     - target: {fileID: 8965265309989058735, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
       propertyPath: m_Name
       value: Cheats

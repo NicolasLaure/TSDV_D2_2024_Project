@@ -4,11 +4,13 @@ using UnityEngine;
 public class TimedLevelResult : LevelResults
 {
     [SerializeField] private List<float> tierTimes = new List<float>();
+    [SerializeField] private GameObject continueButton;
 
     private void OnValidate()
     {
         tierTexts.UpdateRequirements(tierTimes);
     }
+
     protected override void OnEnable()
     {
         if (tierTimes.Count >= 3 && levelScore < tierTimes[2])
@@ -20,6 +22,9 @@ public class TimedLevelResult : LevelResults
         else
             tiersAchieved = 0;
 
+        if (continueButton != null && tiersAchieved > 0)
+            continueButton.SetActive(true);
+        
         SetTexts();
         base.OnEnable();
     }

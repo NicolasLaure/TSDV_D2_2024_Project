@@ -297,7 +297,6 @@ GameObject:
   - component: {fileID: 4849990696972792788}
   - component: {fileID: 8266133690223653095}
   - component: {fileID: 1978663566245689020}
-  - component: {fileID: 5387446550886128198}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -448,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257cff5095cb9d74e8c5a9f7c5120143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7.5
+  speedSO: {fileID: 0}
   sprintSpeedMultiplier: 2
 --- !u!114 &8329208274767159832
 MonoBehaviour:
@@ -552,19 +551,6 @@ MonoBehaviour:
   model: {fileID: 5821772061307238196}
   ragdoll: {fileID: 2195861808837101697}
   deathScreen: {fileID: 0}
---- !u!114 &5387446550886128198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 346430011941183920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49a900427c6a31c42ac5c44685be1fea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightObject: {fileID: 3803600544242710752}
 --- !u!1 &395511633586395133
 GameObject:
   m_ObjectHideFlags: 0

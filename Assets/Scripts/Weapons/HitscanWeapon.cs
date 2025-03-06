@@ -31,7 +31,11 @@ public class HitscanWeapon : Weapon
 
             if (hit.transform.parent != null)
             {
-                if (hit.transform.parent.TryGetComponent(out Target hittedTarget))
+                if (hit.transform.parent.TryGetComponent(out Target hittedTargetInParent))
+                {
+                    hittedTargetInParent.shotReceived?.Invoke();
+                }
+                else if (hit.transform.TryGetComponent(out Target hittedTarget))
                 {
                     hittedTarget.shotReceived?.Invoke();
                 }

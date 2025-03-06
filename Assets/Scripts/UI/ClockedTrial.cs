@@ -11,6 +11,7 @@ public class ClockedTrial : MonoBehaviour
     {
         timeText = GetComponent<TextMeshProUGUI>();
     }
+
     public void OnTimeUpdated(int timeLeft)
     {
         int minutes = timeLeft / 60;

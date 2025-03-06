@@ -23,14 +23,6 @@ public class LoaderCallsHandler : MonoBehaviour
     {
         Loader.AddScene(name);
     }
-    public void LoadSceneAsync(string sceneName)
-    {
-        Loader.LoadSceneAsync(sceneName);
-    }
-    public void ChangeToAsyncLoadedScene()
-    {
-        Loader.ChangeToAsyncLoadedScene();
-    }
     public void RemoveScene(int buildIndex)
     {
         Loader.RemoveScene(buildIndex);
