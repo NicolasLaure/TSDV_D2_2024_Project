@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SoundManager : MonoBehaviour
 {
@@ -36,6 +37,15 @@ public class SoundManager : MonoBehaviour
         sourceToPlay.Play();
     }
 
+    public void PlayRandomOnce()
+    {
+        AudioSource sourceToPlay = GetRandomSource();
+
+        if (sourceToPlay == null || sourceToPlay.isPlaying) return;
+
+        sourceToPlay.Play();
+    }
+
     public void Stop(string soundName)
     {
         AudioSource sourceToStop = FindAudioSource(soundName, sounds);
@@ -57,5 +67,10 @@ public class SoundManager : MonoBehaviour
             return null;
 
         return audioSources[index];
+    }
+
+    private AudioSource GetRandomSource()
+    {
+        return audioSources[Random.Range(0, audioSources.Count)];
     }
 }
