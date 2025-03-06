@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,11 @@ public class EnemyShootingController : MonoBehaviour
     [SerializeField] private float shootingCoolDown;
 
     private float _lastShotTime;
+
+    private void OnDisable()
+    {
+        weapon.StopShooting();
+    }
 
     public void TryToShoot()
     {

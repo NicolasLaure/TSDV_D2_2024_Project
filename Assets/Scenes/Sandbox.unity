@@ -638,7 +638,7 @@ PrefabInstance:
     - target: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: speedSO
       value: 
-      objectReference: {fileID: 11400000, guid: c78414f559cd1c74ebc56303426cc0c2, type: 2}
+      objectReference: {fileID: 11400000, guid: 8da575b5fdf7c394f9154ce39dde3b7a, type: 2}
     - target: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6
@@ -7515,6 +7515,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5962362449371240758, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
+      propertyPath: flashSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: 930813f22d1eba44bafce9c277d71a89, type: 2}
+    - target: {fileID: 5962362449371240758, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
+      propertyPath: defaultSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: 8da575b5fdf7c394f9154ce39dde3b7a, type: 2}
     - target: {fileID: 8965265309989058735, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
       propertyPath: m_Name
       value: Cheats
@@ -10866,20 +10874,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100605979427044660, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169547871124141269, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1282332358}
-    - target: {fileID: 3169547871124141269, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
-      propertyPath: onSight.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169547871124141269, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
-      propertyPath: onOffSight.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3857446955176576393, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6
@@ -10944,22 +10944,6 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 519061122}
-    - target: {fileID: 8860978476786617377, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
-      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8860978476786617377, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
-      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1027387278}
-    - target: {fileID: 8860978476786617377, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
-      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UpdateCount
-      objectReference: {fileID: 0}
-    - target: {fileID: 8860978476786617377, guid: 8a59ba97d71243141b8103589d53ce76, type: 3}
-      propertyPath: onDeathEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: EnemiesLeft, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
