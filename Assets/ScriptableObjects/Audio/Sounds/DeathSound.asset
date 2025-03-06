@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Death
   audioClip: {fileID: 8300000, guid: e0061741e4b787b48974af9799b4018c, type: 3}
-  volume: 0.2
+  volume: 0.25
   shouldLoop: 0
   spatialBlend: 1
   minDistance: 0.1
-  maxDistance: 12
+  maxDistance: 15
   rollOffCurve:
     serializedVersion: 2
     m_Curve:

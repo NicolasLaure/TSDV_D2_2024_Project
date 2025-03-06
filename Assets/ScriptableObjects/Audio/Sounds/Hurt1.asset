@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Hurt1
   audioClip: {fileID: 8300000, guid: b8fc18f85653ae040ab65020751fa090, type: 3}
-  volume: 0.1
+  volume: 0.25
   shouldLoop: 0
   spatialBlend: 1
   minDistance: 0.1
-  maxDistance: 10
+  maxDistance: 15
   rollOffCurve:
     serializedVersion: 2
     m_Curve:
