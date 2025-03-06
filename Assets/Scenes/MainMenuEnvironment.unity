@@ -799,6 +799,7 @@ GameObject:
   - component: {fileID: 690527386}
   - component: {fileID: 690527388}
   - component: {fileID: 690527389}
+  - component: {fileID: 690527390}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -896,6 +897,19 @@ MonoBehaviour:
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &690527390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690527384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9fdb498fd39a9429b498d19f7063d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onNewPreselectedObjectEvent: {fileID: 11400000, guid: 999e307fb9d115148a64a58e6066f309, type: 2}
 --- !u!1 &918526797
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +922,7 @@ GameObject:
   - component: {fileID: 918526800}
   - component: {fileID: 918526799}
   - component: {fileID: 918526798}
+  - component: {fileID: 918526802}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1000,6 +1015,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &918526802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918526797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d59f73d28e5bb4087682ec7af97509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onNewSelectedObjectEvent: {fileID: 11400000, guid: 999e307fb9d115148a64a58e6066f309, type: 2}
+  enabledPreselectedGameObject: {fileID: 1037052952}
 --- !u!1 &1037052952
 GameObject:
   m_ObjectHideFlags: 0

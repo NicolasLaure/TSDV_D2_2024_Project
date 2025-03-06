@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 6799189943681921968}
   - component: {fileID: 8720176772975574346}
   - component: {fileID: 2432153625675972405}
+  - component: {fileID: -155398503013569481}
   m_Layer: 5
   m_Name: LevelCompleted
   m_TagString: Untagged
@@ -1536,6 +1537,7 @@ MonoBehaviour:
   - 30
   - 25
   - 20
+  continueButton: {fileID: 0}
 --- !u!114 &2432153625675972405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1548,6 +1550,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c7c4eebfde677446ab412617a2f05aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-155398503013569481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6060006951729070806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d59f73d28e5bb4087682ec7af97509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onNewSelectedObjectEvent: {fileID: 11400000, guid: 999e307fb9d115148a64a58e6066f309, type: 2}
+  enabledPreselectedGameObject: {fileID: 5473420901781826229}
 --- !u!1 &7561417055806367734
 GameObject:
   m_ObjectHideFlags: 0
