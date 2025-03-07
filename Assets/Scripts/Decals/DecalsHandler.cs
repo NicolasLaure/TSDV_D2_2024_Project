@@ -15,9 +15,9 @@ public class DecalsHandler : MonoBehaviour
             return;
 
         GameObject decal = Instantiate(bulletHole, position, Quaternion.identity);
-        decal.transform.parent = collider;
         decal.transform.forward = hitNormal;
-        decal.transform.position += decal.transform.forward * 0.1f;
+        decal.transform.position = position + decal.transform.forward * 0.1f;
+        decal.transform.parent = this.transform;
         decals.Add(decal);
     }
 
