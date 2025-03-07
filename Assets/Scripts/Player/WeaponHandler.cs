@@ -10,6 +10,7 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private int maxHeldWeaponsQty;
     [SerializeField] private float dropForce;
     [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
+    [SerializeField] private bool hasAllWeapons;
     private List<GameObject> weapons = new List<GameObject>();
     private List<GameObject> heldWeapons = new List<GameObject>();
     private GameObject currentWeaponObject = null;
@@ -19,7 +20,12 @@ public class WeaponHandler : MonoBehaviour
     private CharacterMovement playerMovement;
 
     public Action<Weapon> onWeaponChange;
-    public WeaponSO CurrentWeaponSO { get { return currentWeaponSO; } }
+
+    public WeaponSO CurrentWeaponSO
+    {
+        get { return currentWeaponSO; }
+    }
+
     public Weapon CurrentWeapon
     {
         get
@@ -40,6 +46,7 @@ public class WeaponHandler : MonoBehaviour
             weapon.GetComponent<Weapon>().WeaponSO.SetDefault();
         }
     }
+
     private void Start()
     {
         onWeaponChange += OnWeaponChanged;
@@ -50,13 +57,25 @@ public class WeaponHandler : MonoBehaviour
             weapons.Add(instance);
             instance.SetActive(false);
         }
+
         currentWeaponIndex = 0;
-        heldWeapons.Add(weapons[0]);
+
+        if (hasAllWeapons)
+        {
+            for (int i = 0; i < weapons.Count; i++)
+            {
+                heldWeapons.Add(weapons[i]);
+            }
+        }
+        else
+            heldWeapons.Add(weapons[0]);
+
         onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
 
         playerMovement.onCharacterMove += SetWalkingState;
         playerMovement.onCharacterSprint += SetSprint;
     }
+
     private void OnDestroy()
     {
         onWeaponChange -= OnWeaponChanged;
@@ -83,11 +102,13 @@ public class WeaponHandler : MonoBehaviour
         if (isInCombatMode && currentWeaponObject != null)
             currentWeaponObject.GetComponent<Weapon>().Shoot();
     }
+
     public void CancelShoot()
     {
         if (currentWeaponObject != null)
             currentWeaponObject.GetComponent<Weapon>().StopShooting();
     }
+
     public void SetWeaponRumbler(bool value)
     {
         weaponRumbleController.ShouldRumble = value;
@@ -103,6 +124,7 @@ public class WeaponHandler : MonoBehaviour
     {
         currentWeaponObject.GetComponent<Weapon>().OnMovementChange(movementDir);
     }
+
     public void SetSprint(bool shouldPlayRunAnim)
     {
         currentWeaponObject.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
@@ -154,6 +176,7 @@ public class WeaponHandler : MonoBehaviour
             onWeaponChange?.Invoke(heldWeapons[0].GetComponent<Weapon>());
             return true;
         }
+
         return false;
     }
 
