@@ -10,6 +10,7 @@ public class ProximityMine : MonoBehaviour
     [SerializeField] private UnityEvent onFuseStart;
     [SerializeField] private UnityEvent onExplosion;
 
+    [SerializeField] private float timeToDestroy;
     private GameObject _target;
     private Coroutine explosionCoroutine = null;
 
@@ -26,6 +27,7 @@ public class ProximityMine : MonoBehaviour
         yield return new WaitForSeconds(fuseDuration);
         onExplosion?.Invoke();
         ApplyDamage();
+        OnDestroyCall();
     }
 
     private void ApplyDamage()
@@ -35,5 +37,10 @@ public class ProximityMine : MonoBehaviour
 
         int damage = Mathf.FloorToInt(health.MaxHealth * damageOverDistance.Evaluate(Vector3.Distance(transform.position, _target.transform.position) / maxDamageDistance));
         health.TakeDamage(damage);
+    }
+
+    public void OnDestroyCall()
+    {
+        Destroy(this.gameObject, timeToDestroy);
     }
 }

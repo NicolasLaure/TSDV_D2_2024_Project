@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c46327e00dad854cbad930690fcc9b3, type: 3}
-  m_Name: BeepingSound
+  m_Name: BrokenBomb
   m_EditorClassIdentifier: 
-  name: Beeping
-  audioClip: {fileID: 8300000, guid: abda14216e48da040ad70b1c0237ecbb, type: 3}
-  volume: 1
+  name: BrokenBomb
+  audioClip: {fileID: 8300000, guid: d23d2e1fe9bf18f469f9d9ca9b1d15c8, type: 3}
+  volume: 0.3
   shouldLoop: 0
   spatialBlend: 1
   minDistance: 0.1
-  maxDistance: 10
+  maxDistance: 12
   rollOffCurve:
     serializedVersion: 2
     m_Curve:
