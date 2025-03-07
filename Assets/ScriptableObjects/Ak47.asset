@@ -94,7 +94,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  recoilDecay: 1.25
+  recoilDecay: 0.4
   maxHorizontalSpread: 6
   maxVerticalSpread: 6
   spreadCurve:
