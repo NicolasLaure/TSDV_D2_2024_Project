@@ -2015,11 +2015,11 @@ PrefabInstance:
     - target: {fileID: 5962362449371240758, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
       propertyPath: flashSpeed
       value: 
-      objectReference: {fileID: 11400000, guid: 930813f22d1eba44bafce9c277d71a89, type: 2}
+      objectReference: {fileID: 11400000, guid: 6abce670e87c872469d53c8e49e189e4, type: 2}
     - target: {fileID: 5962362449371240758, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
       propertyPath: defaultSpeed
       value: 
-      objectReference: {fileID: 11400000, guid: 8da575b5fdf7c394f9154ce39dde3b7a, type: 2}
+      objectReference: {fileID: 11400000, guid: f3c7594049b1d0b4cba89a02ca07bde3, type: 2}
     - target: {fileID: 5962362449371240758, guid: d582d6f650a35e74c9b157f3cc48ef89, type: 3}
       propertyPath: playerHealth
       value: 
@@ -2810,7 +2810,7 @@ PrefabInstance:
     - target: {fileID: 2938696757644597969, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: speedSO
       value: 
-      objectReference: {fileID: 11400000, guid: 8da575b5fdf7c394f9154ce39dde3b7a, type: 2}
+      objectReference: {fileID: 11400000, guid: f3c7594049b1d0b4cba89a02ca07bde3, type: 2}
     - target: {fileID: 3498230274084604310, guid: ad54dfac60619334da93a3490ba4b060, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.6
