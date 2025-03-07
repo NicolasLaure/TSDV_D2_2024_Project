@@ -10,8 +10,8 @@ public class ShootingSystem : MonoBehaviour
     //[SerializeField] private float distance;
     [SerializeField] private LayerMask layer;
     [SerializeField] private float maxHitDistance;
-    private RaycastHit hit;
-    private List<Vector3> hitPositions = new List<Vector3>();
+    private RaycastHit _hit;
+    private List<Vector3> _hitPositions = new List<Vector3>();
 
     [Header("Physical Attributes")]
     [SerializeField] private GameObject bulletPrefab;
@@ -22,7 +22,7 @@ public class ShootingSystem : MonoBehaviour
         if (!Application.isPlaying)
             return;
 
-        foreach (Vector3 position in hitPositions)
+        foreach (Vector3 position in _hitPositions)
             Gizmos.DrawCube(position, new Vector3(0.2f, 0.2f, 0.2f));
     }
     public void Shoot()
@@ -35,10 +35,10 @@ public class ShootingSystem : MonoBehaviour
 
     private void HitScanShot()
     {
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, maxHitDistance, layer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out _hit, maxHitDistance, layer))
         {
-            Debug.Log($"HITSCAN SHOT Hit pos = {hit.point}");
-            hitPositions.Add(hit.point);
+            Debug.Log($"HITSCAN SHOT Hit pos = {_hit.point}");
+            _hitPositions.Add(_hit.point);
         }
     }
     private void PhysicalShot()

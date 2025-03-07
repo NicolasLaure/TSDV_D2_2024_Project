@@ -10,7 +10,7 @@ public class TrialTarget : FallingTarget
     [SerializeField] private Material enemyMat;
     [SerializeField] private Material hostageMat;
 
-    private Coroutine turnOffCoroutine;
+    private Coroutine _turnOffCoroutine;
     public Action<bool> onTrialTargetShot;
 
     private void OnEnable()
@@ -22,12 +22,12 @@ public class TrialTarget : FallingTarget
             mesh.material = hostageMat;
 
         StartCoroutine(GetUpCoroutine());
-        turnOffCoroutine = StartCoroutine(TurnOffCoroutine());
+        _turnOffCoroutine = StartCoroutine(TurnOffCoroutine());
     }
     protected override IEnumerator GotShotCoroutine()
     {
         GotShot();
-        StopCoroutine(turnOffCoroutine);
+        StopCoroutine(_turnOffCoroutine);
         yield return FallCoroutine();
         ClearDecals();
         gameObject.SetActive(false);

@@ -6,7 +6,7 @@ public class StateTrigger : MonoBehaviour
 {
     [SerializeField] private TrainingTrackManager trackManager;
     [SerializeField] private string stateName;
-    private bool wasPlayed = false;
+    private bool _wasPlayed = false;
 
     private void Awake()
     {
@@ -14,14 +14,14 @@ public class StateTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!wasPlayed)
+        if (!_wasPlayed)
         {
             trackManager.onStateChange?.Invoke(stateName);
-            wasPlayed = true;
+            _wasPlayed = true;
         }
     }
     public void ResetTrigger()
     {
-        wasPlayed = false;
+        _wasPlayed = false;
     }
 }

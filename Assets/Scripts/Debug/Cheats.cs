@@ -19,29 +19,29 @@ public class Cheats : MonoBehaviour
     [SerializeField] private PlayerSpeedSO flashSpeed;
 
 
-    private CheatsInput cheats;
+    private CheatsInput _cheats;
 
     private void Awake()
     {
-        cheats = new CheatsInput();
-        cheats.Enable();
+        _cheats = new CheatsInput();
+        _cheats.Enable();
 
-        cheats.Cheats.MaxAmmo.performed += InfiniteAmmo;
-        cheats.Cheats.NextLevel.performed += NextScene;
-        cheats.Cheats.PrevLevel.performed += PrevScene;
-        cheats.Cheats.Nuke.performed += Nuke;
-        cheats.Cheats.GodMode.performed += ToggleGod;
-        cheats.Cheats.Flash.performed += ToggleFlash;
+        _cheats.Cheats.MaxAmmo.performed += InfiniteAmmo;
+        _cheats.Cheats.NextLevel.performed += NextScene;
+        _cheats.Cheats.PrevLevel.performed += PrevScene;
+        _cheats.Cheats.Nuke.performed += Nuke;
+        _cheats.Cheats.GodMode.performed += ToggleGod;
+        _cheats.Cheats.Flash.performed += ToggleFlash;
     }
 
     private void OnDisable()
     {
-        cheats.Cheats.MaxAmmo.performed -= InfiniteAmmo;
-        cheats.Cheats.NextLevel.performed -= NextScene;
-        cheats.Cheats.PrevLevel.performed -= PrevScene;
-        cheats.Cheats.Nuke.performed -= Nuke;
-        cheats.Cheats.GodMode.performed -= ToggleGod;
-        cheats.Cheats.Flash.performed -= ToggleFlash;
+        _cheats.Cheats.MaxAmmo.performed -= InfiniteAmmo;
+        _cheats.Cheats.NextLevel.performed -= NextScene;
+        _cheats.Cheats.PrevLevel.performed -= PrevScene;
+        _cheats.Cheats.Nuke.performed -= Nuke;
+        _cheats.Cheats.GodMode.performed -= ToggleGod;
+        _cheats.Cheats.Flash.performed -= ToggleFlash;
     }
 
     private void InfiniteAmmo(InputAction.CallbackContext context)

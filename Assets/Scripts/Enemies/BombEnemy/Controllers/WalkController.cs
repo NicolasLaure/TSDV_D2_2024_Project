@@ -19,19 +19,19 @@ public class WalkController : MonoBehaviour
     [SerializeField] private UnityEvent onDetonate;
 
     [SerializeField] private Transform target;
-    private int currentWaypointIndex = 0;
+    private int _currentWaypointIndex = 0;
 
     public void StartRoam()
     {
-        navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
+        navMeshAgent.SetDestination(waypoints[_currentWaypointIndex].position);
     }
 
     public void UpdateRoam()
     {
         if (navMeshAgent.remainingDistance > distanceTreshold) return;
 
-        currentWaypointIndex = currentWaypointIndex + 1 < waypoints.Count ? currentWaypointIndex + 1 : 0;
-        navMeshAgent.SetDestination(waypoints[currentWaypointIndex].position);
+        _currentWaypointIndex = _currentWaypointIndex + 1 < waypoints.Count ? _currentWaypointIndex + 1 : 0;
+        navMeshAgent.SetDestination(waypoints[_currentWaypointIndex].position);
     }
 
     public void UpdateTargetPosition()

@@ -12,9 +12,9 @@ public class TrainingTrackManager : MonoBehaviour
 
     public Action<string> onStateChange;
     public event Action onRestart;
-    Coroutine trackCoroutine = null;
-    private float elapsedTime = 0;
-    private float startTime = 0;
+    private Coroutine _trackCoroutine = null;
+    private float _elapsedTime = 0;
+    private float _startTime = 0;
     private void Awake()
     {
         onStateChange += AddState;
@@ -29,10 +29,10 @@ public class TrainingTrackManager : MonoBehaviour
     }
     public void StartTrack()
     {
-        if (trackCoroutine != null)
-            StopCoroutine(trackCoroutine);
+        if (_trackCoroutine != null)
+            StopCoroutine(_trackCoroutine);
 
-        trackCoroutine = StartCoroutine(TrackCoroutine());
+        _trackCoroutine = StartCoroutine(TrackCoroutine());
     }
     private IEnumerator TrackCoroutine()
     {
@@ -43,18 +43,18 @@ public class TrainingTrackManager : MonoBehaviour
         onRestart?.Invoke();
         while (!AreAllTargetsDown())
         {
-            elapsedTime = Time.time - startTime;
-            timer.OnTimeUpdated(Mathf.FloorToInt(elapsedTime));
+            _elapsedTime = Time.time - _startTime;
+            timer.OnTimeUpdated(Mathf.FloorToInt(_elapsedTime));
             yield return null;
         }
-        Debug.Log(elapsedTime);
-        if (save.bestTime == 0 || elapsedTime < save.bestTime)
-            save.bestTime = elapsedTime;
+        Debug.Log(_elapsedTime);
+        if (save.bestTime == 0 || _elapsedTime < save.bestTime)
+            save.bestTime = _elapsedTime;
 
         timer.gameObject.SetActive(false);
         if (results != null)
         {
-            results.SetScores(elapsedTime, save.bestTime);
+            results.SetScores(_elapsedTime, save.bestTime);
             results.gameObject.SetActive(true);
         }
     }
@@ -89,7 +89,7 @@ public class TrainingTrackManager : MonoBehaviour
     }
     public void StartTimer()
     {
-        elapsedTime = 0;
-        startTime = Time.time;
+        _elapsedTime = 0;
+        _startTime = Time.time;
     }
 }

@@ -7,12 +7,12 @@ public class PlayerSteps : MonoBehaviour
     [SerializeField] private CharacterMovement playerMovement;
 
     [SerializeField] private AudioClip walk;
-    private AudioSource source;
+    private AudioSource _source;
 
     private void Awake()
     {
         playerMovement.onCharacterMove += OnWalk;
-        source = GetComponent<AudioSource>();
+        _source = GetComponent<AudioSource>();
     }
 
     private void OnDestroy()
@@ -25,13 +25,13 @@ public class PlayerSteps : MonoBehaviour
         if (dir != Vector2.zero)
         {
 
-            if (source.clip != walk || !source.isPlaying)
+            if (_source.clip != walk || !_source.isPlaying)
             {
-                source.clip = walk;
-                source.Play();
+                _source.clip = walk;
+                _source.Play();
             }
         }
         else
-            source.Stop();
+            _source.Stop();
     }
 }

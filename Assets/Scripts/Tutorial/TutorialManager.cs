@@ -6,29 +6,29 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private List<TutorialState> tutorialStates = new List<TutorialState>();
     [SerializeField] private GameSaveSO saveFile;
-    private TutorialState currentState;
-    private int currentIndex = 0;
+    private TutorialState _currentState;
+    private int _currentIndex = 0;
     private void Start()
     {
         if (tutorialStates.Count > 0)
         {
-            currentState = tutorialStates[currentIndex];
-            currentState.onStateFinished += NextState;
-            currentState.StartState();
+            _currentState = tutorialStates[_currentIndex];
+            _currentState.onStateFinished += NextState;
+            _currentState.StartState();
         }
     }
 
     private void NextState()
     {
-        if (currentState != null)
-            currentState.onStateFinished -= NextState;
+        if (_currentState != null)
+            _currentState.onStateFinished -= NextState;
 
-        currentIndex++;
-        currentState = tutorialStates[currentIndex];
-        currentState.onStateFinished += NextState;
-        currentState.StartState();
+        _currentIndex++;
+        _currentState = tutorialStates[_currentIndex];
+        _currentState.onStateFinished += NextState;
+        _currentState.StartState();
 
-        Debug.Log($"The Current state is: {currentState.name}");
+        Debug.Log($"The Current state is: {_currentState.name}");
     }
 
     public void EndTutorial()

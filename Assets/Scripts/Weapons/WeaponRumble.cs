@@ -5,21 +5,21 @@ using UnityEngine.InputSystem;
 
 public class WeaponRumble : MonoBehaviour
 {
-    Weapon weapon;
-    WeaponSO weaponSO;
+    private Weapon _weapon;
+    private WeaponSO _weaponSO;
     public bool ShouldRumble { get; set; }
 
     void Start()
     {
-        weapon = GetComponent<Weapon>();
-        weapon.onShoot.AddListener(OnWeaponShot);
+        _weapon = GetComponent<Weapon>();
+        _weapon.onShoot.AddListener(OnWeaponShot);
 
-        weaponSO = weapon.WeaponSO;
+        _weaponSO = _weapon.WeaponSO;
     }
     void OnWeaponShot()
     {
         if (ShouldRumble)
-            StartCoroutine(GamePadRumble(weaponSO.RumbleLowIntensity, weaponSO.RumbleHighIntensity, weaponSO.RumbleDuration));
+            StartCoroutine(GamePadRumble(_weaponSO.RumbleLowIntensity, _weaponSO.RumbleHighIntensity, _weaponSO.RumbleDuration));
     }
     private IEnumerator GamePadRumble(float lowFrequenceIntensity, float highFrequenceIntensity, float duration)
     {

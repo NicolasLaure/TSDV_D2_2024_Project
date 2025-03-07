@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovementTutorial : TutorialState
 {
     [SerializeField] private CharacterMovement player;
-    private Vector3 playerStartPos;
-    private Quaternion playerOriginalRotation;
+    private Vector3 _playerStartPos;
+    private Quaternion _playerOriginalRotation;
 
     [Header("Panels")]
     [SerializeField] private GameObject welcomePanel;
@@ -27,13 +27,13 @@ public class MovementTutorial : TutorialState
         welcomePanel.SetActive(false);
         movementPanel.SetActive(true);
 
-        playerStartPos = player.transform.position;
+        _playerStartPos = player.transform.position;
         yield return new WaitUntil(HasPlayerMoved);
         yield return new WaitForSeconds(panelfadeDuration);
         movementPanel.SetActive(false);
 
         lookAroundPanel.SetActive(true);
-        playerOriginalRotation = player.transform.rotation;
+        _playerOriginalRotation = player.transform.rotation;
         yield return new WaitUntil(HasPlayerRotated);
         yield return new WaitForSeconds(panelfadeDuration);
         lookAroundPanel.SetActive(false);
@@ -49,12 +49,12 @@ public class MovementTutorial : TutorialState
 
     private bool HasPlayerMoved()
     {
-        return player.transform.position != playerStartPos;
+        return player.transform.position != _playerStartPos;
     }
 
     private bool HasPlayerRotated()
     {
-        return playerOriginalRotation != player.transform.rotation;
+        return _playerOriginalRotation != player.transform.rotation;
     }
     private bool isPlayerLookingTowardsGun()
     {

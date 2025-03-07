@@ -6,22 +6,22 @@ public class HelicopterBehaviour : MonoBehaviour
 {
     [SerializeField] private float rotorsSpeed;
 
-    private AudioSource audioSource;
-    private GameObject mainRotor;
-    private GameObject tailRotor;
+    private AudioSource _audioSource;
+    private GameObject _mainRotor;
+    private GameObject _tailRotor;
     private void Awake()
     {
-        mainRotor = transform.Find("Rotor").gameObject;
-        tailRotor = transform.Find("TailRotor").gameObject;
-        audioSource = GetComponent<AudioSource>();
+        _mainRotor = transform.Find("Rotor").gameObject;
+        _tailRotor = transform.Find("TailRotor").gameObject;
+        _audioSource = GetComponent<AudioSource>();
     }
     private void OnEnable()
     {
-        audioSource.Play();
+        _audioSource.Play();
     }
     private void OnDisable()
     {
-        audioSource.Stop();
+        _audioSource.Stop();
     }
 
     private void Update()
@@ -31,8 +31,8 @@ public class HelicopterBehaviour : MonoBehaviour
 
     private void RotateRotors()
     {
-        mainRotor.transform.rotation *= Quaternion.AngleAxis(rotorsSpeed * Time.deltaTime, Vector3.up);
-        tailRotor.transform.rotation *= Quaternion.AngleAxis(rotorsSpeed * Time.deltaTime, Vector3.up);
+        _mainRotor.transform.rotation *= Quaternion.AngleAxis(rotorsSpeed * Time.deltaTime, Vector3.up);
+        _tailRotor.transform.rotation *= Quaternion.AngleAxis(rotorsSpeed * Time.deltaTime, Vector3.up);
     }
 
     public void SetPosition(Vector3 newPos)

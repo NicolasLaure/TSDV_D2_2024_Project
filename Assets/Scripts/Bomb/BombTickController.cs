@@ -14,15 +14,15 @@ public class BombTickController : MonoBehaviour
     [SerializeField] private Sound beepingSound;
     [SerializeField] private Sound initializeSound;
 
-    private float maxIntensity;
-    private float variationPerSecond;
-    private bool isTurningOn;
+    private float _maxIntensity;
+    private float _variationPerSecond;
+    private bool _isTurningOn;
 
     private void Start()
     {
-        maxIntensity = redLight.intensity;
-        variationPerSecond = maxIntensity / pingPongDuration;
-        redLight.intensity = Random.Range(0, maxIntensity);
+        _maxIntensity = redLight.intensity;
+        _variationPerSecond = _maxIntensity / pingPongDuration;
+        redLight.intensity = Random.Range(0, _maxIntensity);
     }
 
     private void Update()
@@ -32,13 +32,13 @@ public class BombTickController : MonoBehaviour
 
     private void UpdateLightIntensity()
     {
-        float currentIntensity = Mathf.Clamp(redLight.intensity + variationPerSecond * Time.deltaTime, 0, maxIntensity);
+        float currentIntensity = Mathf.Clamp(redLight.intensity + _variationPerSecond * Time.deltaTime, 0, _maxIntensity);
         redLight.intensity = currentIntensity;
 
-        if (currentIntensity == maxIntensity || currentIntensity == 0)
+        if (currentIntensity == _maxIntensity || currentIntensity == 0)
         {
-            variationPerSecond *= -1;
-            if (currentIntensity == maxIntensity)
+            _variationPerSecond *= -1;
+            if (currentIntensity == _maxIntensity)
                 soundManager.PlayOnce(beepingSound.name);
         }
     }

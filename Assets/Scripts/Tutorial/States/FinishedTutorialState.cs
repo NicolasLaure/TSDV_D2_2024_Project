@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FinishedTutorialState : TutorialState
 {
-    [SerializeField] TruckBehaviour truck;
+    [SerializeField] private TruckBehaviour truck;
 
 
     protected override IEnumerator StartStateCoroutine()

@@ -7,7 +7,7 @@ public class HealthPoints : MonoBehaviour, ITakeDamage
     [SerializeField] private UnityEvent onDeathEvent;
     [SerializeField] public UnityEvent onTakeDamageEvent;
 
-    private bool hasBeenDead = false;
+    private bool _hasBeenDead = false;
     private bool _canTakeDamage = true;
 
     public int MaxHealth
@@ -24,13 +24,13 @@ public class HealthPoints : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(int damage)
     {
-        if (hasBeenDead || !_canTakeDamage)
+        if (_hasBeenDead || !_canTakeDamage)
             return;
 
         CurrentHealth -= damage;
         if (IsDead())
         {
-            hasBeenDead = true;
+            _hasBeenDead = true;
             onTakeDamageEvent.Invoke();
             onDeathEvent.Invoke();
         }

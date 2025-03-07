@@ -11,12 +11,12 @@ public class FrustumController : MonoBehaviour
     public float verticalfieldOfViewAngle;
     [SerializeField] float renderingDistance;
 
-    Vector3 farLimit;
+    private Vector3 _farLimit;
 
-    Vector3 farUpperLeftVertex;
-    Vector3 farUpperRightVertex;
-    Vector3 farLowerLeftVertex;
-    Vector3 farLowerRightVertex;
+    private Vector3 _farUpperLeftVertex;
+    private Vector3 _farUpperRightVertex;
+    private Vector3 _farLowerLeftVertex;
+    private Vector3 _farLowerRightVertex;
 
     public List<Vector3> vertices = new List<Vector3>();
 
@@ -29,7 +29,7 @@ public class FrustumController : MonoBehaviour
     {
         UpdateVertices();
 
-        farLimit = transform.position + transform.forward * renderingDistance;
+        _farLimit = transform.position + transform.forward * renderingDistance;
 
         float farPlaneHalfWidth = Mathf.Tan((fieldOfViewAngle / 2) * Mathf.Deg2Rad) * renderingDistance;
         float farPlaneHalfHeight = Mathf.Tan((verticalfieldOfViewAngle / 2) * Mathf.Deg2Rad) * renderingDistance;
@@ -37,17 +37,17 @@ public class FrustumController : MonoBehaviour
         Vector3 fixedFarCenterX = transform.right * farPlaneHalfWidth;
         Vector3 fixedFarCenterY = transform.up * farPlaneHalfHeight;
 
-        farUpperLeftVertex = farLimit - fixedFarCenterX + fixedFarCenterY;
-        farUpperRightVertex = farLimit + fixedFarCenterX + fixedFarCenterY;
-        farLowerLeftVertex = farLimit - fixedFarCenterX - fixedFarCenterY;
-        farLowerRightVertex = farLimit + fixedFarCenterX - fixedFarCenterY;
+        _farUpperLeftVertex = _farLimit - fixedFarCenterX + fixedFarCenterY;
+        _farUpperRightVertex = _farLimit + fixedFarCenterX + fixedFarCenterY;
+        _farLowerLeftVertex = _farLimit - fixedFarCenterX - fixedFarCenterY;
+        _farLowerRightVertex = _farLimit + fixedFarCenterX - fixedFarCenterY;
     }
 
     private void OnDrawGizmos()
     {
         if (Application.isPlaying)
         {
-            Gizmos.DrawCube(farLimit, new Vector3(0.3f, 0.3f, 0.3f));
+            Gizmos.DrawCube(_farLimit, new Vector3(0.3f, 0.3f, 0.3f));
             DrawFrustumLines();
 
             for (int faceIndex = 0; faceIndex <= vertices.Count - 3; faceIndex += 3)
@@ -66,61 +66,61 @@ public class FrustumController : MonoBehaviour
 
     void DrawFrustumLines()
     {
-        Gizmos.DrawLine(transform.position, farUpperLeftVertex);
-        Gizmos.DrawLine(transform.position, farUpperRightVertex);
-        Gizmos.DrawLine(transform.position, farLowerLeftVertex);
-        Gizmos.DrawLine(transform.position, farLowerRightVertex);
+        Gizmos.DrawLine(transform.position, _farUpperLeftVertex);
+        Gizmos.DrawLine(transform.position, _farUpperRightVertex);
+        Gizmos.DrawLine(transform.position, _farLowerLeftVertex);
+        Gizmos.DrawLine(transform.position, _farLowerRightVertex);
 
-        Gizmos.DrawLine(farUpperLeftVertex, farUpperRightVertex);
-        Gizmos.DrawLine(farUpperRightVertex, farLowerRightVertex);
-        Gizmos.DrawLine(farLowerRightVertex, farLowerLeftVertex);
-        Gizmos.DrawLine(farLowerLeftVertex, farUpperLeftVertex);
+        Gizmos.DrawLine(_farUpperLeftVertex, _farUpperRightVertex);
+        Gizmos.DrawLine(_farUpperRightVertex, _farLowerRightVertex);
+        Gizmos.DrawLine(_farLowerRightVertex, _farLowerLeftVertex);
+        Gizmos.DrawLine(_farLowerLeftVertex, _farUpperLeftVertex);
     }
 
     void SetVertices()
     {
         vertices.Add(transform.position);
-        vertices.Add(farLowerRightVertex);
-        vertices.Add(farLowerLeftVertex);
+        vertices.Add(_farLowerRightVertex);
+        vertices.Add(_farLowerLeftVertex);
 
         vertices.Add(transform.position);
-        vertices.Add(farUpperLeftVertex);
-        vertices.Add(farUpperRightVertex);
+        vertices.Add(_farUpperLeftVertex);
+        vertices.Add(_farUpperRightVertex);
 
         vertices.Add(transform.position);
-        vertices.Add(farLowerLeftVertex);
-        vertices.Add(farUpperLeftVertex);
+        vertices.Add(_farLowerLeftVertex);
+        vertices.Add(_farUpperLeftVertex);
 
         vertices.Add(transform.position);
-        vertices.Add(farLowerRightVertex);
-        vertices.Add(farUpperRightVertex);
+        vertices.Add(_farLowerRightVertex);
+        vertices.Add(_farUpperRightVertex);
 
-        vertices.Add(farUpperLeftVertex);
-        vertices.Add(farLowerRightVertex);
-        vertices.Add(farUpperRightVertex);
+        vertices.Add(_farUpperLeftVertex);
+        vertices.Add(_farLowerRightVertex);
+        vertices.Add(_farUpperRightVertex);
     }
 
     void UpdateVertices()
     {
         vertices[0] = transform.position;
-        vertices[1] = farLowerRightVertex;
-        vertices[2] = farLowerLeftVertex;
+        vertices[1] = _farLowerRightVertex;
+        vertices[2] = _farLowerLeftVertex;
 
         vertices[3] = transform.position;
-        vertices[4] = farUpperLeftVertex;
-        vertices[5] = farUpperRightVertex;
+        vertices[4] = _farUpperLeftVertex;
+        vertices[5] = _farUpperRightVertex;
 
         vertices[6] = transform.position;
-        vertices[7] = farLowerLeftVertex;
-        vertices[8] = farUpperLeftVertex;
+        vertices[7] = _farLowerLeftVertex;
+        vertices[8] = _farUpperLeftVertex;
 
         vertices[9] = transform.position;
-        vertices[10] = farUpperRightVertex;
-        vertices[11] = farLowerRightVertex;
+        vertices[10] = _farUpperRightVertex;
+        vertices[11] = _farLowerRightVertex;
 
-        vertices[12] = farUpperLeftVertex;
-        vertices[13] = farLowerRightVertex;
-        vertices[14] = farUpperRightVertex;
+        vertices[12] = _farUpperLeftVertex;
+        vertices[13] = _farLowerRightVertex;
+        vertices[14] = _farUpperRightVertex;
     }
 
     private Vector3 GetFaceNormal(int index)

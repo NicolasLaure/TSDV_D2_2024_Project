@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingTarget : MonoBehaviour
@@ -8,34 +6,34 @@ public class MovingTarget : MonoBehaviour
     [SerializeField] private Transform minXObject;
     [SerializeField] private Transform maxXObject;
 
-    private Transform currentTargetPos;
-    private Vector3 dir;
+    private Transform _currentTargetPos;
+    private Vector3 _dir;
 
     private void Start()
     {
-        currentTargetPos = minXObject;
+        _currentTargetPos = minXObject;
         StartMoving();
     }
     void Update()
     {
-        transform.Translate(dir.normalized * speed * Time.deltaTime);
-        if (Mathf.Abs(transform.position.x - currentTargetPos.position.x) < 0.5f)
+        transform.Translate(_dir.normalized * speed * Time.deltaTime);
+        if (Mathf.Abs(transform.position.x - _currentTargetPos.position.x) < 0.5f)
             SwitchDir();
     }
 
     private void SetDir()
     {
-        dir = new Vector3(currentTargetPos.position.x - transform.position.x, 0, 0);
+        _dir = new Vector3(_currentTargetPos.position.x - transform.position.x, 0, 0);
     }
     private void SwitchDir()
     {
-        currentTargetPos = currentTargetPos == minXObject ? maxXObject : minXObject;
+        _currentTargetPos = _currentTargetPos == minXObject ? maxXObject : minXObject;
         SetDir();
     }
 
     public void Stop()
     {
-        dir = Vector3.zero;
+        _dir = Vector3.zero;
     }
     public void StartMoving()
     {

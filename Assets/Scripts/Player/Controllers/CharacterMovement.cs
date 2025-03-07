@@ -7,9 +7,9 @@ public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private PlayerSpeedSO speedSO;
     [SerializeField] private float sprintSpeedMultiplier;
-    private float currentMultiplier = 1;
-    private CharacterController characterController;
-    private Vector3 localMovementDir;
+    private float _currentMultiplier = 1;
+    private CharacterController _characterController;
+    private Vector3 _localMovementDir;
 
     public Action<Vector2> onCharacterMove;
     public Action<bool> onCharacterSprint;
@@ -21,7 +21,7 @@ public class CharacterMovement : MonoBehaviour
     }
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        _characterController = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -31,33 +31,33 @@ public class CharacterMovement : MonoBehaviour
 
     private void Move()
     {
-        if (localMovementDir == Vector3.zero)
+        if (_localMovementDir == Vector3.zero)
         {
             SetSprint(false);
             return;
         }
 
-        Vector3 movementDir = transform.right * localMovementDir.x + transform.forward * localMovementDir.z;
+        Vector3 movementDir = transform.right * _localMovementDir.x + transform.forward * _localMovementDir.z;
         Vector3 gravity = Physics.gravity;
-        characterController.Move(gravity + movementDir * speedSO.speed * currentMultiplier * Time.deltaTime);
+        _characterController.Move(gravity + movementDir * speedSO.speed * _currentMultiplier * Time.deltaTime);
     }
 
     public void SetDir(Vector2 dir)
     {
-        localMovementDir = new Vector3(dir.x, 0, dir.y);
+        _localMovementDir = new Vector3(dir.x, 0, dir.y);
         onCharacterMove?.Invoke(dir);
     }
 
     public void SetSprint(bool isSprinting)
     {
-        if (isSprinting && localMovementDir != Vector3.zero)
+        if (isSprinting && _localMovementDir != Vector3.zero)
         {
-            currentMultiplier = sprintSpeedMultiplier;
+            _currentMultiplier = sprintSpeedMultiplier;
             onCharacterSprint?.Invoke(true);
         }
         else
         {
-            currentMultiplier = 1;
+            _currentMultiplier = 1;
             onCharacterSprint?.Invoke(false);
         }
     }

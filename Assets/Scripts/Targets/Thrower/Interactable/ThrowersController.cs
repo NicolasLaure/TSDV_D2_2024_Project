@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ThrowersController : MonoBehaviour
@@ -8,8 +8,8 @@ public class ThrowersController : MonoBehaviour
     [SerializeField] private ThrowersStartButton button;
     [SerializeField] private ThrowerModifier decrease;
     [SerializeField] private ThrowerModifier increase;
-    [SerializeField] private TMPro.TextMeshPro qtyText;
-    private int targetsToThrowQty = 10;
+    [SerializeField] private TextMeshPro qtyText;
+    private int _targetsToThrowQty = 10;
 
     private void Start()
     {
@@ -24,15 +24,15 @@ public class ThrowersController : MonoBehaviour
             if (thrower.throwCoroutine != null)
                 StopCoroutine(thrower.throwCoroutine);
 
-            thrower.TargetsQty = targetsToThrowQty / throwers.Count;
+            thrower.TargetsQty = _targetsToThrowQty / throwers.Count;
             thrower.throwCoroutine = StartCoroutine(thrower.StartThrowing());
         }
     }
 
     private void OnModifyQty(int value)
     {
-        targetsToThrowQty += value;
-        qtyText.text = targetsToThrowQty.ToString();
+        _targetsToThrowQty += value;
+        qtyText.text = _targetsToThrowQty.ToString();
     }
 
 }

@@ -29,7 +29,7 @@ public class WeaponSO : ScriptableObject
     [SerializeField] private AnimationCurve spreadCurve;
     [SerializeField] private float spreadGrowth;
 
-    private MagazineSO currentMagazine;
+    private MagazineSO _currentMagazine;
     public event Action onMagChanged;
 
     public int BulletDamage
@@ -39,16 +39,16 @@ public class WeaponSO : ScriptableObject
 
     public int MagazineSize
     {
-        get { return currentMagazine.Size; }
+        get { return _currentMagazine.Size; }
     }
 
     public MagazineSO CurrentMagazine
     {
-        get { return currentMagazine; }
+        get { return _currentMagazine; }
         set
         {
             onMagChanged?.Invoke();
-            currentMagazine = value;
+            _currentMagazine = value;
         }
     }
 
@@ -112,6 +112,6 @@ public class WeaponSO : ScriptableObject
     public void SetDefault()
     {
         onMagChanged?.Invoke();
-        currentMagazine = defaultMagazine;
+        _currentMagazine = defaultMagazine;
     }
 }

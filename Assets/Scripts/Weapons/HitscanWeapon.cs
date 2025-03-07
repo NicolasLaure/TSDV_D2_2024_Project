@@ -7,48 +7,48 @@ public class HitscanWeapon : Weapon
     [Header("HitScan Attributes")]
     [SerializeField] private LayerMask layer;
     [SerializeField] private float maxHitDistance;
-    private RaycastHit hit;
-    private List<Vector3> hitPositions = new List<Vector3>();
+    private RaycastHit _hit;
+    private List<Vector3> _hitPositions = new List<Vector3>();
 
     private void OnDrawGizmos()
     {
         if (!Application.isPlaying)
             return;
 
-        foreach (Vector3 position in hitPositions)
+        foreach (Vector3 position in _hitPositions)
             Gizmos.DrawCube(position, new Vector3(0.2f, 0.2f, 0.2f));
     }
 
     public override void FireWeapon()
     {
         base.FireWeapon();
-        if (Physics.Raycast(pivot.position, BulletSpread(consecutiveShots), out hit, maxHitDistance, layer))
+        if (Physics.Raycast(pivot.position, BulletSpread(consecutiveShots), out _hit, maxHitDistance, layer))
         {
             if (decals != null)
-                decals.SpawnBulletHole(hit.transform, hit.point, hit.normal);
+                decals.SpawnBulletHole(_hit.transform, _hit.point, _hit.normal);
 
-            hitPositions.Add(hit.point);
+            _hitPositions.Add(_hit.point);
 
-            if (hit.transform.parent != null)
+            if (_hit.transform.parent != null)
             {
-                if (hit.transform.parent.TryGetComponent(out Target hittedTargetInParent))
+                if (_hit.transform.parent.TryGetComponent(out Target hittedTargetInParent))
                 {
                     hittedTargetInParent.shotReceived?.Invoke();
                 }
-                else if (hit.transform.TryGetComponent(out Target hittedTarget))
+                else if (_hit.transform.TryGetComponent(out Target hittedTarget))
                 {
                     hittedTarget.shotReceived?.Invoke();
                 }
             }
             else
             {
-                if (hit.transform.TryGetComponent(out Target hittedTarget))
+                if (_hit.transform.TryGetComponent(out Target hittedTarget))
                 {
                     hittedTarget.shotReceived?.Invoke();
                 }
             }
 
-            if (hit.transform.TryGetComponent(out IHittable hittedCollider))
+            if (_hit.transform.TryGetComponent(out IHittable hittedCollider))
             {
                 Debug.Log("EnemyHit");
                 hittedCollider.GetHit(WeaponSO.BulletDamage);

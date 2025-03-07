@@ -11,16 +11,16 @@ public class TimeTrial : MonoBehaviour
     [SerializeField] private GameSaveSO save;
     [SerializeField] private TrialUI trialUI;
     [SerializeField] private GameObject results;
-    private Coroutine trial;
+    private Coroutine _trial;
 
-    private bool canSpawn = true;
+    private bool _canSpawn = true;
     public Action onTrialFinish;
 
-    private int highScore = 0;
-    private int score = 0;
+    private int _highScore = 0;
+    private int _score = 0;
 
-    public int HighScore { get { return highScore; } }
-    public int Score { get { return score; } }
+    public int HighScore { get { return _highScore; } }
+    public int Score { get { return _score; } }
 
     private void Awake()
     {
@@ -38,11 +38,11 @@ public class TimeTrial : MonoBehaviour
     }
     private void OnStartTrial()
     {
-        if (trial != null)
-            StopCoroutine(trial);
+        if (_trial != null)
+            StopCoroutine(_trial);
 
-        score = 0;
-        trial = StartCoroutine(TrialCoroutine());
+        _score = 0;
+        _trial = StartCoroutine(TrialCoroutine());
     }
     private IEnumerator TrialCoroutine()
     {
@@ -52,29 +52,29 @@ public class TimeTrial : MonoBehaviour
         {
             timer = Time.time - startTime;
             trialUI.OnTimeUpdated((int)trialDuration - (int)timer);
-            if (!target.gameObject.activeInHierarchy && canSpawn)
+            if (!target.gameObject.activeInHierarchy && _canSpawn)
                 StartCoroutine(PresentTarget());
             yield return null;
         }
-        if (score > save.shootingRangeHighScore)
-            save.shootingRangeHighScore = score;
+        if (_score > save.shootingRangeHighScore)
+            save.shootingRangeHighScore = _score;
 
-        highScore = save.shootingRangeHighScore;
+        _highScore = save.shootingRangeHighScore;
 
-        results.GetComponent<LevelResults>().SetScores(score, highScore);
+        results.GetComponent<LevelResults>().SetScores(_score, _highScore);
         results.SetActive(true);
         onTrialFinish?.Invoke();
     }
 
     private IEnumerator PresentTarget()
     {
-        canSpawn = false;
+        _canSpawn = false;
         yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 0.5f));
 
         target.isEnemy = UnityEngine.Random.value > 0.2f;
         target.transform.position = GetRandomPosition();
         target.gameObject.SetActive(true);
-        canSpawn = true;
+        _canSpawn = true;
     }
 
     private Vector3 GetRandomPosition()
@@ -86,10 +86,10 @@ public class TimeTrial : MonoBehaviour
     private void OnTargetShot(bool isEnemy)
     {
         if (isEnemy)
-            score++;
+            _score++;
         else
-            score--;
+            _score--;
 
-        trialUI.OnScoreUpdated(score);
+        trialUI.OnScoreUpdated(_score);
     }
 }

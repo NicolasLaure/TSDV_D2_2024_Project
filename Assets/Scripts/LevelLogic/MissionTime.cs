@@ -5,19 +5,19 @@ public class MissionTime : MonoBehaviour
     [SerializeField] private bool shouldCount;
     [SerializeField] private LevelResults levelResults;
     [SerializeField] private ClockedTrial clock;
-    private float time = 0;
+    private float _time = 0;
 
     private void Start()
     {
-        time = 0;
+        _time = 0;
     }
 
     void Update()
     {
         if (shouldCount)
         {
-            time += Time.deltaTime;
-            clock.OnTimeUpdated(Mathf.FloorToInt(time));
+            _time += Time.deltaTime;
+            clock.OnTimeUpdated(Mathf.FloorToInt(_time));
         }
     }
 
@@ -29,6 +29,6 @@ public class MissionTime : MonoBehaviour
     public void StopTimer()
     {
         shouldCount = false;
-        levelResults.SetScores(time, time);
+        levelResults.SetScores(_time, _time);
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class SensitivitySlider : MonoBehaviour
 {
     [SerializeField] private PlayerConfigSO config;
-    private Slider slider;
+    private Slider _slider;
     private void OnEnable()
     {
-        slider = GetComponent<Slider>();
-        slider.value = config.lookSensitivity;
+        _slider = GetComponent<Slider>();
+        _slider.value = config.lookSensitivity;
     }
 }

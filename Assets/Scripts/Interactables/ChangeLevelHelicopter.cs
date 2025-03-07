@@ -9,22 +9,22 @@ public class ChangeLevelHelicopter : MonoBehaviour
     [SerializeField] private HelicopterBehaviour helicopter;
     [SerializeField] private GameObject rope;
 
-    private Coroutine callHelicopterCoroutine;
-    private Vector3 finalPosition;
+    private Coroutine _callHelicopterCoroutine;
+    private Vector3 _finalPosition;
 
     private void Start()
     {
-        finalPosition = helicopter.gameObject.transform.position;
-        callHelicopterCoroutine = null;
+        _finalPosition = helicopter.gameObject.transform.position;
+        _callHelicopterCoroutine = null;
         helicopter.gameObject.SetActive(false);
         rope.SetActive(false);
     }
     public void CallChopper()
     {
-        if (callHelicopterCoroutine != null)
+        if (_callHelicopterCoroutine != null)
             return;
 
-        callHelicopterCoroutine = StartCoroutine(CallHelicopterCoroutine());
+        _callHelicopterCoroutine = StartCoroutine(CallHelicopterCoroutine());
     }
 
     private IEnumerator CallHelicopterCoroutine()
@@ -36,7 +36,7 @@ public class ChangeLevelHelicopter : MonoBehaviour
         while (timer < travelDuration)
         {
             timer = Time.time - startTime;
-            helicopter.MoveTowards(helicopterSpawnPos.position, finalPosition, travelDuration, timer);
+            helicopter.MoveTowards(helicopterSpawnPos.position, _finalPosition, travelDuration, timer);
             yield return null;
         }
         rope.SetActive(true);

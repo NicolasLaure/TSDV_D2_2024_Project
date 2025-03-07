@@ -6,11 +6,11 @@ using System;
 public class Pause : MonoBehaviour
 {
     public Action<bool> onPausePanelStateChange;
-    bool shouldUnpause = true;
+    private bool _shouldUnpause = true;
 
     private void OnEnable()
     {
-        shouldUnpause = true;
+        _shouldUnpause = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
         onPausePanelStateChange?.Invoke(true);
@@ -18,7 +18,7 @@ public class Pause : MonoBehaviour
 
     private void OnDisable()
     {
-        if (shouldUnpause)
+        if (_shouldUnpause)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
@@ -28,7 +28,7 @@ public class Pause : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        shouldUnpause = false;
+        _shouldUnpause = false;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 1;
 
@@ -37,7 +37,7 @@ public class Pause : MonoBehaviour
 
     public void ReloadScene()
     {
-        shouldUnpause = false;
+        _shouldUnpause = false;
         Time.timeScale = 1;
 
         Loader.ReloadScene();

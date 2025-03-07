@@ -1,18 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class FallingTarget : Target
 {
-    private bool canFall = true;
+    private bool _canFall = true;
     [SerializeField] private float fallDuration = 0.3f;
     [SerializeField] private float getUpDuration = 0.3f;
     [SerializeField] private UnityEvent onTargetFall;
     [SerializeField] private UnityEvent onTargetGetUp;
     protected override IEnumerator GotShotCoroutine()
     {
-        if (canFall)
+        if (_canFall)
         {
             yield return FallCoroutine();
             yield return new WaitForSeconds(recoverDuration);

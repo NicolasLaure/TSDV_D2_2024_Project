@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,20 +5,20 @@ public class AudioSlider : MonoBehaviour
 {
     [SerializeField] private string groupName;
     [SerializeField] private AudioMixerValuesSO soundVolumes;
-    private Slider slider;
+    private Slider _slider;
     private void OnEnable()
     {
-        slider = GetComponent<Slider>();
+        _slider = GetComponent<Slider>();
         switch (groupName)
         {
             case "master":
-                slider.value = soundVolumes.master;
+                _slider.value = soundVolumes.master;
                 break;
             case "sfx":
-                slider.value = soundVolumes.sfx;
+                _slider.value = soundVolumes.sfx;
                 break;
             case "music":
-                slider.value = soundVolumes.music;
+                _slider.value = soundVolumes.music;
                 break;
         }
     }

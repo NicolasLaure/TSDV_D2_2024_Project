@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class Medal : MonoBehaviour
 {
-    private float originalSize = 0;
+    private float _originalSize = 0;
     [SerializeField] private float InitialSizeMultiplier;
     [SerializeField] private float animDuration;
-    private RectTransform rectTransform;
+    private RectTransform _rectTransform;
 
     public UnityEvent OnAnimFinished;
     void OnEnable()
     {
-        rectTransform = this.GetComponent<RectTransform>();
-        originalSize = rectTransform.localScale.x;
-        rectTransform.localScale = new Vector3(originalSize * InitialSizeMultiplier, originalSize * InitialSizeMultiplier);
+        _rectTransform = this.GetComponent<RectTransform>();
+        _originalSize = _rectTransform.localScale.x;
+        _rectTransform.localScale = new Vector3(_originalSize * InitialSizeMultiplier, _originalSize * InitialSizeMultiplier);
 
         StartCoroutine(MedalAnimation());
     }
@@ -28,8 +28,8 @@ public class Medal : MonoBehaviour
         while (timer < animDuration)
         {
             timer = Time.time - startTime;
-            float size = Mathf.Lerp(originalSize * InitialSizeMultiplier, originalSize, timer / animDuration);
-            rectTransform.localScale = new Vector3(size, size);
+            float size = Mathf.Lerp(_originalSize * InitialSizeMultiplier, _originalSize, timer / animDuration);
+            _rectTransform.localScale = new Vector3(size, size);
             yield return null;
         }
         OnAnimFinished?.Invoke();

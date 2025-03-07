@@ -7,7 +7,7 @@ public class DecalsHandler : MonoBehaviour
     [SerializeField] private GameObject bulletHole;
     [SerializeField] private LayerMask ignoredLayers;
 
-    private List<GameObject> decals = new List<GameObject>();
+    private List<GameObject> _decals = new List<GameObject>();
 
     public void SpawnBulletHole(Transform collider, Vector3 position, Vector3 hitNormal)
     {
@@ -18,12 +18,12 @@ public class DecalsHandler : MonoBehaviour
         decal.transform.forward = hitNormal;
         decal.transform.position = position + decal.transform.forward * 0.1f;
         decal.transform.parent = this.transform;
-        decals.Add(decal);
+        _decals.Add(decal);
     }
 
     public void ClearDecals()
     {
-        foreach (GameObject decal in decals)
+        foreach (GameObject decal in _decals)
         {
             Destroy(decal);
         }
@@ -31,9 +31,9 @@ public class DecalsHandler : MonoBehaviour
 
     public void RemoveDecal(GameObject decal)
     {
-        if (decals.Contains(decal))
+        if (_decals.Contains(decal))
         {
-            decals.Remove(decal);
+            _decals.Remove(decal);
             Destroy(decal);
         }
     }

@@ -1,15 +1,15 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AmmoUI : MonoBehaviour
 {
     [SerializeField] private WeaponHandler playerWeaponHandler;
 
-    private string currentAmmo;
-    private string magazineSize;
-    private Weapon currentWeapon = null;
+    private string _currentAmmo;
+    private string _magazineSize;
+    private Weapon _currentWeapon = null;
 
-    [SerializeField] private TMPro.TextMeshProUGUI ammoText;
+    [SerializeField] private TextMeshProUGUI ammoText;
 
     private void Start()
     {
@@ -26,31 +26,31 @@ public class AmmoUI : MonoBehaviour
 
     void OnWeaponChange<T>(T weapon) where T : Weapon
     {
-        if (currentWeapon != null)
+        if (_currentWeapon != null)
         {
-            currentWeapon.onShoot.RemoveListener(OnAmmoModified);
-            currentWeapon.onReloadFinished.RemoveListener(OnAmmoModified);
+            _currentWeapon.onShoot.RemoveListener(OnAmmoModified);
+            _currentWeapon.onReloadFinished.RemoveListener(OnAmmoModified);
         }
 
-        currentWeapon = weapon;
+        _currentWeapon = weapon;
         WeaponSO weaponData = weapon.WeaponSO;
-        currentAmmo = weapon.CurrentAmmo.ToString();
-        magazineSize = "/" + weaponData.MagazineSize;
+        _currentAmmo = weapon.CurrentAmmo.ToString();
+        _magazineSize = "/" + weaponData.MagazineSize;
         SetUiElements();
 
-        currentWeapon.onShoot.AddListener(OnAmmoModified);
-        currentWeapon.onReloadFinished.AddListener(OnAmmoModified);
+        _currentWeapon.onShoot.AddListener(OnAmmoModified);
+        _currentWeapon.onReloadFinished.AddListener(OnAmmoModified);
     }
 
     void OnAmmoModified()
     {
-        currentAmmo = currentWeapon.CurrentAmmo.ToString();
+        _currentAmmo = _currentWeapon.CurrentAmmo.ToString();
         SetUiElements();
     }
 
     private void SetUiElements()
     {
-        magazineSize = "/" + currentWeapon.WeaponSO.MagazineSize;
-        ammoText.text = currentAmmo + magazineSize;
+        _magazineSize = "/" + _currentWeapon.WeaponSO.MagazineSize;
+        ammoText.text = _currentAmmo + _magazineSize;
     }
 }

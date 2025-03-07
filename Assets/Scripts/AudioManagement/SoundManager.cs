@@ -8,14 +8,14 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private Sound[] sounds;
 
-    private List<AudioSource> audioSources = new List<AudioSource>();
+    private List<AudioSource> _audioSources = new List<AudioSource>();
 
     private void Awake()
     {
         foreach (Sound sound in sounds)
         {
-            audioSources.Add(gameObject.AddComponent<AudioSource>());
-            sound.SetAudioSource(audioSources[^1]);
+            _audioSources.Add(gameObject.AddComponent<AudioSource>());
+            sound.SetAudioSource(_audioSources[^1]);
         }
     }
 
@@ -66,11 +66,11 @@ public class SoundManager : MonoBehaviour
         if (index < 0)
             return null;
 
-        return audioSources[index];
+        return _audioSources[index];
     }
 
     private AudioSource GetRandomSource()
     {
-        return audioSources[Random.Range(0, audioSources.Count)];
+        return _audioSources[Random.Range(0, _audioSources.Count)];
     }
 }

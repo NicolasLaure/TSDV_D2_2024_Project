@@ -11,13 +11,13 @@ public class WeaponHandler : MonoBehaviour
     [SerializeField] private float dropForce;
     [SerializeField] private List<GameObject> weaponPrefabs = new List<GameObject>();
     [SerializeField] private bool hasAllWeapons;
-    private List<GameObject> weapons = new List<GameObject>();
-    private List<GameObject> heldWeapons = new List<GameObject>();
-    private GameObject currentWeaponObject = null;
-    private int currentWeaponIndex = 0;
-    private bool isInCombatMode = true;
-    private WeaponRumble weaponRumbleController;
-    private CharacterMovement playerMovement;
+    private List<GameObject> _weapons = new List<GameObject>();
+    private List<GameObject> _heldWeapons = new List<GameObject>();
+    private GameObject _currentWeaponObject = null;
+    private int _currentWeaponIndex = 0;
+    private bool _isInCombatMode = true;
+    private WeaponRumble _weaponRumbleController;
+    private CharacterMovement _playerMovement;
 
     public Action<Weapon> onWeaponChange;
 
@@ -30,8 +30,8 @@ public class WeaponHandler : MonoBehaviour
     {
         get
         {
-            if (currentWeaponObject)
-                return currentWeaponObject.GetComponent<Weapon>();
+            if (_currentWeaponObject)
+                return _currentWeaponObject.GetComponent<Weapon>();
             else
                 return null;
         }
@@ -39,7 +39,7 @@ public class WeaponHandler : MonoBehaviour
 
     private void Awake()
     {
-        playerMovement = GetComponent<CharacterMovement>();
+        _playerMovement = GetComponent<CharacterMovement>();
 
         foreach (GameObject weapon in weaponPrefabs)
         {
@@ -54,126 +54,126 @@ public class WeaponHandler : MonoBehaviour
         {
             GameObject instance = Instantiate(weapon, holdingPoint);
             instance.GetComponent<Weapon>().pivot = Camera.main.transform;
-            weapons.Add(instance);
+            _weapons.Add(instance);
             instance.SetActive(false);
         }
 
-        currentWeaponIndex = 0;
+        _currentWeaponIndex = 0;
 
         if (hasAllWeapons)
         {
-            for (int i = 0; i < weapons.Count; i++)
+            for (int i = 0; i < _weapons.Count; i++)
             {
-                heldWeapons.Add(weapons[i]);
+                _heldWeapons.Add(_weapons[i]);
             }
         }
         else
-            heldWeapons.Add(weapons[0]);
+            _heldWeapons.Add(_weapons[0]);
 
-        onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        onWeaponChange?.Invoke(_heldWeapons[_currentWeaponIndex].GetComponent<Weapon>());
 
-        playerMovement.onCharacterMove += SetWalkingState;
-        playerMovement.onCharacterSprint += SetSprint;
+        _playerMovement.onCharacterMove += SetWalkingState;
+        _playerMovement.onCharacterSprint += SetSprint;
     }
 
     private void OnDestroy()
     {
         onWeaponChange -= OnWeaponChanged;
-        playerMovement.onCharacterMove -= SetWalkingState;
-        playerMovement.onCharacterSprint -= SetSprint;
+        _playerMovement.onCharacterMove -= SetWalkingState;
+        _playerMovement.onCharacterSprint -= SetSprint;
     }
 
     public void OnWeaponChanged<T>(T weapon) where T : Weapon
     {
-        if (currentWeaponObject != null)
+        if (_currentWeaponObject != null)
         {
             SetWalkingState(Vector2.zero);
             SetSprint(false);
-            currentWeaponObject.SetActive(false);
+            _currentWeaponObject.SetActive(false);
         }
 
-        currentWeaponObject = weapon.gameObject;
-        currentWeaponObject.SetActive(true);
-        weaponRumbleController = currentWeaponObject.GetComponent<WeaponRumble>();
+        _currentWeaponObject = weapon.gameObject;
+        _currentWeaponObject.SetActive(true);
+        _weaponRumbleController = _currentWeaponObject.GetComponent<WeaponRumble>();
     }
 
     public void ShootWeapon()
     {
-        if (isInCombatMode && currentWeaponObject != null)
-            currentWeaponObject.GetComponent<Weapon>().Shoot();
+        if (_isInCombatMode && _currentWeaponObject != null)
+            _currentWeaponObject.GetComponent<Weapon>().Shoot();
     }
 
     public void CancelShoot()
     {
-        if (currentWeaponObject != null)
-            currentWeaponObject.GetComponent<Weapon>().StopShooting();
+        if (_currentWeaponObject != null)
+            _currentWeaponObject.GetComponent<Weapon>().StopShooting();
     }
 
     public void SetWeaponRumbler(bool value)
     {
-        weaponRumbleController.ShouldRumble = value;
+        _weaponRumbleController.ShouldRumble = value;
     }
 
     public void ReloadWeapon()
     {
-        if (isInCombatMode && currentWeaponObject != null)
-            currentWeaponObject.GetComponent<Weapon>().Reload();
+        if (_isInCombatMode && _currentWeaponObject != null)
+            _currentWeaponObject.GetComponent<Weapon>().Reload();
     }
 
     public void SetWalkingState(Vector2 movementDir)
     {
-        currentWeaponObject.GetComponent<Weapon>().OnMovementChange(movementDir);
+        _currentWeaponObject.GetComponent<Weapon>().OnMovementChange(movementDir);
     }
 
     public void SetSprint(bool shouldPlayRunAnim)
     {
-        currentWeaponObject.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
+        _currentWeaponObject.GetComponent<Weapon>().OnSprintChange(shouldPlayRunAnim);
     }
 
     public void ScrollThroughHeldWeapons(int value)
     {
-        currentWeaponIndex += value;
-        if (currentWeaponIndex < 0)
-            currentWeaponIndex = heldWeapons.Count - 1;
-        else if (currentWeaponIndex >= heldWeapons.Count)
-            currentWeaponIndex = 0;
+        _currentWeaponIndex += value;
+        if (_currentWeaponIndex < 0)
+            _currentWeaponIndex = _heldWeapons.Count - 1;
+        else if (_currentWeaponIndex >= _heldWeapons.Count)
+            _currentWeaponIndex = 0;
 
-        onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        onWeaponChange?.Invoke(_heldWeapons[_currentWeaponIndex].GetComponent<Weapon>());
     }
 
     public bool TryGrabWeapon(WeaponSO weapon)
     {
         GameObject weaponsInstance = null;
-        foreach (GameObject weaponGameObject in weapons)
+        foreach (GameObject weaponGameObject in _weapons)
         {
             if (weaponGameObject.GetComponent<Weapon>().WeaponSO == weapon)
                 weaponsInstance = weaponGameObject;
         }
 
-        if (heldWeapons.Contains(weaponsInstance))
+        if (_heldWeapons.Contains(weaponsInstance))
             return false;
 
-        if (heldWeapons.Count < maxHeldWeaponsQty)
+        if (_heldWeapons.Count < maxHeldWeaponsQty)
         {
-            heldWeapons.Add(weaponsInstance);
+            _heldWeapons.Add(weaponsInstance);
             return true;
         }
 
-        heldWeapons.RemoveAt(currentWeaponIndex);
-        heldWeapons.Insert(currentWeaponIndex, weaponsInstance);
-        onWeaponChange?.Invoke(heldWeapons[currentWeaponIndex].GetComponent<Weapon>());
+        _heldWeapons.RemoveAt(_currentWeaponIndex);
+        _heldWeapons.Insert(_currentWeaponIndex, weaponsInstance);
+        onWeaponChange?.Invoke(_heldWeapons[_currentWeaponIndex].GetComponent<Weapon>());
         return true;
     }
 
     public bool TryDropWeapon()
     {
-        if (heldWeapons.Count > 1)
+        if (_heldWeapons.Count > 1)
         {
-            GameObject weaponPrefab = heldWeapons[currentWeaponIndex].GetComponent<Weapon>().EnvironmentWeaponPrefab;
+            GameObject weaponPrefab = _heldWeapons[_currentWeaponIndex].GetComponent<Weapon>().EnvironmentWeaponPrefab;
             GameObject weapon = GameObject.Instantiate(weaponPrefab, transform.position, Quaternion.identity);
             StartCoroutine(weapon.GetComponent<EnvironmentWeapon>().ThrowWeapon(Camera.main.transform.forward * dropForce));
-            heldWeapons.RemoveAt(currentWeaponIndex);
-            onWeaponChange?.Invoke(heldWeapons[0].GetComponent<Weapon>());
+            _heldWeapons.RemoveAt(_currentWeaponIndex);
+            onWeaponChange?.Invoke(_heldWeapons[0].GetComponent<Weapon>());
             return true;
         }
 

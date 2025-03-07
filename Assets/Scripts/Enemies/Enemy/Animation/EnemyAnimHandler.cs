@@ -4,16 +4,16 @@ public class EnemyAnimHandler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
-    private readonly int takeDamage = Animator.StringToHash("TakeDamage");
-    private readonly int die = Animator.StringToHash("Die");
+    private readonly int _takeDamage = Animator.StringToHash("TakeDamage");
+    private readonly int _die = Animator.StringToHash("Die");
 
     public void PlayTakeDamage()
     {
-        animator.SetTrigger(takeDamage);
+        animator.SetTrigger(_takeDamage);
     }
 
     public void PlayDie()
     {
-        animator.SetTrigger(die);
+        animator.SetTrigger(_die);
     }
 }

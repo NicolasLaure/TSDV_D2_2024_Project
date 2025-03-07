@@ -12,13 +12,13 @@ public class ProximityMine : MonoBehaviour
 
     [SerializeField] private float timeToDestroy;
     private GameObject _target;
-    private Coroutine explosionCoroutine = null;
+    private Coroutine _explosionCoroutine = null;
 
     public void StartExplosionSequence(GameObject target)
     {
         _target = target;
-        if (explosionCoroutine == null)
-            explosionCoroutine = StartCoroutine(ExplosionCoroutine());
+        if (_explosionCoroutine == null)
+            _explosionCoroutine = StartCoroutine(ExplosionCoroutine());
     }
 
     private IEnumerator ExplosionCoroutine()

@@ -7,7 +7,7 @@ using Events;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected FireMode fireMode;
-    private Coroutine fireCoroutine;
+    private Coroutine _fireCoroutine;
 
     [SerializeField] private WeaponSO weaponSO;
     [SerializeField] private GameObject environmentWeaponPrefab;
@@ -28,15 +28,15 @@ public abstract class Weapon : MonoBehaviour
 
     [SerializeField] public Transform pivot;
 
-    private bool isReloading = false;
-    private int currentMagazine;
+    private bool _isReloading = false;
+    private int _currentMagazine;
 
-    private bool isFiring = false;
-    private Coroutine fullAutoCoroutine;
+    private bool _isFiring = false;
+    private Coroutine _fullAutoCoroutine;
 
-    private float originXAngle;
-    private float originYAngle;
-    private Coroutine recoilDecayCoroutine;
+    private float _originXAngle;
+    private float _originYAngle;
+    private Coroutine _recoilDecayCoroutine;
 
     [SerializeField] private bool hasSpread;
     protected int consecutiveShots = 0;
@@ -44,7 +44,7 @@ public abstract class Weapon : MonoBehaviour
 
     public int CurrentAmmo
     {
-        get { return currentMagazine; }
+        get { return _currentMagazine; }
     }
 
     public WeaponSO WeaponSO
@@ -59,7 +59,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected void Awake()
     {
-        currentMagazine = weaponSO.MagazineSize;
+        _currentMagazine = weaponSO.MagazineSize;
         decals = GameObject.FindObjectOfType<DecalsHandler>();
         weaponSO.onMagChanged += OnMagazineChanged;
 
@@ -69,8 +69,8 @@ public abstract class Weapon : MonoBehaviour
 
     private void OnEnable()
     {
-        isReloading = false;
-        isFiring = false;
+        _isReloading = false;
+        _isFiring = false;
     }
 
     private void OnDestroy()
@@ -87,33 +87,33 @@ public abstract class Weapon : MonoBehaviour
             return;
         }
 
-        if (fireCoroutine == null)
+        if (_fireCoroutine == null)
         {
-            if (recoilDecayCoroutine != null)
+            if (_recoilDecayCoroutine != null)
             {
-                StopCoroutine(recoilDecayCoroutine);
-                recoilDecayCoroutine = null;
+                StopCoroutine(_recoilDecayCoroutine);
+                _recoilDecayCoroutine = null;
             }
 
-            isFiring = true;
-            fireCoroutine = StartCoroutine(fireMode.Fire(this));
+            _isFiring = true;
+            _fireCoroutine = StartCoroutine(fireMode.Fire(this));
         }
     }
 
     public void StopShooting()
     {
-        if (fireCoroutine != null)
+        if (_fireCoroutine != null)
         {
-            isFiring = false;
-            StopCoroutine(fireCoroutine);
-            fireCoroutine = null;
-            recoilDecayCoroutine = StartCoroutine(ResetRecoil());
+            _isFiring = false;
+            StopCoroutine(_fireCoroutine);
+            _fireCoroutine = null;
+            _recoilDecayCoroutine = StartCoroutine(ResetRecoil());
         }
     }
 
     public void Reload()
     {
-        if (!isReloading)
+        if (!_isReloading)
             StartCoroutine(ReloadCoroutine());
     }
 
@@ -125,33 +125,33 @@ public abstract class Weapon : MonoBehaviour
             consecutiveShots = 0;
 
         LastShotTime = Time.time;
-        currentMagazine--;
+        _currentMagazine--;
         onShoot?.Invoke();
     }
 
     public bool CanShoot()
     {
-        return HasBullets() && !(isReloading) && !OnCoolDown();
+        return HasBullets() && !(_isReloading) && !OnCoolDown();
     }
 
     public bool HasBullets()
     {
-        return currentMagazine > 0;
+        return _currentMagazine > 0;
     }
 
     private IEnumerator ReloadCoroutine()
     {
         onReload?.Invoke();
-        isReloading = true;
+        _isReloading = true;
         yield return new WaitForSeconds(weaponSO.ReloadingDuration);
-        isReloading = false;
-        currentMagazine = weaponSO.MagazineSize;
+        _isReloading = false;
+        _currentMagazine = weaponSO.MagazineSize;
         onReloadFinished?.Invoke();
     }
 
     private void OnMagazineChanged()
     {
-        currentMagazine = weaponSO.MagazineSize;
+        _currentMagazine = weaponSO.MagazineSize;
         if (this.isActiveAndEnabled)
         {
             StartCoroutine(ReloadCoroutine());
@@ -214,10 +214,10 @@ public abstract class Weapon : MonoBehaviour
 
         if (progress == 0)
         {
-            originXAngle = transform.rotation.eulerAngles.x;
+            _originXAngle = transform.rotation.eulerAngles.x;
 
-            originYAngle = transform.rotation.eulerAngles.y;
-            recoilAngleEventChannel.RaiseEvent(new Vector3(originXAngle, originYAngle, 0));
+            _originYAngle = transform.rotation.eulerAngles.y;
+            recoilAngleEventChannel.RaiseEvent(new Vector3(_originXAngle, _originYAngle, 0));
             return;
         }
 
@@ -225,7 +225,7 @@ public abstract class Weapon : MonoBehaviour
         float newYAxisAngle = -weaponSO.HorizontalDisplacement.Evaluate(progress);
 
         recoilAngleEventChannel.RaiseEvent(new Vector3(newXAxisAngle, newYAxisAngle, progress));
-        transform.localRotation = Quaternion.Euler(originXAngle + newXAxisAngle, originYAngle + newYAxisAngle, 0);
+        transform.localRotation = Quaternion.Euler(_originXAngle + newXAxisAngle, _originYAngle + newYAxisAngle, 0);
     }
 
     public IEnumerator ResetRecoil()

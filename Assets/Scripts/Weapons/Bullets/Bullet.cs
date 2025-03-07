@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float lifeTime;
     [SerializeField] private float timeAfterHit;
     [SerializeField] private DecalsHandler decals;
-    private Rigidbody rb;
+    private Rigidbody _rb;
 
     public int damage;
 
@@ -32,12 +32,12 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void Start()
     {
-        rb.AddForce(transform.forward * shootingForce, ForceMode.Impulse);
+        _rb.AddForce(transform.forward * shootingForce, ForceMode.Impulse);
         Destroy(this.gameObject, lifeTime);
     }
 

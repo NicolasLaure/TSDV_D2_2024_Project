@@ -8,11 +8,11 @@ public class PlayerConfigSO : ScriptableObject
     [Range(0.01f, 0.5f)]
     [SerializeField] public float lookSensitivity;
 
-    private float min = 0.01f;
-    private float max = 0.5f;
+    private float _min = 0.01f;
+    private float _max = 0.5f;
 
     public void SetSensitivity(float sens)
     {
-        lookSensitivity = Mathf.Clamp(sens, min, max);
+        lookSensitivity = Mathf.Clamp(sens, _min, _max);
     }
 }

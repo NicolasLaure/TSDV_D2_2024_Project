@@ -7,125 +7,125 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(FirstPersonLook))]
 public class InputReader : MonoBehaviour
 {
-    private PlayerInput input;
-    private CharacterMovement playerMovement;
-    private FirstPersonLook playerLook;
-    private WeaponHandler weaponHandler;
+    private PlayerInput _input;
+    private CharacterMovement _playerMovement;
+    private FirstPersonLook _playerLook;
+    private WeaponHandler _weaponHandler;
     [SerializeField] private GameObject pausePanel;
 
     void Start()
     {
-        playerMovement = GetComponent<CharacterMovement>();
-        playerLook = GetComponent<FirstPersonLook>();
-        weaponHandler = GetComponent<WeaponHandler>();
+        _playerMovement = GetComponent<CharacterMovement>();
+        _playerLook = GetComponent<FirstPersonLook>();
+        _weaponHandler = GetComponent<WeaponHandler>();
 
         StartCoroutine(InitializeInput());
     }
 
     private void OnDisable()
     {
-        if (input != null)
+        if (_input != null)
         {
             RemoveListeners();
-            input.Dispose();
+            _input.Dispose();
         }
     }
 
     private IEnumerator InitializeInput()
     {
         yield return null;
-        input = new PlayerInput();
-        input.Enable();
+        _input = new PlayerInput();
+        _input.Enable();
 
-        input.Player.Movement.performed += OnMovementPerformed;
-        input.Player.Movement.canceled += OnMovementCanceled;
-        input.Player.Sprint.performed += OnSprintPerformed;
-        input.Player.Sprint.canceled += OnSprintCanceled;
-        input.Player.Look.performed += OnLookPerformed;
-        input.Player.Look.canceled += OnLookCanceled;
-        input.Player.Shoot.performed += OnShootPerformed;
-        input.Player.Shoot.canceled += OnShootCanceled;
-        input.Player.Reload.started += OnReloadStarted;
-        input.Player.ChangeWeapon.started += OnWeaponChange;
-        input.Player.Drop.performed += OnWeaponDrop;
+        _input.Player.Movement.performed += OnMovementPerformed;
+        _input.Player.Movement.canceled += OnMovementCanceled;
+        _input.Player.Sprint.performed += OnSprintPerformed;
+        _input.Player.Sprint.canceled += OnSprintCanceled;
+        _input.Player.Look.performed += OnLookPerformed;
+        _input.Player.Look.canceled += OnLookCanceled;
+        _input.Player.Shoot.performed += OnShootPerformed;
+        _input.Player.Shoot.canceled += OnShootCanceled;
+        _input.Player.Reload.started += OnReloadStarted;
+        _input.Player.ChangeWeapon.started += OnWeaponChange;
+        _input.Player.Drop.performed += OnWeaponDrop;
 
         if (pausePanel)
         {
             pausePanel.GetComponent<Pause>().onPausePanelStateChange += OnPausePanelChange;
-            input.Game.Pause.performed += OnPause;
+            _input.Game.Pause.performed += OnPause;
         }
     }
 
     private void RemoveListeners()
     {
-        input.Player.Movement.performed -= OnMovementPerformed;
-        input.Player.Movement.canceled -= OnMovementCanceled;
-        input.Player.Look.performed -= OnLookPerformed;
-        input.Player.Look.canceled -= OnLookCanceled;
-        input.Player.Shoot.performed -= OnShootPerformed;
-        input.Player.Shoot.canceled -= OnShootCanceled;
-        input.Player.Reload.started -= OnReloadStarted;
-        input.Player.ChangeWeapon.started -= OnWeaponChange;
-        input.Player.Drop.performed -= OnWeaponDrop;
-        input.Game.Pause.performed -= OnPause;
+        _input.Player.Movement.performed -= OnMovementPerformed;
+        _input.Player.Movement.canceled -= OnMovementCanceled;
+        _input.Player.Look.performed -= OnLookPerformed;
+        _input.Player.Look.canceled -= OnLookCanceled;
+        _input.Player.Shoot.performed -= OnShootPerformed;
+        _input.Player.Shoot.canceled -= OnShootCanceled;
+        _input.Player.Reload.started -= OnReloadStarted;
+        _input.Player.ChangeWeapon.started -= OnWeaponChange;
+        _input.Player.Drop.performed -= OnWeaponDrop;
+        _input.Game.Pause.performed -= OnPause;
     }
 
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
-        playerMovement.SetDir(dir);
+        _playerMovement.SetDir(dir);
     }
 
     private void OnMovementCanceled(InputAction.CallbackContext context)
     {
-        playerMovement.SetDir(Vector2.zero);
+        _playerMovement.SetDir(Vector2.zero);
     }
 
     private void OnSprintPerformed(InputAction.CallbackContext context)
     {
-        playerMovement.SetSprint(true);
+        _playerMovement.SetSprint(true);
     }
 
     private void OnSprintCanceled(InputAction.CallbackContext context)
     {
-        playerMovement.SetSprint(false);
+        _playerMovement.SetSprint(false);
     }
 
     private void OnLookPerformed(InputAction.CallbackContext context)
     {
-        playerLook.SetRotation(context.ReadValue<Vector2>());
+        _playerLook.SetRotation(context.ReadValue<Vector2>());
     }
 
     private void OnLookCanceled(InputAction.CallbackContext context)
     {
-        playerLook.SetRotation(context.ReadValue<Vector2>());
+        _playerLook.SetRotation(context.ReadValue<Vector2>());
     }
 
     private void OnShootPerformed(InputAction.CallbackContext context)
     {
-        weaponHandler.ShootWeapon();
-        weaponHandler.SetWeaponRumbler(context.control.device is Gamepad);
+        _weaponHandler.ShootWeapon();
+        _weaponHandler.SetWeaponRumbler(context.control.device is Gamepad);
     }
 
     private void OnShootCanceled(InputAction.CallbackContext context)
     {
-        weaponHandler.CancelShoot();
+        _weaponHandler.CancelShoot();
     }
 
     private void OnReloadStarted(InputAction.CallbackContext context)
     {
-        weaponHandler.ReloadWeapon();
+        _weaponHandler.ReloadWeapon();
     }
 
     private void OnWeaponChange(InputAction.CallbackContext context)
     {
         int axisValue = (int)Mathf.Ceil(context.ReadValue<float>());
-        weaponHandler.ScrollThroughHeldWeapons(axisValue);
+        _weaponHandler.ScrollThroughHeldWeapons(axisValue);
     }
 
     private void OnWeaponDrop(InputAction.CallbackContext context)
     {
-        weaponHandler.TryDropWeapon();
+        _weaponHandler.TryDropWeapon();
     }
 
     private void OnPause(InputAction.CallbackContext context)
@@ -136,8 +136,8 @@ public class InputReader : MonoBehaviour
     private void OnPausePanelChange(bool value)
     {
         if (value == true)
-            input.Player.Disable();
+            _input.Player.Disable();
         else
-            input.Player.Enable();
+            _input.Player.Enable();
     }
 }
