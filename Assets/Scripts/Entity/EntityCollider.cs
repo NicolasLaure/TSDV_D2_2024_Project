@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EntityCollider : MonoBehaviour, IHittable
@@ -12,5 +13,11 @@ public class EntityCollider : MonoBehaviour, IHittable
     {
         int totalDamage = Mathf.FloorToInt((BASE_DMG_MULT + damageMultiplier) * damage);
         healthPoints.TakeDamage(totalDamage);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.TryGetComponent<Bullet>(out Bullet hittedBullet))
+            GetHit(other.gameObject.GetComponent<Bullet>().damage);
     }
 }

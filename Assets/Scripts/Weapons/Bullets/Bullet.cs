@@ -6,17 +6,35 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float shootingForce;
     [SerializeField] private float lifeTime;
+    [SerializeField] private float timeAfterHit;
     [SerializeField] private DecalsHandler decals;
     private Rigidbody rb;
 
-    public float ShootingForce { get { return shootingForce; } set { shootingForce = value; } }
-    public float LifeTime { get { return lifeTime; } set { lifeTime = value; } }
-    public DecalsHandler Decals { get { return decals; } set { decals = value; } }
+    public int damage;
+
+    public float ShootingForce
+    {
+        get { return shootingForce; }
+        set { shootingForce = value; }
+    }
+
+    public float LifeTime
+    {
+        get { return lifeTime; }
+        set { lifeTime = value; }
+    }
+
+    public DecalsHandler Decals
+    {
+        get { return decals; }
+        set { decals = value; }
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
+
     void Start()
     {
         rb.AddForce(transform.forward * shootingForce, ForceMode.Impulse);
@@ -25,7 +43,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //decals.SpawnBulletHole(collision.transform.position, collision.);
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, timeAfterHit);
     }
 }

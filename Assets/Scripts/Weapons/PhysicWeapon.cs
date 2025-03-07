@@ -12,6 +12,7 @@ public class PhysicWeapon : Weapon
     {
         GameObject bullet = BulletFactory.CreateBullet(bulletConfig, decals, this.shootingPoint);
         bullet.transform.parent = null;
+        bullet.GetComponent<Bullet>().damage = WeaponSO.BulletDamage;
         base.FireWeapon();
     }
 }
